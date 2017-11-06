@@ -4,13 +4,17 @@ This repository is for For generalised functions for RAP. If there are any funct
 
 # Contents
 
-`as_number.R`
-`connector.R`
-`date_type.R`
-`format_num.R`
-`format_perc.R`
-`getThursday.R`
-`incdec.R`
-`quarter_dates.R`
+* `as_number.R` - Turns numerical strings into number format
+* `connector.R` - Produces a connecting word for a compound sentence
+* `date_type.R` - Takes standard dates and outputs them in specified formats
+* `format_num.R` - Formats numerical values as thousand delimitted absolute values. Values of less than 10 are words
+* `format_perc.R` - Formats fractions as percentages, with percentage signs
+* `getThursday.R` - Predicts the next publication date for quarterly publications
+* `incdec.R` - Quantifies changes in values eg. "increased by ..."
+* `quarter_dates.R` - Caculates quarter dates
+
+# Other resources
+
+For bespoke code please see the OMSQ_RAP [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP) repository or the [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP) repository.
 
 
