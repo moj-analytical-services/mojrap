@@ -2,8 +2,7 @@ Package: mojrap
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Christopher Fairbanks
-Maintainer: The package maintainer MoJ RAP steering group
+Authors@R: person("Christopher", "Fairbanks", email = "christopher.fairbanks@justice.gsi.gov.uk", role = c("aut", "cre"))
 Description: Package to hold generic functions for MoJ RAP projects
 License: What license is it under?
 Encoding: UTF-8
