@@ -1,6 +1,6 @@
 Package: mojrap
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Generic Functions for Reproducible Analytical Pipelines in MoJ
 Version: 0.1.0
 Authors@R: person("Christopher", "Fairbanks", email = "christopher.fairbanks@justice.gsi.gov.uk", role = c("aut", "cre"))
 Description: Package to hold generic functions for MoJ RAP projects
