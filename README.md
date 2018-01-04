@@ -1,6 +1,6 @@
 # RAP_code_library
 
-This repository is for For generalised functions for RAP. If there are any functions in your RAP that will be useful to other people, please use this space to share them.
+This repository is for generalised functions for RAP (Reproducible Analytical Pipelines). If there are any functions in your RAP that will be useful to other people, please use this space to share them.
 
 # Contents
 
