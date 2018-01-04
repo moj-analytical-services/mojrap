@@ -1,6 +1,6 @@
 # RAP_code_library
 
-This repository is for For generalised functions for RAP. If there are any functions in your RAP that will be useful to other people, please use this space to share them. Every function should have documentation in the /man folder and any tests in the /test folder.
+This repository is for For generalised functions for RAP. If there are any functions in your RAP that will be useful to other people, please use this space to share them.
 
 # Contents
 
@@ -13,8 +13,18 @@ This repository is for For generalised functions for RAP. If there are any funct
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
 * `quarter_dates.R` - Caculates quarter dates
 
+# Contributing to this repository
+
+To add to this repository, your function must meet the following criteria:
+* Must have been used in a publication
+* Must have unit testing
+* Must pass unit testing of entire package
+* Must have documentation around functions with examples
+
 # Other resources
 
-For bespoke code please see the OMSQ_RAP [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP) repository or the [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP) repository.
+For bespoke code please see:
+* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP)
+* [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP)
 
 
