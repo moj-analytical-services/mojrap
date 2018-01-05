@@ -43,31 +43,31 @@ format_num <- function(number) {
       number <- formatC(abs(as.numeric(number)),
                      big.mark = ",", digits = 0, format = "d")
 
-      if (mojmar::as_number(number) == 1) {
+      if (mojrap::as_number(number) == 1) {
         number <- "one"
       }
-      else  if (mojmar::as_number(number) == 2) {
+      else  if (mojrap::as_number(number) == 2) {
         number <- "two"
       }
-      else  if (mojmar::as_number(number) == 3) {
+      else  if (mojrap::as_number(number) == 3) {
         number <- "three"
       }
-      else  if (mojmar::as_number(number) == 4) {
+      else  if (mojrap::as_number(number) == 4) {
         number <- "four"
       }
-      else  if (mojmar::as_number(number) == 5) {
+      else  if (mojrap::as_number(number) == 5) {
         number <- "five"
       }
-      else  if (mojmar::as_number(number) == 6) {
+      else  if (mojrap::as_number(number) == 6) {
         number <- "six"
       }
-      else  if (mojmar::as_number(number) == 7) {
+      else  if (mojrap::as_number(number) == 7) {
         number <- "seven"
       }
-      else  if (mojmar::as_number(number) == 8) {
+      else  if (mojrap::as_number(number) == 8) {
         number <- "eight"
       }
-      else  if (mojmar::as_number(number) == 9) {
+      else  if (mojrap::as_number(number) == 9) {
         number <- "nine"
       }
       else number
