@@ -1,0 +1,148 @@
+PackratFormat: 1.4
+PackratVersion: 0.4.8.1
+RVersion: 3.4.1
+Repos: CRAN=https://cran.rstudio.com/
+
+Package: BH
+Source: CRAN
+Version: 1.65.0-1
+Hash: 95f62be4d6916aae14a310a8b56a6475
+
+Package: R6
+Source: CRAN
+Version: 2.2.2
+Hash: b2366cd9d2f3851a5704b4e192b985c2
+
+Package: RColorBrewer
+Source: CRAN
+Version: 1.1-2
+Hash: c0d56cd15034f395874c870141870c25
+
+Package: Rcpp
+Source: CRAN
+Version: 0.12.13
+Hash: b9d8d89ff10ca2d8bfdaccdf83045ba1
+
+Package: assertthat
+Source: CRAN
+Version: 0.2.0
+Hash: e8805df54c65ac96d50235c44a82615c
+
+Package: bindr
+Source: CRAN
+Version: 0.1
+Hash: e3a02070cf705d3ad1c5af1635a515a3
+
+Package: bindrcpp
+Source: CRAN
+Version: 0.2
+Hash: e011aef1e6b2f8ff15d833f56abcf0ba
+Requires: Rcpp, bindr, plogr
+
+Package: colorspace
+Source: CRAN
+Version: 1.3-2
+Hash: 0bf8618b585fa98eb23414cd3ab95118
+
+Package: dichromat
+Source: CRAN
+Version: 2.0-0
+Hash: 08eed0c80510af29bb15f840ccfe37ce
+
+Package: digest
+Source: CRAN
+Version: 0.6.12
+Hash: e53fb8c58673df868183697e39a6a4d6
+
+Package: dplyr
+Source: CRAN
+Version: 0.7.4
+Hash: 8f4e0074ac488385f084e27bf6f54d41
+Requires: BH, R6, Rcpp, assertthat, bindrcpp, glue, magrittr,
+    pkgconfig, plogr, rlang, tibble
+
+Package: glue
+Source: CRAN
+Version: 1.1.1
+Hash: dfd5a27768175ae51d08dc6beba1ef11
+
+Package: labeling
+Source: CRAN
+Version: 0.3
+Hash: ecf589b42cd284b03a4beb9665482d3e
+
+Package: lubridate
+Source: CRAN
+Version: 1.6.0
+Hash: b90f4cbefe0b3c545dd68b22c66a8a12
+Requires: stringr
+
+Package: magrittr
+Source: CRAN
+Version: 1.5
+Hash: bdc4d48c3135e8f3b399536ddf160df4
+
+Package: munsell
+Source: CRAN
+Version: 0.4.3
+Hash: f96d896947fcaf9b6d0074002e9f4f9d
+Requires: colorspace
+
+Package: packrat
+Source: CRAN
+Version: 0.4.8-1
+Hash: 6ad605ba7b4b476d84be6632393f5765
+
+Package: pander
+Source: CRAN
+Version: 0.6.1
+Hash: 27bb6234744ab998d64774c67651195c
+Requires: Rcpp, digest
+
+Package: pkgconfig
+Source: CRAN
+Version: 2.0.1
+Hash: 0dda4a2654a22b36a715c2b0b6fbacac
+
+Package: plogr
+Source: CRAN
+Version: 0.1-1
+Hash: fb19215402e2d9f1c7f803dcaa806fc2
+
+Package: plyr
+Source: CRAN
+Version: 1.8.4
+Hash: 9598fbff0cce13bee89ae3a50230d93f
+Requires: Rcpp
+
+Package: rlang
+Source: github
+Version: 0.1.2.9000
+Hash: fc9b61a2ab5a0a64279e1c924ad4f3f9
+GithubRepo: rlang
+GithubUsername: tidyverse
+GithubRef: master
+GithubSha1: 3ddfec2cacafe340c05a620f16fa3b84acfd7353
+
+Package: scales
+Source: CRAN
+Version: 0.4.1
+Hash: 5f6e8c10d6a38cb4af43b67317377ed8
+Requires: RColorBrewer, Rcpp, dichromat, labeling, munsell, plyr
+
+Package: stringi
+Source: CRAN
+Version: 1.1.5
+Hash: b6308e49357a0b475f433599e0d8b5eb
+
+Package: stringr
+Source: CRAN
+Version: 1.2.0
+Hash: 25a86d7f410513ebb7c0bc6a5e16bdc3
+Requires: magrittr, stringi
+
+Package: tibble
+Source: CRAN
+Version: 1.3.4
+Hash: 3b72bdedb6c27fb216574ab9b15f2d43
+Requires: Rcpp, rlang
