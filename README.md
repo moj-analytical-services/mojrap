@@ -21,6 +21,8 @@ To add to this repository, your function must meet the following criteria:
 * Must pass unit testing of entire package
 * Must have documentation around functions with examples
 
+For in-depth guidance on contributing, see [How to contribute](https://github.com/moj-analytical-services/RAP_code_library/blob/master/vignettes/How_to_contribute.Rmd)
+
 # Other resources
 
 For bespoke code please see:
