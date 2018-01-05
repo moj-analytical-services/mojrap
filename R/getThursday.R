@@ -17,6 +17,7 @@ getThursday = function(y, q) {
   q <- as.numeric(q)
 
   if (q >= 2) {y <- y + 1}
+  if (q == 4) {q <- 0}
 
   date = lubridate::ymd(paste(y,"-",c("07","10","01","04")[q + 1],"-01",sep=""))
   last = lubridate::ceiling_date(date,"month") - 1
