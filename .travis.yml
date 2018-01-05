@@ -6,3 +6,5 @@ cache:
   packages: true
 install:
   - R -e "0" --args --bootstrap-packrat
+r_github_packages:
+  - jimhester/lintr
