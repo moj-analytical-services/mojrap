@@ -10,7 +10,6 @@
 #'
 #' @examples
 #'
-#' library(mojmar)
 #' format_perc(0.1) #returns 10%
 #'
 
@@ -51,15 +50,14 @@ format_perc <- function(fraction) {
       return(fraction)
 
     }
-  }, warning = function(war){
+  }
+  , warning = function(war){
     warning(war)
 
-  }, error = function(err){
+  }
+  , error = function(err){
 
     err$message <- paste("While formatting percentage", err, sep = " ")
     stop(err)
   })
-
 }
-
-
