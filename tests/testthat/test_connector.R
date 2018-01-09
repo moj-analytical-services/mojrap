@@ -5,19 +5,19 @@ test_that(
   {
     expect_equal(
       connector(1, 2),
-      ", this is consistent with a"
+      ", this is consistent with"
 
     )
 
     expect_equal(
       connector(-2, -2),
-      ", this is consistent with a"
+      ", this is consistent with"
 
     )
 
     expect_equal(
       connector(-2, 1),
-      ", however there has been a"
+      ", however there has been"
 
     )
 
