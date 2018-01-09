@@ -1,5 +1,7 @@
 context('Test as_number')
 
+library(mojrap)
+
 test_that(
   "as_number handles commas and %.",
   {
@@ -7,7 +9,6 @@ test_that(
       as_number(",,%,,1,%%3,37"),
       1337
     )
-
   }
 )
 
@@ -18,9 +19,6 @@ test_that(
       as_number("One"),
       1
     )
-
-
-
   }
 )
 
@@ -32,8 +30,5 @@ test_that(
         as_number("five")),
       c(9, 5)
     )
-
-
-
   }
 )
