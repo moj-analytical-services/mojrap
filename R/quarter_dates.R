@@ -46,10 +46,10 @@ quarter_dates <- function(date, start_end, type) {
 
 
   if (start_end == "start") {
-    mojmar::date_type(start, type)
+    mojrap::date_type(start, type)
     }
   else if (start_end == "end") {
-    mojmar::date_type(end, type)
+    mojrap::date_type(end, type)
     }
   else
     print("Please select either 'start' or 'end' date")
