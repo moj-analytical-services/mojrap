@@ -20,7 +20,6 @@ Generic method to convert tables into wide format
 }
 \examples{
 
-library(mojmar)
 format_perc(0.1) #returns 10\%
 
 }
