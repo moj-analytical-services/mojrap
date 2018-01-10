@@ -28,5 +28,6 @@ For in-depth guidance on contributing, see [How to contribute](https://github.co
 For bespoke code please see:
 * [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP)
 * [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP)
+* [CCSQ_RAP](https://github.com/moj-analytical-services/CCSQ_RAP)
 
 
