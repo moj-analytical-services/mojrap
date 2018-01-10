@@ -6,7 +6,7 @@
 #' @param q current quarter
 
 #' @examples
-#' getThursday(2017, q3)  # returns "2018-01-25"
+#' getThursday(2017, "q3")  # returns "2018-01-25"
 #'
 #' @export
 

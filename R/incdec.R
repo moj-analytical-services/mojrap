@@ -6,7 +6,7 @@
 #' @param tense which tense you want the quantifying string to be in. Either
 #' "past", "present", "singular" or "plural".
 #' @examples
-#' incdec("-1", "past")  # returns "decreased by"
+#' incdec(-1, "past")  # returns "decreased by"
 #' @export
 #'
 
