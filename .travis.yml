@@ -1,3 +1,5 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
 language: r
 cache:
   directories:
@@ -9,3 +11,6 @@ install:
 r_github_packages:
   - jimhester/lintr
 sudo: false
+env:
+  global:
+    - R_BUILD_ARGS = "--no-build-vignettes""

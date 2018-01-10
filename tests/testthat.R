@@ -1,2 +1,1 @@
 library(testthat)
-library(mojrap)
