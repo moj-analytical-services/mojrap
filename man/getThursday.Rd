@@ -15,6 +15,6 @@ getThursday(y, q)
 Takes the current year and quarter and predicts the next thursday that a quarterly publication will be published on.
 }
 \examples{
-getThursday(2017, q3)  # returns "2018-01-25"
+getThursday(2017, "q3")  # returns "2018-01-25"
 
 }

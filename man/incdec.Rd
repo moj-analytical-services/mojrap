@@ -16,5 +16,5 @@ incdec(value, tense)
 Returns a character string that quantifies a change.
 }
 \examples{
-incdec("-1", "past")  # returns "decreased by"
+incdec(-1, "past")  # returns "decreased by"
 }
