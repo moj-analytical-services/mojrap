@@ -6,6 +6,8 @@
 #' @param difference2 The second difference in the comparison
 #' @examples
 #' connector(1, 2) #  retuns ", this is consistent with a" (as both values are positive)
+#' @export
+#'
 
 connector <- function(difference1, difference2){
 

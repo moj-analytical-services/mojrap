@@ -8,6 +8,7 @@
 #' @examples
 #' getThursday(2017, q3)  returns "2018-01-25"
 #'
+#' @export
 
 getThursday = function(y, q) {
 

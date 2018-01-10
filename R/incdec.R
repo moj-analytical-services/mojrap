@@ -7,6 +7,7 @@
 #' "past", "present", "singular" or "plural".
 #' @examples
 #' incdec("-1", "past")  # returns "decreased by"
+#' @export
 #'
 
 incdec <- function(value, tense) {

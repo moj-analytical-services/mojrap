@@ -6,6 +6,8 @@
 #' @param type format of the date
 #' @seealso \code{\link{date_type}}
 #' @examples quarter_dates("2016q1", "start", "%Y %B %d") returns 2016 January 1
+#' @export
+#'
 
 
 #

@@ -17,5 +17,4 @@ Returns a character string that quantifies a change.
 }
 \examples{
 incdec("-1", "past")  # returns "decreased by"
-
 }

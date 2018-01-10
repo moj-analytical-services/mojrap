@@ -4,6 +4,8 @@
 #' @param date standard number format
 #' @param type specifies the format that the date should be returned in. Standared R date types.
 #' @examples date_type("2012-12-31", "%Y")  # returns 2012
+#' @export
+#'
 
 
 date_type <- function(date, type) {

@@ -4,8 +4,9 @@
 #
 #' @param x A formatted number string
 #' @examples
-#' as_number("1,000")  #  returns 1000
-#' as_number("10%")  #  returns 10
+#' mojrap::as_number("1,000")  #  returns 1000
+#' mojrap::as_number("10%")  #  returns 10
+#' @export
 #'
 
 as_number <- function (x) {

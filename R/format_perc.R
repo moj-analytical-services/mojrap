@@ -12,6 +12,7 @@
 #'
 #' format_perc(0.1) #returns 10%
 #'
+#' @export
 
 format_perc <- function(fraction) {
 

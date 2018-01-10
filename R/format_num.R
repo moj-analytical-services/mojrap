@@ -5,7 +5,7 @@
 #' @examples
 #' format_num("1000") # returns "1,000"
 #' format_num("1") # returns 'one'
-#
+#' @export
 
 format_num <- function(number) {
 
