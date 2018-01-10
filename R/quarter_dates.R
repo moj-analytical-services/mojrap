@@ -5,7 +5,7 @@
 #' @param start_end Select either the start date of the quarter or the end date of the quarter
 #' @param type format of the date
 #' @seealso \code{\link{date_type}}
-#' @examples quarter_dates("2016q1", "start", "%Y %B %d") returns 2016 January 1
+#' @examples quarter_dates("2016q1", "start", "%Y %B %d") # returns 2016 January 1
 #' @export
 #'
 

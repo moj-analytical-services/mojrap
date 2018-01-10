@@ -5,7 +5,7 @@
 #' @param difference1 The first difference in the comparison
 #' @param difference2 The second difference in the comparison
 #' @examples
-#' connector(1, 2) #  retuns ", this is consistent with a" (as both values are positive)
+#' connector(1, 2) #retunrs ", this is consistent with a" (as both values are positive)
 #' @export
 #'
 
