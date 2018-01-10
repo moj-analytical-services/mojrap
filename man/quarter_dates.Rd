@@ -17,7 +17,7 @@ quarter_dates(date, start_end, type)
 Gives the start/end dates of a quarter
 }
 \examples{
-quarter_dates("2016q1", "start", "\%Y \%B \%d") returns 2016 January 1
+quarter_dates("2016q1", "start", "\%Y \%B \%d") # returns 2016 January 1
 }
 \seealso{
 \code{\link{date_type}}

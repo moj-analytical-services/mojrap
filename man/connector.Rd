@@ -15,5 +15,5 @@ connector(difference1, difference2)
 Takes two differences and judges which connecting phrase should be used to compare the differences.
 }
 \examples{
-connector(1, 2) #  retuns ", this is consistent with a" (as both values are positive)
+connector(1, 2) #retunrs ", this is consistent with a" (as both values are positive)
 }
