@@ -1,6 +1,16 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
+
+# Deal with the problems of vignette building on travis: i.e. don't do it!
+# This results in a warning being raised because there are vignettes
+# that are not being built, so make sure that these don't become errors
+# that stop the build!
+
+r_build_args: --no-build-vignettes --no-manual --no-resave-data
+r_check_args: --no-build-vignettes --no-manual
+warnings_are_errors: false
+
 cache:
   directories:
     - $TRAVIS_BUILD_DIR/packrat/src
@@ -11,6 +21,3 @@ install:
 r_github_packages:
   - jimhester/lintr
 sudo: false
-env:
-  global:
-    - R_BUILD_ARGS = "--no-build-vignettes""
