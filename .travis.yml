@@ -1,6 +1,7 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
+sudo: false
 
 # Deal with the problems of vignette building on travis: i.e. don't do it!
 # This results in a warning being raised because there are vignettes
@@ -16,8 +17,17 @@ cache:
     - $TRAVIS_BUILD_DIR/packrat/src
     - $TRAVIS_BUILD_DIR/packrat/lib
   packages: true
+
 install:
   - R -e "0" --args --bootstrap-packrat
+
 r_github_packages:
   - jimhester/lintr
-sudo: false
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
+
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages
