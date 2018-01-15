@@ -81,6 +81,12 @@ Source: CRAN
 Version: 1.4
 Hash: 91d7807331a4a37ef8376fb073960ee4
 
+Package: covr
+Source: CRAN
+Version: 3.0.1
+Hash: aab7a1873ad3d943dd4a0ce4edbc2691
+Requires: crayon, httr, jsonlite, rex, withr
+
 Package: crayon
 Source: CRAN
 Version: 1.3.4
