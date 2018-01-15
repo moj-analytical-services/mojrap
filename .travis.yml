@@ -1,10 +1,7 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
-<<<<<<< HEAD
 sudo: false
-=======
->>>>>>> Apply some of GDS solution
 
 # Deal with the problems of vignette building on travis: i.e. don't do it!
 # This results in a warning being raised because there are vignettes
@@ -26,7 +23,6 @@ install:
 
 r_github_packages:
   - jimhester/lintr
-<<<<<<< HEAD
 
 r_packages:
   - covr
@@ -35,6 +31,4 @@ after_success:
   - Rscript -e 'covr::codecov()'
 
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages
-=======
-sudo: false
->>>>>>> Apply some of GDS solution
+
