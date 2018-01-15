@@ -1,3 +1,5 @@
+[![Coverage status](https://codecov.io/gh/moj-analytical-services/RAP_code_library/branch/master/graph/badge.svg)](https://codecov.io/github/moj-analytical-services/RAP_code_library?branch=master)
+
 # RAP_code_library
 
 This repository is for generalised functions for RAP (Reproducible Analytical Pipelines). If there are any functions in your RAP that will be useful to other people, please use this space to share them.

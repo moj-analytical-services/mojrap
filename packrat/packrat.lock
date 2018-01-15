@@ -71,6 +71,16 @@ Version: 1.0.0
 Hash: f4239f89feb7ddc65821e4514e9734ae
 Requires: assertthat, crayon
 
+Package: clipr
+Source: CRAN
+Version: 0.4.0
+Hash: 0d4860516c7e3120f8116a639b1ff553
+
+Package: clisymbols
+Source: CRAN
+Version: 1.2.0
+Hash: a76a309884277a4fd8a5d741965fbef5
+
 Package: colorspace
 Source: CRAN
 Version: 1.3-2
@@ -133,6 +143,12 @@ Version: 0.10.1
 Hash: 54d95f4ec6d0300100413ed0127d89ae
 Requires: stringr
 
+Package: gh
+Source: CRAN
+Version: 1.0.1
+Hash: 0fafa863f1a86a1f1966e5d5b46a48b5
+Requires: httr, ini, jsonlite
+
 Package: git2r
 Source: CRAN
 Version: 0.21.0
@@ -165,6 +181,11 @@ Source: CRAN
 Version: 1.1.2
 Hash: 07d33f151f94269a4573d354104e81aa
 Requires: irlba, magrittr, pkgconfig
+
+Package: ini
+Source: CRAN
+Version: 0.3.0
+Hash: 6f838ce34ea57d28eaf08709680a5501
 
 Package: irlba
 Source: CRAN
@@ -343,6 +364,13 @@ Source: CRAN
 Version: 1.3.4
 Hash: 3b72bdedb6c27fb216574ab9b15f2d43
 Requires: Rcpp, rlang
+
+Package: usethis
+Source: CRAN
+Version: 1.1.0
+Hash: ca67341c07aad979750424243e6bf687
+Requires: clipr, clisymbols, crayon, desc, digest, gh, git2r,
+    rmarkdown, rprojroot, rstudioapi, whisker, withr
 
 Package: whisker
 Source: CRAN
