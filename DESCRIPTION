@@ -1,0 +1,13 @@
+Package: asdrap
+Version: 0.0.1
+Title: General RAP Functions For ASD
+Description: This package is used to collect all general RAP functions to be used and shared internally. This is separate to the public "RAP_code_library" (which has a higher threshold for QA), and everyone is encouraged to contribute to this to share ideas without the same QA overhead.
+Authors@R: person("Ross", "Kennedy", , "ross.kennedy@justice.gov.uk", c("aut", "cre"))
+License: What license it uses
+Encoding: UTF-8
+LazyData: true
+ByteCompile: true
+Suggests: 
+    testthat
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1.9000
