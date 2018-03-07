@@ -4,8 +4,8 @@
 * [What is this repo for?](#what-is-this-repo-for)
 * [Using the package](#using-the-package)
 * [Functions in the package](#functions-in-the-package)
-* [Contributing to the package](contributiong-to-the-package)
 * [Package infrastructure](package-infrastructure)
+* [Contributing to the package](contributiong-to-the-package)
 * [Other RAP Resources](other-resources)
 
 ## What is this repo for?
