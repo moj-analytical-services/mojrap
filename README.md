@@ -53,4 +53,17 @@ Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/desc
 
 ## Contributing to the package
 
-To be added
+Now that you have created a function that can be reused by other people, how do you share it with everyone?
+
+1) Clone this repo:
+In the terminal, run `git clone git@github.com:moj-analytical-services/ASD_RAP_library.git`
+
+2) Create a new branch and add your function(s) to it - see the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#working-on-a-branch.) if you aren't familiar with doing this
+
+3) Open a [Pull Request](https://help.github.com/articles/creating-a-pull-request/) to merge your functions into the package. 
+
+4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. This isn't a big thing, but getting someone to have a look over your code is a good way to learn and imporve. We want to try and build a culture of people sharing their knowledge so if you post your pull requests in the #rap channel of the ASD slack someone should be able to review it for you - and hopefully you will start reviewing for others too!
+
+5) Merge your pull request.
+
+Congratulations! You have now contibuted to the asdrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
