@@ -67,7 +67,7 @@ In the terminal, run `git clone git@github.com:moj-analytical-services/ASD_RAP_l
 
 3) Open a [Pull Request](https://help.github.com/articles/creating-a-pull-request/) to merge your functions into the package. 
 
-4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. This isn't a big thing, but getting someone to have a look over your code is a good way to learn and imporve. We want to try and build a culture of people sharing their knowledge so if you post your pull requests in the #rap channel of the ASD slack someone should be able to review it for you - and hopefully you will start reviewing for others too!
+4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. This isn't a a test or anything, its just that getting someone to have a quick look over your code is a good way to learn and imporve. We want to try and build a culture of people sharing their knowledge so if you post your pull requests in the #rap channel of the ASD slack someone should be able to review it for you - and hopefully you will start reviewing for others too!
 
 5) Merge your pull request.
 
