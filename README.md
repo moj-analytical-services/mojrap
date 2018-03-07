@@ -1,5 +1,10 @@
 # ASD_RAP_Library
 
+## Contents
+* [What is this repo for?](#what-is-this-repo-for)
+* [Using the package](#using-the-package)
+* [Contributing to the package](contributiong-to-the-package)
+
 ## What is this repo for?
 
 This repository is for general functions for RAP (Reproducible Analytical Pipelines) that you have made and think others may find useful. 
