@@ -6,6 +6,7 @@
 * [Package infrastructure](#package-infrastructure)
 * [Contributing to the package](contributiong-to-the-package)
 * [Found a bug?](found-a-bug)
+* [Other resources](#other-resources)
 
 ## What is this repo for?
 
@@ -76,3 +77,10 @@ Congratulations! You have now contibuted to the asdrap package! If you [reinstal
 ## Found a bug?
 
 You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an issue or open a pull request with your suggested solution.
+
+## Other resources
+
+For more bespoke RAP code please see:
+* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP)
+* [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP)
+* [CCSQ_RAP](https://github.com/moj-analytical-services/CCSQ_RAP)
