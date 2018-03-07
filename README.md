@@ -16,7 +16,7 @@ Once you are happy that your function is working as intended, you may want to tr
 
 ## Getting Started
 
-### Using the package
+## Using the package
 
 If you just want to make use of the package, do the following:
 
@@ -51,6 +51,6 @@ Is a config file that should not be updated manually - instead use roxygen comme
 Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/description.html
 
 
-### Contributing to the package
+## Contributing to the package
 
 To be added
