@@ -5,6 +5,7 @@
 * [Using the package](#using-the-package)
 * [Package infrastructure](#package-infrastructure)
 * [Contributing to the package](contributiong-to-the-package)
+* [Found a bug?](found-a-bug)
 
 ## What is this repo for?
 
@@ -57,7 +58,7 @@ Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/desc
 
 ## Contributing to the package
 
-Now that you have created a function that can be reused by other people, how do you share it with everyone?
+Now that you have created a reusable function, how do you share it with everyone?
 
 1) Clone this repo:
 In the terminal, run `git clone git@github.com:moj-analytical-services/ASD_RAP_library.git`
@@ -71,3 +72,7 @@ In the terminal, run `git clone git@github.com:moj-analytical-services/ASD_RAP_l
 5) Merge your pull request.
 
 Congratulations! You have now contibuted to the asdrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
+
+## Found a bug?
+
+You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an issue or open a pull request with your suggested solution.
