@@ -41,7 +41,7 @@ A whistle stop tour of the package for those who aren't as familiar with R/packa
 This is where most of the code which does the analysis lives. All the code is functions, only some of which are avaiable when you install the package.
 
 ### man/
-This is where the package documentation that can usually be found running ?function_name lives. 
+This is where the package documentation that can usually be found running ?function_name 
 
 ### tests/
 The code here simply tests the functions in the package are working as expected. None of this code does any of the analysis the package was designed for, instead acting as quality assurance for the functions that have been created to do the analysis.
