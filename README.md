@@ -41,6 +41,9 @@ This is where the package documentation that can usually be found running ?funct
 ### tests/
 The code here simply tests the functions in the package are working as expected. None of this code does any of the analysis the package was designed for, instead acting as quality assurance for the functions that have been created to do the analysis.
 
+### packrat/
+This folder contains all of the code/data needed for packrat. Packrat is used to manage package dependencies for your functions in the R folder.
+
 ### README.md
 Contains the text for this document in Markdown format. This is the sole documentation for the package, other than occasional comments in the source code. The source code should be transparent enough that it is best to read the source code to understand how functions in the package work.
 
@@ -49,6 +52,7 @@ Is a config file that should not be updated manually - instead use roxygen comme
 
 ### DESCRIPTION
 Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/description.html
+
 
 
 ## Contributing to the package
