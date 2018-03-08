@@ -5,6 +5,8 @@
 * [Using the package](#using-the-package)
 * [Package infrastructure](#package-infrastructure)
 * [Contributing to the package](contributiong-to-the-package)
+* [Found a bug?](found-a-bug)
+* [Other resources](#other-resources)
 
 ## What is this repo for?
 
@@ -41,6 +43,9 @@ This is where the package documentation that can usually be found running ?funct
 ### tests/
 The code here simply tests the functions in the package are working as expected. None of this code does any of the analysis the package was designed for, instead acting as quality assurance for the functions that have been created to do the analysis.
 
+### packrat/
+This folder contains all of the code/data needed for packrat. Packrat is used to manage package dependencies for your functions in the R folder.
+
 ### README.md
 Contains the text for this document in Markdown format. This is the sole documentation for the package, other than occasional comments in the source code. The source code should be transparent enough that it is best to read the source code to understand how functions in the package work.
 
@@ -51,6 +56,32 @@ Is a config file that should not be updated manually - instead use roxygen comme
 Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/description.html
 
 
+
 ## Contributing to the package
 
-To be added
+Now that you have created a reusable function, how do you share it with everyone?
+
+1) Clone this repo:
+In the terminal, run `git clone git@github.com:moj-analytical-services/ASD_RAP_library.git`
+Or see step 4.1.2 of the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#step-2-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) if you are having any difficulties.
+
+2) Create a new branch and add your function(s) to it - see the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#working-on-a-branch.) if you aren't familiar with doing this
+
+3) Open a [Pull Request](https://help.github.com/articles/creating-a-pull-request/) to merge your functions into the package. 
+
+4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. This isn't a a test or anything, its just that getting someone to have a quick look over your code is a good way to learn and imporve. We want to try and build a culture of people sharing their knowledge so if you post your pull requests in the #rap channel of the ASD slack someone should be able to review it for you - and hopefully you will start reviewing for others too!
+
+5) Merge your pull request. Once you have done this make sure to post in the RAP slack channel that you have merged in your changes so people can update their version of the package
+
+Congratulations! You have now contibuted to the asdrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
+
+## Found a bug?
+
+You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#step-1-optional-create-an-issue-in-github-that-describes-the-piece-of-work-youre-about-to-do-the-purpose-of-the-branch) or open a pull request with your suggested solution.
+
+## Other resources
+
+For more bespoke RAP code please see:
+* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP)
+* [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP)
+* [CCSQ_RAP](https://github.com/moj-analytical-services/CCSQ_RAP)
