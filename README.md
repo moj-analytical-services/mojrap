@@ -71,7 +71,7 @@ Or see step 4.1.2 of the [platform guidance](https://moj-analytical-services.git
 
 4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. This isn't a a test or anything, its just that getting someone to have a quick look over your code is a good way to learn and imporve. We want to try and build a culture of people sharing their knowledge so if you post your pull requests in the #rap channel of the ASD slack someone should be able to review it for you - and hopefully you will start reviewing for others too!
 
-5) Merge your pull request. Once you have done this make sure to post in the RAP slack channel that you have merged in your changes so people can 
+5) Merge your pull request. Once you have done this make sure to post in the RAP slack channel that you have merged in your changes so people can update their version of the package
 
 Congratulations! You have now contibuted to the asdrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
 
