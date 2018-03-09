@@ -14,7 +14,11 @@ This repository is for general functions for RAP (Reproducible Analytical Pipeli
 
 This is an internal, ASD library which is intended to be a safe space for sharing some of your work and collaborating with others doing similar work. We encourage people to try out the functions and if you think an improvement can be made/find a bug you can open a Pull Request with your changes and work with the function creator to find the best solution.
 
-Once you are happy that your function is working as intended, you may want to try and add it to our external [RAP_code_library](https://github.com/moj-analytical-services/RAP_code_library). This is a public facing repo/package that we are using to promote our work to the public and any other government analysts who are using RAP. Adding to the public repo requires a bit more work on the QA side of things, but we feel it is really worthwhile to try and contribute to the wider community. More information on contributing to the public library can be found [here](https://github.com/moj-analytical-services/RAP_code_library).
+Once you are happy that your function is working as intended, you may want to try and add it to our external package [mojrap](https://github.com/moj-analytical-services/mojrap). This is a public facing repo/package that we are using to promote our work to the public and any other government analysts who are using RAP. Adding to the public repo requires a bit more work on the QA side of things, but we feel it is really worthwhile to try and contribute to the wider community. 
+
+TL;DR
+![alt text](RAP_flowchart.png)
+
 
 ## Getting Started
 
