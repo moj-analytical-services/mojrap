@@ -77,7 +77,7 @@ Congratulations! You have now contibuted to the asdrap package! If you [reinstal
 
 ## Found a bug?
 
-You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#step-1-optional-create-an-issue-in-github-that-describes-the-piece-of-work-youre-about-to-do-the-purpose-of-the-branch) or open a pull request with your suggested solution.
+You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#step-1-optional-create-an-issue-in-github-that-describes-the-piece-of-work-youre-about-to-do-the-purpose-of-the-branch) and/or open a pull request with your suggested solution.
 
 ## Other resources
 
