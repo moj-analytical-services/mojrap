@@ -2,6 +2,7 @@
 
 ## Contents
 * [What is this repo for?](#what-is-this-repo-for)
+* [Where does this package sit in our infrastructure?](#where-does-this-package-sit-in-our-infrastructure)
 * [Using the package](#using-the-package)
 * [Functions in the package](#functions-in-the-package)
 * [Package infrastructure](#package-infrastructure)
@@ -16,7 +17,7 @@ If you are implementing RAP within your own department, or just think some of th
 
 ## Where does this package sit in our infrastructure?
 
-When someone creates a specific RAP within the MoJ, they look at their functions to see what can be made more general. Once these have been picked out, they are added to the internal Analytical Services Directorate RAP package [(asdrap)](https://github.com/moj-analytical-services/asdrap) where they get peer reviewed by othe analysts and start getting unit-tested etc. Once the functions have been through sufficient QA (and been used in the 'real world' e.g. an official stats release) they are then promoted to here. 
+When someone creates a specific RAP within the MoJ, they look at their functions to see what can be made more general. Once these have been picked out, they are added to the internal Analytical Services Directorate RAP package [(asdrap)](https://github.com/moj-analytical-services/asdrap) where they get peer reviewed by other analysts and start getting unit-tested etc. Once the functions have been through sufficient QA (and been used in the 'real world' e.g. an official stats release) they are then promoted to here. 
 
 TL;DR
 
