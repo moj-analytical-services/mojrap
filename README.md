@@ -18,7 +18,7 @@ Once you are happy that your function is working as intended, you may want to tr
 
 TL;DR
 
-![alt text](RAP_flowchart.png)
+![alt text](asdrap_flowchart.png)
 
 
 ## Getting Started
