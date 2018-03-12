@@ -9,15 +9,12 @@
 * [Other RAP Resources](#other-resources)
 
 ## What is this repo for?
-This repository is for generalised functions for RAP (Reproducible Analytical Pipelines). If there are any functions in your RAP that will be useful to other people, please use this space to share them.
-
-Conversely, if you are implementing RAP within your own department, or just think some of these functions could be of use, please install the package and use away! Also, if you are using any of the functions and you find a bug or can think of away to improve them, we would love your input - see [Contributing to the package](#contributing-to-the-package) for ways you can help.
-
-## Where does this package sit in our infrastructure?
 
 This is a collection of quality assured, generalised functions that have been created in the various Reproducible Analytical Pipelines (e.g. Statistics Publications, Financial Reports etc.) within the Ministry of Justice. 
 
-Where have these come from?
+If you are implementing RAP within your own department, or just think some of these functions could be of use, please install the package and use away! Also, if you are using any of the functions and find a bug or can think of away to improve them, we would love your input - see [Contributing to the package](#contributing-to-the-package) for ways you can help.
+
+## Where does this package sit in our infrastructure?
 
 When someone creates a specific RAP within the MoJ, they look at their functions to see what can be made more general. Once these have been picked out, they are added to the internal Analytical Services Directorate RAP package [(asdrap)](https://github.com/moj-analytical-services/asdrap) where they get peer reviewed by othe analysts and start getting unit-tested etc. Once the functions have been through sufficient QA (and been used in the 'real world' e.g. an official stats release) they are then promoted to here. 
 
