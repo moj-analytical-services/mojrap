@@ -27,7 +27,7 @@ TL;DR
 
 If you just want to make use of the package, do the following:
 
-* Run `devtools::install_github("moj-analytical-services/RAP_code_library")` to download the package
+* Run `devtools::install_github("moj-analytical-services/mojrap")` to download the package
 * Load the package using `library(mojrap)`
 
 You will now have access to all the functions in the library, using the following syntax:
