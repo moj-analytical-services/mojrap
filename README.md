@@ -1,15 +1,29 @@
-# RAP_code_library
+# mojrap
 
 ## Contents
 * [What is this repo for?](#what-is-this-repo-for)
 * [Using the package](#using-the-package)
 * [Functions in the package](#functions-in-the-package)
-* [Package infrastructure](package-infrastructure)
-* [Contributing to the package](contributiong-to-the-package)
-* [Other RAP Resources](other-resources)
+* [Package infrastructure](#package-infrastructure)
+* [Contributing to the package](#contributing-to-the-package)
+* [Other RAP Resources](#other-resources)
 
 ## What is this repo for?
-This repository is for generalised functions for RAP (Reproducible Analytical Pipelines). If there are any functions in your RAP that will be useful to other people, please use this space to share them. 
+This repository is for generalised functions for RAP (Reproducible Analytical Pipelines). If there are any functions in your RAP that will be useful to other people, please use this space to share them.
+
+Conversely, if you are implementing RAP within your own department, or just think some of these functions could be of use, please install the package and use away! Also, if you are using any of the functions and you find a bug or can think of away to improve them, we would love your input - see [Contributing to the package](#contributing-to-the-package) for ways you can help.
+
+## Where does this package sit in our infrastructure?
+
+This is a collection of quality assured, generalised functions that have been created in the various Reproducible Analytical Pipelines (e.g. Statistics Publications, Financial Reports etc.) within the Ministry of Justice. 
+
+Where have these come from?
+
+When someone creates a specific RAP within the MoJ, they look at their functions to see what can be made more general. Once these have been picked out, they are added to the internal Analytical Services Directorate RAP package [(asdrap)](https://github.com/moj-analytical-services/asdrap) where they get peer reviewed by othe analysts and start getting unit-tested etc. Once the functions have been through sufficient QA (and been used in the 'real world' e.g. an official stats release) they are then promoted to here. 
+
+TL;DR
+
+![alt text](mojrap_flowchart.png)
 
 ## Using the package
 
@@ -55,7 +69,7 @@ Is a config file that should not be updated manually - instead use roxygen comme
 ### DESCRIPTION
 Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/description.html
 
-## Contributing to this package
+## Contributing to the package
 
 To add to this repository, your function must meet the following criteria:
 * Must have been used in a publication
@@ -67,7 +81,13 @@ More in-depth contribution guidlines to follow
 
 ## Other resources
 
-For bespoke code please see:
-* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP)
+For bespoke code please see other MoJ repos:
+* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP) - our first publication that has been entirely RAPed
 * [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP)
 * [CCSQ_RAP](https://github.com/moj-analytical-services/CCSQ_RAP)
+
+(Note that some of these may be accessible to users within the MoJ, but if you would like access to these let us know!)
+Or from across government:
+* DDCMS [Economics Estimates RAP](https://github.com/DCMSstats/eesectors)
+
+If you are working within government and are looking to get up to speed with RAP, we would recommend joining the #rap_collaboration channel of the [Government Data Science Slack](https://govdatascience.slack.com/?redir=%2Fhome) and getting involved with the community there. Or there is the [RAP Companion](https://ukgovdatascience.github.io/rap_companion/) written by the Government Digital Service (GDS).
