@@ -1,4 +1,4 @@
-# ASD_RAP_Library
+# asdrap
 
 ## Contents
 * [What is this repo for?](#what-is-this-repo-for)
@@ -14,7 +14,7 @@ This repository is for general functions for RAP (Reproducible Analytical Pipeli
 
 This is an internal, ASD library which is intended to be a safe space for sharing some of your work and collaborating with others doing similar work. We encourage people to try out the functions and if you think an improvement can be made/find a bug you can open a Pull Request with your changes and work with the function creator to find the best solution.
 
-Once you are happy that your function is working as intended, you may want to try and add it to our external package [mojrap](https://github.com/moj-analytical-services/mojrap). This is a public facing repo/package that we are using to promote our work to the public and any other government analysts who are using RAP. Adding to the public repo requires a bit more work on the QA side of things, but we feel it is really worthwhile to try and contribute to the wider community. 
+Once you are happy that your function ias working as intended, you may want to try and add it to our external package [mojrap](https://github.com/moj-analytical-services/mojrap). This is a public facing repo/package that we are using to promote our work to the public and any other government analysts who are using RAP. Adding to the public repo requires a bit more work on the QA side of things, but we feel it is really worthwhile to try and contribute to the wider community. 
 
 TL;DR
 
@@ -29,7 +29,7 @@ If you just want to make use of the package, do the following:
 
 * Create a Github [Public Access Token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
 * Assign this value to a variable `GITHUB_PAT`
-* Run `devtools::install_github("moj-analytical-services/ASD_RAP_library", access_token = GITHUB_PAT)`
+* Run `devtools::install_github("moj-analytical-services/asdrap", access_token = GITHUB_PAT)`
 * Load the package using `library(asdrap)`
 
 You will now have access to all the functions in the library, using the following syntax:
@@ -64,7 +64,7 @@ Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/desc
 Now that you have created a reusable function, how do you share it with everyone?
 
 1) Clone this repo:
-In the terminal, run `git clone git@github.com:moj-analytical-services/ASD_RAP_library.git`
+In the terminal, run `git clone git@github.com:moj-analytical-services/asdrap.git`
 Or see step 4.1.2 of the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#step-2-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) if you are having any difficulties.
 
 2) Create a new branch and add your function(s) to it - see the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#working-on-a-branch.) if you aren't familiar with doing this
@@ -79,11 +79,17 @@ Congratulations! You have now contibuted to the asdrap package! If you [reinstal
 
 ## Found a bug?
 
-You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/ASD_RAP_library/issues) and/or open a [pull request](https://github.com/moj-analytical-services/ASD_RAP_library/pulls) with your suggested solution.
+You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/asdrap/issues) and/or open a [pull request](https://github.com/moj-analytical-services/asdrap/pulls) with your suggested solution.
 
 ## Other resources
 
-For more bespoke RAP code please see:
-* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP)
+For bespoke code please see other MoJ repos:
+* [OMSQ_RAP](https://github.com/moj-analytical-services/OMSQ_RAP) - our first publication that has been entirely RAPed
 * [JDL_RAP](https://github.com/moj-analytical-services/JDL_RAP)
 * [CCSQ_RAP](https://github.com/moj-analytical-services/CCSQ_RAP)
+
+(Note that some of these may be accessible to users within the MoJ, but if you would like access to these let us know!)
+Or from across government:
+* DDCMS [Economics Estimates RAP](https://github.com/DCMSstats/eesectors)
+
+If you are working within government and are looking to get up to speed with RAP, we would recommend joining the #rap_collaboration channel of the [Government Data Science Slack](https://govdatascience.slack.com/?redir=%2Fhome) and getting involved with the community there. Or there is the [RAP Companion](https://ukgovdatascience.github.io/rap_companion/) written by the Government Digital Service (GDS).
