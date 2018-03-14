@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 [![Coverage status](https://codecov.io/gh/moj-analytical-services/RAP_code_library/branch/master/graph/badge.svg)](https://codecov.io/github/moj-analytical-services/RAP_code_library?branch=master)
 
->>>>>>> 5c8556fa3a6bc7d99caa81628331685c95a36841
 # mojrap
-=======
-[![Coverage status](https://codecov.io/gh/moj-analytical-services/RAP_code_library/branch/master/graph/badge.svg)](https://codecov.io/github/moj-analytical-services/RAP_code_library?branch=master)
 
-# RAP_code_library
->>>>>>> Code coverage additions/edits
 
 ## Contents
 * [What is this repo for?](#what-is-this-repo-for)
