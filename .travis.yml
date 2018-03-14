@@ -1,16 +1,25 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: r
-cache:
-  directories:
-    - $TRAVIS_BUILD_DIR/packrat/src
-    - $TRAVIS_BUILD_DIR/packrat/lib
-  packages: true
-install:
-  - R -e "0" --args --bootstrap-packrat
+sudo: false
+
+# Deal with the problems of vignette building on travis: i.e. don't do it!
+# This results in a warning being raised because there are vignettes
+# that are not being built, so make sure that these don't become errors
+# that stop the build!
+
+r_build_args: --no-build-vignettes --no-manual --no-resave-data
+r_check_args: --no-build-vignettes --no-manual
+warnings_are_errors: false
+
 r_github_packages:
   - jimhester/lintr
-sudo: false
-env:
-  global:
-    - R_BUILD_ARGS = "--no-build-vignettes""
+
+r_packages:
+  - covr
+
+after_success:
+  - Rscript -e 'covr::codecov()'
+
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages
+
