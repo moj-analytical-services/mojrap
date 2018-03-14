@@ -12,15 +12,6 @@ r_build_args: --no-build-vignettes --no-manual --no-resave-data
 r_check_args: --no-build-vignettes --no-manual
 warnings_are_errors: false
 
-cache:
-  directories:
-    - $TRAVIS_BUILD_DIR/packrat/src
-    - $TRAVIS_BUILD_DIR/packrat/lib
-  packages: true
-
-install:
-  - R -e "0" --args --bootstrap-packrat
-
 r_github_packages:
   - jimhester/lintr
 
