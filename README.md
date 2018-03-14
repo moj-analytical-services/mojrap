@@ -29,7 +29,7 @@ If you just want to make use of the package, do the following:
 
 * Create a Github [Public Access Token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
 * Assign this value to a variable `GITHUB_PAT`
-* Run `devtools::install_github("moj-analytical-services/asdrap", access_token = GITHUB_PAT)`
+* Run `devtools::install_github("moj-analytical-services/asdrap", auth_token = GITHUB_PAT)`
 * Load the package using `library(asdrap)`
 
 You will now have access to all the functions in the library, using the following syntax:
