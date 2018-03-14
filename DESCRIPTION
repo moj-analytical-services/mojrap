@@ -15,7 +15,8 @@ Imports:
   dplyr,
   plyr,
   pander,
-  knitr
+  knitr,
+  covr
 LazyData: true
 RoxygenNote: 6.0.1
 Suggests: 
