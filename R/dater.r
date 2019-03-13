@@ -6,63 +6,41 @@ library(lubridate)
 #
 #' This will take the name and the date and find the next publication date on a thursday.  
 #' It does a check to make to make sure that it is not a past date unless manual overwritten.
-#' @param pub_name input the publication shorthand name
+#' @param pub_day what day of the week is your publication (3 letter starting with capital - Mon, Tue, Wed etc.)
+#' @param pub_week which week of the month do you publish (1, 2, 3, 4 or 5 for the last week)
+#' @param pub_month for annual and biennial what month is your publication
+#' @param frequency how often do you publish (monthly, quarterly, annually, biennially)
+#' @param calendar for quarterly pubs (TRUE if data uses calendar quarters, FALSE if financial)
+#' @param firstpub for quarterly pubs month of first publication of the year (1, 2 or 3)
+#' @param delay for quarterly pubs (number of months between starting month of data quarter and pub month)
+#' @param bi_start biennial publications only is the year of publication "odd" or "even"
 #' @param mago Reduce the date by this many months
-#' @param qago Reduce the date by this many quarters
-#' @param yago Reduce the date by this many years
-#' @param manual_date Add the starting date.  If blank, the current date (i.e, today()) will be use
+#' @param manual_date Add the starting date.  If blank, the current date (i.e, today()) will be used [to be removed]
 
 #' @examples
 #' Need to set examples here
 #'
 #' @export
 
-pub_date <- function(pub_name = 0, mago = 0, qago = 0, yago = 0, manual_date = 0) {
-  publication <- create_data(pub_name)
+pub_date <- function(pub_day = 0, pub_week = 0, pub_month = 0, frequency = 0, calendar = TRUE, 
+                     firstpub = 0, delay = 0, bi_start = NA , mago = 0, manual_date = 0) {
   input_date <- mpub_date(manual_date)
-  input_date <- backdate_date(input_date, qago, yago, mago)
-  interval_amount <- set_interval(publication["frequency"])
+  input_date <- backdate_date(input_date, mago)
+  interval_amount <- set_interval(frequency)
   if (interval_amount == 3) {
-    input_date <- get_quarter(input_date, as.numeric(publication["firstpub"]))
+    input_date <- get_quarter(input_date, as.numeric(firstpub))
   } else if (interval_amount == 12) {
-    input_date <- get_annual(input_date, as.numeric(publication["pub_month"]))
+    input_date <- get_annual(input_date, as.numeric(pub_month))
   } else {
-    input_date <- get_biennial(input_date, as.numeric(publication["pub_month"]), publication["bi_start"])
+    input_date <- get_biennial(input_date, as.numeric(pub_month), bi_start)
   }
-  input_date <- find_thurs(input_date, as.numeric(publication["pub_thurs"]))
+  input_date <- find_day(input_date, as.numeric(pub_week))
   #I can only see it being a past date if in the same month.  Therefore this reruns under that
-  if (input_date < today()  && mago + qago + yago + manual_date == 0) {
+  if (input_date < today()  && mago + manual_date == 0) {
     input_date <- input_date %m+% months(interval_amount)
-    input_date <- find_thurs(input_date, as.numeric(publication["pub_thurs"]))
+    input_date <- find_day(input_date, as.numeric(pub_week))
   }
   return(input_date)
-}
-
-create_data <- function (pub_name) {
-  var_names <- c("pub_name", "pub_full_name", "pub_thurs", "frequency", "calendar",
-                 "pub_month", "firstpub", "delay", "bi_start")
-
-  CAFS1 <- c("CAFS1", "Civil Justice", 1, "quarterly", TRUE, 0, 3, 6, NA)
-  CAFS2 <- c("CAFS2", "Coroner", 2, "annually", TRUE, 5, 0, 0, NA)
-  CAFS3 <- c("CAFS3", "Family Court", 5, "quarterly", TRUE, 0, 3, 6, NA)
-  CAFS4 <- c("CAFS4", "Judicial Appointment Commision", 1, "annually", TRUE, 6, 0, 0, NA)
-  CAFS5 <- c("CAFS5", "Judicial Diversity", 2, "annually", TRUE, 7, 2, 0, NA)
-  CAFS6 <- c("CAFS6", "Mortgages and Landlord Possession", 2, "quarterly", TRUE, 0, 2, 5, NA)
-  CAFS7 <- c("CAFS7", "Tribunals and Gender Recognition", 2, "quarterly", FALSE, 0, 3, 6, NA)
-  CJSS1 <- c("CJSS1", "Criminal Courts", 5, "quarterly", TRUE, 0, 3, 6, NA)
-  CJSS2 <- c("CJSS2", "Criminal Justice System", 3, "quarterly", TRUE, 0, 2, 8, NA)
-  DIAL1 <- c("DIAL1", "Justice Data Lab", 2, "quarterly", TRUE, 0, 1, 4, NA)
-  DIAL2 <- c("DIAL2", "Knife & Offensice Weapon Sentencing", 2, "quarterly", TRUE, 0, 3, 6, NA)
-  LAPD1 <- c("LAPD1", "Legal Aid", 5, "quarterly", FALSE, 0, 3, 6, NA)
-  PPRS1 <- c("PPRS1", "Offender Management", 4, "quarterly", TRUE, 0, 1, 10, NA)
-  PPRS2 <- c("PPRS2", "Proven Reoffending", 4, "quarterly", TRUE, 0, 1, 25, NA)
-  PPRS3 <- c("PPRS3", "Payment By Results", 4, "quarterly", TRUE, 0, 1, 25, NA)
-  WCJS <- c("WCJS", "Women and the Criminal Justice System", 5, "biennial", TRUE, 11, 0, 0, "odd")
-  RCJS <- c("RCJS", "Race and the Criminal Justice System", 5, "biennial", TRUE, 11, 0, 0, "even")
-  publication <- eval(as.name(pub_name))
-  names(publication) <- var_names
-
-  return(publication)
 }
 
 set_interval <- function(frequency){
@@ -71,6 +49,8 @@ set_interval <- function(frequency){
       interval_amount <- 3
     } else if (frequency == "annually"){
       interval_amount <- 12
+    } else if (frequency == "monthly"){
+      interval_amount <- 1
     } else {
       interval_amount <- 24
     }
@@ -93,9 +73,8 @@ manual_date_overide <- function (manual_date){
   return(new_date)
 }
 
-backdate_date <- function (input_date, qago, yago, mago){
-  months_ago <- (3 * qago) + (12 * yago) + (mago)
-  new_date <- input_date %m-% months(months_ago)
+backdate_date <- function (input_date, mago){
+  new_date <- input_date %m-% months(mago)
   return(new_date)
 }
 
@@ -117,9 +96,9 @@ get_annual <- function(input_date, pub_month){
   return(input_date)
 }
 
-get_biennial <- function(input_date, pub_month, even){
+get_biennial <- function(input_date, pub_month, bi_start){
   input_year <- year(input_date)
-  if (even == TRUE) {
+  if (bi_start == "even") {
     new_year <- input_year + input_year %% 2
   }
   else {
@@ -129,16 +108,18 @@ get_biennial <- function(input_date, pub_month, even){
   return(new_date)
 }
 
-find_thurs <- function(input_date, pub_thurs){
+find_day <- function(input_date, pub_week, pub_day){
   month_list <- seq(
     floor_date(input_date, "month"),
     ceiling_date(input_date, "month") - 1,
     by = "1 day")
-  thurs_list <- month_list[wday(month_list, label = TRUE) == "Thu"]
-  pub_thurs <- min(length(thurs_list), pub_thurs)
-  new_pub_date <- thurs_list[pub_thurs]
+  day_list <- month_list[wday(month_list, label = TRUE) == pub_day]
+  pub_week <- min(length(day_list), pub_week)
+  new_pub_date <- day_list[pub_week]
   return(new_pub_date)
 }
+
+#To remove? - not included in output
 
 get_current_q <- function(input_date, delay, calendar){
   if (calendar == FALSE) {
