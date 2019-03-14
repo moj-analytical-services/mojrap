@@ -34,11 +34,11 @@ pub_date <- function(pub_day = 0, pub_week = 0, pub_month = 0, frequency = 0, ca
   } else {
     input_date <- get_biennial(input_date, as.numeric(pub_month), bi_start)
   }
-  input_date <- find_day(input_date, as.numeric(pub_week))
+  input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
   #I can only see it being a past date if in the same month.  Therefore this reruns under that
   if (input_date < today()  && mago + manual_date == 0) {
     input_date <- input_date %m+% months(interval_amount)
-    input_date <- find_day(input_date, as.numeric(pub_week))
+    input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
   }
   return(input_date)
 }
