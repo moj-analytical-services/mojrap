@@ -12,10 +12,8 @@ library(lubridate)
 #' @param frequency how often do you publish (monthly, quarterly, annually, biennially)
 #' @param calendar for quarterly pubs (TRUE if data uses calendar quarters, FALSE if financial)
 #' @param firstpub for quarterly pubs month of first publication of the year (1, 2 or 3)
-#' @param delay for quarterly pubs (number of months between starting month of data quarter and pub month)
 #' @param bi_start biennial publications only is the year of publication "odd" or "even"
 #' @param mago Reduce the date by this many months
-#' @param manual_date Add the starting date.  If blank, the current date (i.e, today()) will be used [to be removed]
 
 #' @examples
 #' Need to set examples here
@@ -23,8 +21,7 @@ library(lubridate)
 #' @export
 
 pub_date <- function(pub_day = 0, pub_week = 0, pub_month = 0, frequency = 0, calendar = TRUE, 
-                     firstpub = 0, delay = 0, bi_start = NA , mago = 0, manual_date = 0) {
-  input_date <- mpub_date(manual_date)
+                     firstpub = 0, bi_start = NA , mago = 0) {
   input_date <- backdate_date(input_date, mago)
   interval_amount <- set_interval(frequency)
   if (interval_amount == 3) {
@@ -36,7 +33,7 @@ pub_date <- function(pub_day = 0, pub_week = 0, pub_month = 0, frequency = 0, ca
   }
   input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
   #I can only see it being a past date if in the same month.  Therefore this reruns under that
-  if (input_date < today()  && mago + manual_date == 0) {
+  if (input_date < today()  && mago == 0) {
     input_date <- input_date %m+% months(interval_amount)
     input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
   }
@@ -57,21 +54,7 @@ set_interval <- function(frequency){
   return(interval_amount)
 }
 
-mpub_date <- function(manual_date){
-  #Manual override the date otherwise use the current date
-  if (manual_date != 0) {
-    input_date <- manual_date_overide(manual_date)
-  }
-  else{
-    input_date <- today()
-  }
-  return(input_date)
-}
-
-manual_date_overide <- function (manual_date){
-  new_date <- dmy(manual_date)
-  return(new_date)
-}
+input_date <- today()
 
 backdate_date <- function (input_date, mago){
   new_date <- input_date %m-% months(mago)
@@ -117,27 +100,4 @@ find_day <- function(input_date, pub_week, pub_day){
   pub_week <- min(length(day_list), pub_week)
   new_pub_date <- day_list[pub_week]
   return(new_pub_date)
-}
-
-#To remove? - not included in output
-
-get_current_q <- function(input_date, delay, calendar){
-  if (calendar == FALSE) {
-    delay <- delay + 3
-    }
-  current_quarter <- (month(input_date %m-% months(delay)) - 1) %/% 3 + 1
-  return(current_quarter)
-}
-
-get_next_q <- function(current_quarter){
-  next_quarter <- current_quarter %% 4 + 1
-  return(next_quarter)
-}
-
-get_previous_q <- function(current_quarter){
-  previous_quarter <- (current_quarter - 1)
-  if (previous_quarter == 0) {
-    previous_quarter <- 4
-    }
-  return(previous_quarter)
 }
