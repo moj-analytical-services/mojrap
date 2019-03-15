@@ -2,34 +2,39 @@ library(lubridate)
 
 # pub_date
 #
-#' Takes the publication name and returns the next publication date
+#' Takes the publication day, week and other parameters and returns the next publication date. 
+#' Can be used to find previous publications by specifying the months ago parameter. 
 #
 #' This will take the name and the date and find the next publication date on a thursday.  
 #' It does a check to make to make sure that it is not a past date unless manual overwritten.
 #' @param pub_day what day of the week is your publication (3 letter starting with capital - Mon, Tue, Wed etc.)
 #' @param pub_week which week of the month do you publish (1, 2, 3, 4 or 5 for the last week)
-#' @param pub_month for annual and biennial what month is your publication
 #' @param frequency how often do you publish (monthly, quarterly, annually, biennially)
-#' @param calendar for quarterly pubs (TRUE if data uses calendar quarters, FALSE if financial)
-#' @param firstpub for quarterly pubs month of first publication of the year (1, 2 or 3)
+#' @param first_pub in what month is the first publication of the calendar year (if quarterly this should be 1, 2 or 3)
 #' @param bi_start biennial publications only is the year of publication "odd" or "even"
 #' @param mago Reduce the date by this many months
 
 #' @examples
-#' Need to set examples here
+#' pub_date(pub_day = "Thu", pub_week = 2, first_pub = 2, frequency = "quarterly", bi_start = NA , mago = 0)
+#' 
+#' This will output the date for a publication that is; on a Thursday, is in the 2nd week of the month, is quarterly
+#' and has it's first publication of the calendar year in February. 
 #'
 #' @export
 
-pub_date <- function(pub_day = 0, pub_week = 0, pub_month = 0, frequency = 0, calendar = TRUE, 
-                     firstpub = 0, bi_start = NA , mago = 0) {
+pub_date <- function(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0, bi_start = NA , mago = 0) {
+  #sets up initial input date determined by publication frequency and backdates if necessary
+  #uses find_day to pick out publication date in that month and ensures this is in future (if applicable)
   input_date <- backdate_date(input_date, mago)
   interval_amount <- set_interval(frequency)
   if (interval_amount == 3) {
-    input_date <- get_quarter(input_date, as.numeric(firstpub))
+    input_date <- get_quarter(input_date, as.numeric(first_pub))
   } else if (interval_amount == 12) {
-    input_date <- get_annual(input_date, as.numeric(pub_month))
+    input_date <- get_annual(input_date, as.numeric(first_pub))
+  } else if (interval_amount == 1) {
+    input_date <- input_date
   } else {
-    input_date <- get_biennial(input_date, as.numeric(pub_month), bi_start)
+    input_date <- get_biennial(input_date, as.numeric(first_pub), bi_start)
   }
   input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
   #I can only see it being a past date if in the same month.  Therefore this reruns under that
@@ -39,6 +44,9 @@ pub_date <- function(pub_day = 0, pub_week = 0, pub_month = 0, frequency = 0, ca
   }
   return(input_date)
 }
+
+input_date <- today()
+#starts using today's date
 
 set_interval <- function(frequency){
   #convert the word to it's unit of measurement
@@ -54,32 +62,28 @@ set_interval <- function(frequency){
   return(interval_amount)
 }
 
-input_date <- today()
-
 backdate_date <- function (input_date, mago){
+  #goes back mago months
   new_date <- input_date %m-% months(mago)
   return(new_date)
 }
 
-get_quarter <- function(input_date, firstpub){
-  next_quarter <- ceiling( (month(input_date) - firstpub) / 3) * 3 + firstpub
+get_quarter <- function(input_date, first_pub){
+  #for quarterly pubs establishes month on correct cycle using first_pub
+  next_quarter <- ceiling( (month(input_date) - first_pub) / 3) * 3 + first_pub
   increase_mon <- next_quarter - month(input_date)
   input_date <- input_date %m+% months(increase_mon)
   return(input_date)
 }
 
-get_annual <- function(input_date, pub_month){
-  if (month(input_date) < pub_month) {
-    pub_year <- year(input_date)
-  }
-  else{
-    pub_year <- year(input_date) + 1
-  }
-  input_date <- make_date(pub_year, pub_month, day(input_date))
+get_annual <- function(input_date, first_pub){
+  #for annual pubs establishes date in correct month
+  input_date <- make_date(pub_year, first_pub, day(input_date))
   return(input_date)
 }
 
-get_biennial <- function(input_date, pub_month, bi_start){
+get_biennial <- function(input_date, first_pub, bi_start){
+  #for biennial pubs establishes date in correct month and year
   input_year <- year(input_date)
   if (bi_start == "even") {
     new_year <- input_year + input_year %% 2
@@ -87,11 +91,12 @@ get_biennial <- function(input_date, pub_month, bi_start){
   else {
     new_year <- input_year + (input_year %% 2 + 1) %% 2
   }
-  new_date <- make_date(new_year, pub_month, day(input_date))
+  new_date <- make_date(new_year, first_pub, day(input_date))
   return(new_date)
 }
 
 find_day <- function(input_date, pub_week, pub_day){
+  #selects potential publication date using pub_week and pub_day inputs based on established month 
   month_list <- seq(
     floor_date(input_date, "month"),
     ceiling_date(input_date, "month") - 1,
