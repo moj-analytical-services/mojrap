@@ -5,8 +5,8 @@ library(lubridate)
 #' Takes the publication day, week and other parameters and returns the next publication date. 
 #' Can be used to find previous publications by specifying the months ago parameter. 
 #
-#' This will take the name and the date and find the next publication date on a thursday.  
-#' It does a check to make to make sure that it is not a past date unless manual overwritten.
+#' This will take today's date and find the next publication date for a publication specified using the below parameters. 
+#' It does a check to make to make sure that it is not a past date unless backdating is specified.
 #' @param pub_day what day of the week is your publication (3 letter starting with capital - Mon, Tue, Wed etc.)
 #' @param pub_week which week of the month do you publish (1, 2, 3, 4 or 5 for the last week)
 #' @param frequency how often do you publish (monthly, quarterly, annually, biennially)
@@ -37,7 +37,7 @@ pub_date <- function(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0, bi
     input_date <- get_biennial(input_date, as.numeric(first_pub), bi_start)
   }
   input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
-  #I can only see it being a past date if in the same month.  Therefore this reruns under that
+  #Reruns if given date is not in future (unless specified). 
   if (input_date < today()  && mago == 0) {
     input_date <- input_date %m+% months(interval_amount)
     input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
