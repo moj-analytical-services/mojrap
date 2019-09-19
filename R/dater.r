@@ -24,23 +24,29 @@ pub_date <- function(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0, bi
   #sets up initial input date determined by publication frequency and backdates if necessary
   #uses find_day to pick out publication date in that month and ensures this is in future (if applicable)
 
-  if (pub_day %in% c("Mon","Tue","Wed","Thu","Fri","Sat","Sun") == FALSE)
-  {stop("Your pub_day input must be a 3 letter day starting with a capital e.g. Mon")}
+  if (pub_day %in% c("Mon","Tue","Wed","Thu","Fri","Sat","Sun") == FALSE){
+    stop("Your pub_day input must be a 3 letter day starting with a capital e.g. Mon")
+    }
   
-  if (pub_week %in% c(1,2,3,4,5) == FALSE)
-  {stop("Your pub_week input must be 1, 2, 3, 4 or 5")}
+  if (pub_week %in% c(1,2,3,4,5) == FALSE){
+    stop("Your pub_week input must be 1, 2, 3, 4 or 5")
+    }
   
-  if (first_pub %in% c(1,2,3,4,5,6,7,8,9,10,11,12) == FALSE)
-  {stop("Your first_pub input must be a number between 1 and 12")}
+  if (first_pub %in% c(1,2,3,4,5,6,7,8,9,10,11,12) == FALSE){
+    stop("Your first_pub input must be a number between 1 and 12")
+    }
   
-  if (frequency %in% c("monthly","quarterly","annually","biennially") == FALSE)
-  {stop("Your frequency input must be monthly, quarterly, annually or biennially")}
+  if (frequency %in% c("monthly","quarterly","annually","biennially") == FALSE){
+    stop("Your frequency input must be monthly, quarterly, annually or biennially")
+    }
   
-  if (bi_start %in% c("odd","even",NA) == FALSE)
-  {stop("Your bi_start input must be odd, even or NA")}
+  if (bi_start %in% c("odd","even",NA) == FALSE){
+    stop("Your bi_start input must be odd, even or NA")
+    }
   
-  if (is.numeric(mago) == FALSE || mago < 0)
-  {stop("Your mago input must be a number greater than or equal to zero")}
+  if (is.numeric(mago) == FALSE || mago < 0){
+    stop("Your mago input must be a number greater than or equal to zero")
+    }
   
   input_date <- lubridate::today()
   input_date <- backdate_date(input_date, mago)
@@ -51,7 +57,7 @@ pub_date <- function(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0, bi
     input_date <- get_annual(input_date, as.numeric(first_pub))
   } else if (interval_amount == 1) {
     input_date <- input_date
-  } else {
+  } else if (interval_amount == 24) {
     input_date <- get_biennial(input_date, as.numeric(first_pub), bi_start)
   }
   input_date <- find_day(input_date, as.numeric(pub_week), pub_day)

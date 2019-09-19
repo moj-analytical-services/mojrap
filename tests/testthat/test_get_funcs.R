@@ -19,5 +19,6 @@ test_that("get biennial works",{
   expect_equal(get_biennial(dmy("01/07/19"),2,"odd"),dmy("01/02/19"))
   expect_equal(get_biennial(dmy("20/02/76"),12,"even"),dmy("01/12/76"))
   expect_equal(get_biennial(dmy("12/11/27"),5,"even"),dmy("01/5/28")) 
-  
+  expect_error(get_biennial(dmy("12/11/27"),5,"neither"))
+  expect_error(get_biennial(dmy("12/11/27"),5,NA))
 })
