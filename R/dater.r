@@ -20,7 +20,7 @@
 #' 
 #' @export
 
-pub_date <- function(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0, bi_start = NA , mago = 0) {
+pub_date <- function(pub_day, pub_week, first_pub, frequency, bi_start = NA , mago = 0) {
   #sets up initial input date determined by publication frequency and backdates if necessary
   #uses find_day to pick out publication date in that month and ensures this is in future (if applicable)
 
