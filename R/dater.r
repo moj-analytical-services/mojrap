@@ -20,10 +20,16 @@
 #' 
 #' @export
 
-pub_date <- function(pub_day, pub_week, first_pub, frequency, bi_start = NA , mago = 0) {
+# MAIN BODY ----------------------
+
+pub_date <- function(input_date=lubridate::today(), pub_day, pub_week, first_pub, frequency, bi_start = NA , mago = 0) {
   #sets up initial input date determined by publication frequency and backdates if necessary
   #uses find_day to pick out publication date in that month and ensures this is in future (if applicable)
 
+  if (is.na(as.Date(input_date, format="%Y-%m-%d")) == TRUE){
+    stop("Your input_date input must be a date in the format: 'year-month-day'")
+  }
+  
   if (pub_day %in% c("Mon","Tue","Wed","Thu","Fri","Sat","Sun") == FALSE){
     stop("Your pub_day input must be a 3 letter day starting with a capital e.g. Mon")
     }
@@ -48,7 +54,7 @@ pub_date <- function(pub_day, pub_week, first_pub, frequency, bi_start = NA , ma
     stop("Your mago input must be a number greater than or equal to zero")
     }
   
-  input_date <- lubridate::today()
+  input_date <- as.Date(input_date)
   input_date <- backdate_date(input_date, mago)
   interval_amount <- set_interval(frequency)
   if (interval_amount == 3) {
@@ -68,6 +74,8 @@ pub_date <- function(pub_day, pub_week, first_pub, frequency, bi_start = NA , ma
   }
   return(input_date)
 }
+
+# ADDITIONAL FUNCTIONS -----------------
 
 set_interval <- function(frequency){
   #convert the word to it's unit of measurement
