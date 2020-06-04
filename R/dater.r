@@ -14,6 +14,9 @@
 #' @param frequency how often do you publish (monthly, quarterly, annually, biennially)
 #' @param bi_start biennial publications only is the year of publication "odd" or "even"
 #' @param mago Reduce the date by this many months
+#' The following 2 are only set when testing
+#' @param input_date defaults to today's date, however for testing purposes can be changed to an arbitrary date
+#' @param test set to TRUE when testing the function, otherwise defaults to FALSE
 #' 
 #' @examples
 #' pub_date(pub_day = "Thu", pub_week = 2, first_pub = 2, frequency = "quarterly", bi_start = NA , mago = 0)
@@ -22,7 +25,7 @@
 
 # MAIN BODY ----------------------
 
-pub_date <- function(input_date=lubridate::today(), pub_day, pub_week, first_pub, frequency, bi_start = NA , mago = 0) {
+pub_date <- function(pub_day, pub_week, first_pub, frequency, bi_start = NA , mago = 0, input_date=lubridate::today(), test=FALSE) {
   #sets up initial input date determined by publication frequency and backdates if necessary
   #uses find_day to pick out publication date in that month and ensures this is in future (if applicable)
 
@@ -55,6 +58,7 @@ pub_date <- function(input_date=lubridate::today(), pub_day, pub_week, first_pub
     }
   
   input_date <- as.Date(input_date)
+  #browser()
   input_date <- backdate_date(input_date, mago)
   interval_amount <- set_interval(frequency)
   if (interval_amount == 3) {
@@ -67,11 +71,13 @@ pub_date <- function(input_date=lubridate::today(), pub_day, pub_week, first_pub
     input_date <- get_biennial(input_date, as.numeric(first_pub), bi_start)
   }
   input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
-  #Reruns if given date is not in future (unless specified). 
-  if (input_date < lubridate::today()  && mago == 0) {
-    input_date <- input_date %m+% months(interval_amount)
-    input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
-  }
+  #Reruns if given date is not in future (unless specified), but only when NOT in testing mode
+  if (test == FALSE){
+    if (input_date < lubridate::today()  && mago == 0) {
+      input_date <- input_date %m+% months(interval_amount)
+      input_date <- find_day(input_date, as.numeric(pub_week), pub_day)
+    }
+  }  
   return(input_date)
 }
 
