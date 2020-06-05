@@ -58,7 +58,6 @@ pub_date <- function(pub_day, pub_week, first_pub, frequency, bi_start = NA , ma
     }
   
   input_date <- as.Date(input_date)
-  #browser()
   input_date <- backdate_date(input_date, mago)
   interval_amount <- set_interval(frequency)
   if (interval_amount == 3) {
