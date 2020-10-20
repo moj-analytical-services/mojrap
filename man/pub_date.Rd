@@ -4,8 +4,8 @@
 \alias{pub_date}
 \title{Returns the next publication date}
 \usage{
-pub_date(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0,
-  bi_start = NA, mago = 0)
+pub_date(pub_day, pub_week, first_pub, frequency, bi_start = NA,
+  mago = 0, input_date = lubridate::today(), test = FALSE)
 }
 \arguments{
 \item{pub_day}{what day of the week is your publication (3 letter starting with capital - Mon, Tue, Wed etc.)}
@@ -18,7 +18,12 @@ pub_date(pub_day = 0, pub_week = 0, first_pub = 0, frequency = 0,
 
 \item{bi_start}{biennial publications only is the year of publication "odd" or "even"}
 
-\item{mago}{Reduce the date by this many months}
+\item{mago}{Reduce the date by this many months
+The following 2 are only set when testing}
+
+\item{input_date}{defaults to today's date, however for testing purposes can be changed to an arbitrary date}
+
+\item{test}{set to TRUE when testing the function, otherwise defaults to FALSE}
 }
 \description{
 Takes the publication day, week and other parameters and returns the next publication date.
