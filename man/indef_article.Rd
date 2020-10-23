@@ -4,27 +4,39 @@
 \alias{indef_article}
 \title{A Function to assign the indefinite article before a word}
 \usage{
-indef_article(text_var, caps = F)
+indef_article(text_var, caps = T)
 }
 \arguments{
 \item{text_var}{The word before which the article will be placed}
+
+\item{caps}{Whether the end result will be capitalised or not}
 }
 \value{
-A text variable conaining the multistaement ready to be used in the RAP system
+A text variable conaining the multistatement ready to be used in the RAP system
 }
 \description{
-This function attempts to ssign the indefinite article before a given text string.
-Currently this will work with words but not numbers or anythig that cannot be used by regex
-which is the core ext recognition engine used.
+This function attempts to assign the indefinite article before a given text string.
+The function is using the \code{engish} package at its core and it build so that it can handle numbers and
+text - see the examples section for more ideas.
 
-#'
+An important note here: The code is not using case_when() to alter between different states since, although conceptually corerct,
+it will not work optimaly because of the way case_when() works. The function will calculate all RHS statements first and then evaluate
+matches using the LHS ones. Because of that there will be warnings when using the Indefinite() funciton etc.
 }
 \examples{
 
 
-article_indef("word", caps=F)
+indef_article("word", caps=F)
 
-article_indef("A", caps=F)
+indef_article("11\%", caps=T)
+
+indef_article("11\% and a text here", caps=T)
+
+indef_article("11\% and a text here", caps=F)
+
+indef_article("11anumber and a solid text here", caps=T)
+
+
 
 
 }
