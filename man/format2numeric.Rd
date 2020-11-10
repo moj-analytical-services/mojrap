@@ -24,3 +24,6 @@ format2numeric(format_num(100222))
 format2numeric(format_num(200344445.3322, accuracy = 0.01))
 
 }
+\author{
+George Papadopoulos
+}

@@ -45,6 +45,10 @@
 #' multi_statement(category_names = df$categories, 
 #' category_changes = df$change, category_perc = df$perc, order_of_placement = "increase")
 #' 
+#' 
+#' @author George Papadopoulos
+#' 
+#' 
 #' @export
 #' 
 #' 

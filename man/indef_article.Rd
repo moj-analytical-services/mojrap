@@ -40,3 +40,6 @@ indef_article("11anumber and a solid text here", caps=T)
 
 
 }
+\author{
+George Papadopoulos
+}

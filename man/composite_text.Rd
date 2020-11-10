@@ -40,3 +40,6 @@ df = tribble(
 composite_text(df)
 
 }
+\author{
+George Papadopoulos
+}

@@ -15,7 +15,7 @@
 #' 
 #' @return The value returned is a character string ready to be used by the RAP system in place. 
 #' 
-#'
+#' @author George Papadopoulos
 #' 
 #' 
 #' @examples 

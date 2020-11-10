@@ -27,6 +27,8 @@
 #' 
 #' @examples 
 #' 
+#' @author George Papadopoulos
+#' 
 #' 
 #' @export
 #' 

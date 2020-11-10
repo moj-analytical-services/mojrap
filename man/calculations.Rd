@@ -36,5 +36,7 @@ the ration of the previous and current value and the percentage difference.
 }
 \examples{
 
-
+}
+\author{
+George Papadopoulos
 }

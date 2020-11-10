@@ -27,6 +27,8 @@
 #' @return A text variable that is to be used to contruct the multistatement structure. 
 #' This is stylised for use in later stages of the process
 #' 
+#' @author George Papadopoulos
+#' 
 #' @examples 
 #' 
 #' df = tribble(

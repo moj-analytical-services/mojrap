@@ -14,7 +14,7 @@
 #' @return The value returned is a numeric ready to be used by the RAP system in place. 
 #' 
 #'
-#' 
+#' @author George Papadopoulos
 #' 
 #' @examples 
 #' 

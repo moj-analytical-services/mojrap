@@ -13,6 +13,8 @@
 #' it will not work optimaly because of the way case_when() works. The function will calculate all RHS statements first and then evaluate 
 #' matches using the LHS ones. Because of that there will be warnings when using the Indefinite() funciton etc. 
 #' 
+#' @author George Papadopoulos
+#' 
 #'   
 #' 
 #' @param text_var The word before which the article will be placed
