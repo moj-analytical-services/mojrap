@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-
 #' @title  Formating a numeric value to display a comma at the thousands mark for use in a RAP system 
 #' 
 #' @description This function outputs and formats a numeric value to 
@@ -42,7 +39,6 @@ format_num = function(value,big.mark = ",",decimal.mark = ".", accuracy = 0.1){
   scales::comma(as.numeric(value), big.mark = big.mark, decimal.mark = decimal.mark, accuracy = accuracy)
   
 }
-=======
 # format_num
 #
 #' Formats numbers with a comma delimiter and values of less than 10 are represented as words
@@ -126,4 +122,7 @@ format_num <- function(number) {
 }
 
 
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f

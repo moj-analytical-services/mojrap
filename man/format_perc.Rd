@@ -3,6 +3,7 @@
 \name{format_perc}
 \alias{format_perc}
 <<<<<<< HEAD
+<<<<<<< HEAD
 \title{Formating the percentage value for use in a RAP system}
 \usage{
 format_perc(previous_value, current_value, round_digits = 0,
@@ -35,6 +36,8 @@ format_perc(100,99.5)
 George Papadopoulos
 }
 =======
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 \title{Format percentages}
 \usage{
 format_perc(fraction)
@@ -56,4 +59,7 @@ Generic method to convert tables into wide format
 format_perc(0.1) #returns 10\%
 
 }
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f

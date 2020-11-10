@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # asdrap
 
 ## Contents
@@ -24,6 +25,8 @@ TL;DR
 
 ## Getting Started
 =======
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 [![Coverage status](https://codecov.io/gh/moj-analytical-services/RAP_code_library/branch/master/graph/badge.svg)](https://codecov.io/github/moj-analytical-services/RAP_code_library?branch=master)
 
 # mojrap
@@ -51,12 +54,16 @@ When someone creates a specific RAP within the MoJ, they look at their functions
 TL;DR
 
 ![alt text](mojrap_flowchart.png)
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 
 ## Using the package
 
 If you just want to make use of the package, do the following:
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 * Create a Github [Public Access Token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
 * Assign this value to a variable `GITHUB_PAT`
@@ -67,6 +74,8 @@ You will now have access to all the functions in the library, using the followin
 
 Example: to use FUNCTION from the asdrap package, type `asdrap::FUNCTION()`
 =======
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 * Run `devtools::install_github("moj-analytical-services/mojrap")` to download the package
 * Load the package using `library(mojrap)`
 
@@ -85,6 +94,9 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
 * `quarter_dates.R` - Caculates quarter dates
 
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 
 ## Package Infrastructure
@@ -109,8 +121,11 @@ Is a config file that should not be updated manually - instead use roxygen comme
 Is a config file. Most fields are self explanatory. http://r-pkgs.had.co.nz/description.html
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 =======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 ## Contributing to the package
@@ -119,7 +134,11 @@ Now that you have created a reusable function, how do you share it with everyone
 
 1) Clone this repo:
 <<<<<<< HEAD
+<<<<<<< HEAD
 In the terminal, run `git clone git@github.com:moj-analytical-services/asdrap.git`
+=======
+In the terminal, run `git clone git@github.com:moj-analytical-services/mojrap.git`
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 =======
 In the terminal, run `git clone git@github.com:moj-analytical-services/mojrap.git`
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
@@ -130,13 +149,19 @@ Or see step 4.1.2 of the [platform guidance](https://moj-analytical-services.git
 3) Open a [Pull Request](https://help.github.com/articles/creating-a-pull-request/) to merge your functions into the package. 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. This isn't a a test or anything, its just that getting someone to have a quick look over your code is a good way to learn and imporve. We want to try and build a culture of people sharing their knowledge so if you post your pull requests in the #rap channel of the ASD slack someone should be able to review it for you - and hopefully you will start reviewing for others too!
 =======
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. The reviewer must check that the function satisfies the following:
 * Must have been used in a publication
 * Must have unit testing
 * Must pass unit testing of entire package
 * Must have documentation around functions with examples
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 
 5) Merge your pull request. Once you have done this make sure to post in the RAP slack channel that you have merged in your changes so people can update their version of the package
@@ -146,7 +171,12 @@ Congratulations! You have now contibuted to the asdrap package! If you [reinstal
 ## Found a bug?
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/asdrap/issues) and/or open a [pull request](https://github.com/moj-analytical-services/asdrap/pulls) with your suggested solution.
+=======
+You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/mojrap/issues) and/or open a [pull request](https://github.com/moj-analytical-services/mojrap/pulls) with your suggested solution.
+
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 =======
 You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/mojrap/issues) and/or open a [pull request](https://github.com/moj-analytical-services/mojrap/pulls) with your suggested solution.
 

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Package: asdrap
 Version: 0.0.1
 Title: General RAP Functions For ASD
@@ -15,6 +16,8 @@ RoxygenNote: 6.1.1
 Imports:
     lubridate
 =======
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 Package: mojrap
 Type: Package
 Title: Generic Functions for Reproducible Analytical Pipelines in MoJ
@@ -41,4 +44,7 @@ Suggests:
     testthat,
     covr
 VignetteBuilder: knitr
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f

@@ -3,6 +3,7 @@
 \name{format_num}
 \alias{format_num}
 <<<<<<< HEAD
+<<<<<<< HEAD
 \title{Formating a numeric value to display a comma at the thousands mark for use in a RAP system}
 \usage{
 format_num(value, big.mark = ",", decimal.mark = ".", accuracy = 0.1)
@@ -35,6 +36,8 @@ format_num(200344445.3322, accuracy = 0.01)
 \author{
 George Papadopoulos
 =======
+=======
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 \title{Formats numbers with a comma delimiter and values of less than 10 are represented as words}
 \usage{
 format_num(number)
@@ -48,5 +51,8 @@ Formats numbers with a comma delimiter and values of less than 10 are represente
 \examples{
 format_num("1000") # returns "1,000"
 format_num("1") # returns 'one'
+<<<<<<< HEAD
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
+=======
 >>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
 }
