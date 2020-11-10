@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Package: asdrap
 Version: 0.0.1
 Title: General RAP Functions For ASD
@@ -13,3 +14,31 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 Imports:
     lubridate
+=======
+Package: mojrap
+Type: Package
+Title: Generic Functions for Reproducible Analytical Pipelines in MoJ
+Version: 0.1.0
+Authors@R: c(
+    person("Christopher", "Fairbanks", , "christopher.fairbanks@justice.gsi.gov.uk", c("aut", "cre")),
+    person("Ross", "Kennedy", , "ross.kennedy@justice.gov.uk", role = "aut")
+    )
+Description: Package to hold generic functions for MoJ RAP projects
+License: What license is it under?
+Encoding: UTF-8
+Imports:
+  scales,
+  lubridate,
+  dplyr,
+  plyr,
+  pander,
+  knitr
+LazyData: true
+RoxygenNote: 6.0.1
+Suggests: 
+    lintr,
+    rmarkdown,
+    testthat,
+    covr
+VignetteBuilder: knitr
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f

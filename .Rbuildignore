@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 ^packrat/
 ^\.Rprofile$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+=======
+^.*\.Rproj$
+^\.Rproj\.user$
+^packrat/
+^\.Rprofile$
+^codecov\.yml$
+>>>>>>> 8e0c8be30642eb2d35eb78e8509a82d45d14570f
