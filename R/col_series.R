@@ -15,6 +15,14 @@
 
 col_series <- function(colour, class) {
 
+  if (colour %in% c('blue', 'green', 'grey', 'orange', 'purple', 'red') == FALSE) {
+    stop("The 'colour' argument must be one of six strings: 'blue', 'green', 'grey', 'orange', 'purple' or 'red'")
+  }
+
+  if (class %in% c(3,4,5,6,7,8,9) == FALSE) {
+    stop("The 'class' argument must be a number between 3 and 9 inclusive")
+  }
+
 
   if ( (data.table::inrange(class, 3, 9, incbounds = TRUE)
         && is.element(colour, c("blue", "green", "grey", "orange", "purple", "red") ) == TRUE)){
@@ -53,9 +61,5 @@ col_series <- function(colour, class) {
     output <- as.vector(output[,1])
 
     return(output)}
-
-  else{
-    stop("The number of data classes can only be between 3 and 9 and the only colours you can select are: blue, green, grey, orange, purple or red")
-  }
 
 }

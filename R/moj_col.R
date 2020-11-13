@@ -24,6 +24,9 @@ moj_col <- function(colour, x, class = 9) {
   else if (is.element(colour, c("blue", "green", "grey", "orange", "purple", "red")) != TRUE){
     stop("The only colours you can select are: blue, green, grey, orange, purple and red")}
 
+  else if (x > class){
+    stop("The shade of colour must be a smaller number than the number of data classes")}
+
   else{
 
     # Selects chosen colour and number of data classes

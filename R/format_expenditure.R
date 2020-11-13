@@ -50,6 +50,14 @@ format_expenditure <- function(value, format = "m", currency = "£", dp = 1) {
 
       stop("Input to format_expenditure is NA", call. = FALSE)
 
+    } else if (is.numeric(value) == FALSE) {
+      # Check that value is a number, and raise an error if it isn't
+      stop("Input to format_expenditure is not a number", call. = FALSE)
+
+    }  else if (format %in% c("m", "k") == FALSE) {
+      # Check that format is "m" or "k", and raise an error if it isn't
+      stop("The format argument is not either 'm' or 'k'", call. = FALSE)
+
     } else if (format == 'm') {
 
       # If checks of function pass, then run the main body of the function, and

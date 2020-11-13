@@ -1,6 +1,6 @@
 #' Output UTF Arrows
 #'
-#' @description Function to output UTF arrows depending on number.
+#' @description Function to output  Unicode Transformation Format (UTF) arrows depending on the number provided.
 #'
 #' @param x Number (usually the difference between two figures)
 #
@@ -12,6 +12,10 @@
 #' @export
 
 arrow_utf <- function(x){
+
+  if (is.numeric(x) == FALSE){
+    stop("Input must be a number representing a difference between two figures")
+  }
 
   if (x > 0){
 
