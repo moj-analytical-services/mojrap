@@ -12,15 +12,13 @@
 #' @export
 
 arrow_image <- function(x){
-
-  if (tolower(x) %in% c("up", "down", "nochange")){
-
-    stringr::str_c("![](images/", tolower(x), "front.png){ width=50% }")
-
-  } else {
-
-    warning("Incorrect input, please enter 'up', 'down' or 'nochange'.")
-
+  if(is.null(x) == TRUE){
+    stop("Incorrect input, please enter 'up', 'down' or 'nochange' in string format.")
   }
 
+  else{
+  ifelse(tolower(x) %in% c("up", "down", "nochange"),
+         stringr::str_c("![](images/", tolower(x), "front.png){ width=50% }"),
+         stop("Incorrect input, please enter 'up', 'down' or 'nochange' in string format."))
+  }
 }
