@@ -30,7 +30,7 @@ moj_col <- function(colour, x, class = 9) {
   else{
 
     # Selects chosen colour and number of data classes
-    output <- mojrap::col_series(colour, class)
+    output <- col_series(colour, class)
 
     # Selects chosen shade of colour
     output <- output[x]

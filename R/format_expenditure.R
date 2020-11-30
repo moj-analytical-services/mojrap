@@ -22,7 +22,7 @@
 
 
 
-format_expenditure <- function(value, format = "m", currency = "£", dp = 1) {
+format_expenditure <- function(value, format = "m", currency = "\u00A3", dp = 1) {
 
   tryCatch({
 

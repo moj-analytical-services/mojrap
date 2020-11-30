@@ -55,7 +55,7 @@ col_series <- function(colour, class) {
     rm(blue, green, grey, orange, purple, red, series)
 
     # Selecting the colour, filtered to chosen series
-    output <- dplyr::select(dplyr::filter(palette, series == class), all_of(colour))
+    output <- dplyr::select(dplyr::filter(palette, series == class), dplyr::all_of(colour))
     rm(palette)
 
     output <- as.vector(output[,1])

@@ -5,7 +5,6 @@
 
 ## Contents
 * [What is this repo for?](#what-is-this-repo-for)
-* [Where does this package sit in our infrastructure?](#where-does-this-package-sit-in-our-infrastructure)
 * [Using the package](#using-the-package)
 * [Functions in the package](#functions-in-the-package)
 * [Package infrastructure](#package-infrastructure)
@@ -17,14 +16,6 @@
 This is a collection of quality assured, generalised functions that have been created in the various Reproducible Analytical Pipelines (e.g. Statistics Publications, Financial Reports etc.) within the Ministry of Justice. 
 
 If you are implementing RAP within your own department, or just think some of these functions could be of use, please install the package and use away! Also, if you are using any of the functions and find a bug or can think of away to improve them, we would love your input - see [Contributing to the package](#contributing-to-the-package) for ways you can help.
-
-## Where does this package sit in our infrastructure?
-
-When someone creates a specific RAP within the MoJ, they look at their functions to see what can be made more general. Once these have been picked out, they are added to the internal Analytical Services Directorate RAP package [(asdrap)](https://github.com/moj-analytical-services/asdrap) where they get peer reviewed by other analysts and start getting unit-tested etc. Once the functions have been through sufficient QA (and been used in the 'real world' e.g. an official stats release) they are then promoted to here. 
-
-TL;DR
-
-![alt text](mojrap_flowchart.png)
 
 ## Using the package
 
@@ -40,14 +31,20 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 ## Functions in the package
 
 * `as_number.R` - Turns numerical strings into number format
+* `arrow_image.R` - Outputs the path to an arrow image for the main points table
+* `arrow_pdf.R` - Outputs the path to an arrow image for the PDF version of the main points table
+* `arrow_utf.R` - Outputs UTF arrows
+* `col_series.R` - Outputs a colour in hex format and a given number of shades
 * `connector.R` - Produces a connecting word for a compound sentence
 * `date_type.R` - Takes standard dates and outputs them in specified formats
+* `format_expenditure.R` - Formats a number to a monetary format
 * `format_num.R` - Formats numerical values as thousand delimitted absolute values. Values of less than 10 are words
 * `format_perc.R` - Formats fractions as percentages, with percentage signs
 * `getThursday.R` - Predicts the next publication date for quarterly publications
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
-* `quarter_dates.R` - Caculates quarter dates
-
+* `mojquarter.R` - Converts dates to publication quarters
+* `moj_col.R` - Outputs a given number of shades of a colour in hex format
+* `quarter_dates.R` - Calculates quarter dates
 
 ## Package Infrastructure
 A whistle stop tour of the package for those who aren't as familiar with R/package development 
@@ -76,21 +73,21 @@ Now that you have created a reusable function, how do you share it with everyone
 
 1) Clone this repo:
 In the terminal, run `git clone git@github.com:moj-analytical-services/mojrap.git`
-Or see step 4.1.2 of the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#step-2-navigate-to-your-platform-r-studio-and-make-a-copy-of-the-github-project-in-your-r-studio) if you are having any difficulties.
+Or see the [platform guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#r-studio) if you are having any difficulties.
 
-2) Create a new branch and add your function(s) to it - see the [platform guidance](https://moj-analytical-services.github.io/platform_user_guidance/using-github-with-r-studio.html#working-on-a-branch.) if you aren't familiar with doing this
+2) Create a new branch and add your function(s) to it - see the [platform guidance](https://user-guidance.services.alpha.mojanalytics.xyz/github.html#working-on-a-branch) if you aren't familiar with doing this
 
 3) Open a [Pull Request](https://help.github.com/articles/creating-a-pull-request/) to merge your functions into the package. 
 
-4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. The reviewer must check that the function satisfies the following:
-* Must have been used in a publication
+4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. Approval from at least one admin is also required before the pull request can be merged. The reviewer must check that the function satisfies the following:
 * Must have unit testing
 * Must pass unit testing of entire package
 * Must have documentation around functions with examples
+* Should follow coding best practice guidelines, e.g. [DASD Coding Principles](https://moj-analytical-services.github.io/our-coding-standards/), [MoJ Harmonisation Guidance](https://moj-analytical-services.github.io/harmonisation-guidance/). 
 
 5) Merge your pull request. Once you have done this make sure to post in the RAP slack channel that you have merged in your changes so people can update their version of the package
 
-Congratulations! You have now contibuted to the asdrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
+Congratulations! You have now contibuted to the mojrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
 
 ## Found a bug?
 
