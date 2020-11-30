@@ -25,6 +25,11 @@ multiple_cell_merge <- function(wb, sheet, rows, cols) {
 #' @title Writes multiple data tables and accompanying notes to an Excel sheet, with formatting.
 save_formatted_table <- function(workbook, sheet_name, tables, notes, starting_row, quarterly_format = NULL) {
 
+  #Throw error if not passed a list of tables
+  if(inherits(tables, "list") == FALSE) {stop("Tables must be provided as a list")}
+  #Throw error if not passed a vector of notes
+  if(is.vector(notes) == FALSE | inherits(notes, "list") == TRUE) {stop("Notes must be provided as a vector")}
+
   ##Set starting row parameters
   start_row <- starting_row
 
@@ -109,7 +114,7 @@ save_formatted_table <- function(workbook, sheet_name, tables, notes, starting_r
   )
   #Format notes; merge and then add style
   multiple_cell_merge(wb = workbook,
-                      table_id = sheet_name,
+                      sheet = sheet_name,
                       rows = start_row_notes:end_row_notes,
                       cols = seq_len(ncol(tables[[1]])))
   openxlsx::addStyle(wb = workbook,

@@ -70,10 +70,6 @@ test_that("Row merge on notes works correctly", {
 })
 
 
-test_that("Formatting goes in the correct place", {
-
-
-})
 
 test_that("Not giving a list of tables throws an error", {
   a <- openxlsx::createWorkbook()
