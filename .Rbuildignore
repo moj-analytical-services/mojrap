@@ -3,3 +3,4 @@
 ^packrat/
 ^\.Rprofile$
 ^codecov\.yml$
+.travis.yml
