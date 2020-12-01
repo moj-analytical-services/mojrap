@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/moj-analytical-services/mojrap.svg?branch=master)](https://travis-ci.org/moj-analytical-services/mojrap)
-[![Coverage status](https://codecov.io/gh/moj-analytical-services/RAP_code_library/branch/master/graph/badge.svg)](https://codecov.io/github/moj-analytical-services/RAP_code_library?branch=master)
+[![codecov](https://codecov.io/gh/moj-analytical-services/mojrap/branch/master/graph/badge.svg?token=nfotff9dv0)](https://codecov.io/gh/moj-analytical-services/mojrap)
 
 # mojrap
 
