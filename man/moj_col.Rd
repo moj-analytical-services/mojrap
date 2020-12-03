@@ -20,5 +20,11 @@ Colour(s)
 You can choose between 6 different colours and their shades. This function can be useful for adding colour to your charts.
 }
 \examples{
+moj_col("blue", 2) # gives you colour #deebf7, which is the 2nd brightest of the 9 shades of blue.
+moj_col("blue", x = c(5, 7), class = 7) # gives you colours #4292c6 and #084594. These are the 5th
+# and last of the 7 shades of blue.
+moj_col("orange", x = 1:5, class = 5) # gives you all 5 shades of orange.
+c(moj_col("red", x = 5:8), moj_col("purple", x = 6:7, class = 8)) # gives you red colours
+# (#fb6a4a, #ef3b2c, #cb181d and #a50f15) and purple colours (#807dba and #6a51a3)
 
 }

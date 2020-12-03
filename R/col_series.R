@@ -6,8 +6,8 @@
 #' @param class Number of data classes (different shades) of the chosen colour. The number of data classes can only be between 3 and 9.
 #
 #' @examples
-#' col_series("blue", 5) gives you 5 different shades of blue
-#' col_series("purple", 8) gives you 8 different shades of purple
+#' col_series("blue", 5) # gives you 5 different shades of blue
+#' col_series("purple", 8) # gives you 8 different shades of purple
 #'
 #' @return Different shades of chosen colour
 #'
