@@ -45,6 +45,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
 * `mojquarter.R` - Converts dates to publication quarters
 * `moj_col.R` - Outputs a given number of shades of a colour in hex format
+* `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates quarter dates
 
 ## Package Infrastructure
