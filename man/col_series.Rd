@@ -18,5 +18,7 @@ Different shades of chosen colour
 You can choose between 6 different colours and how many different shades.
 }
 \examples{
+col_series("blue", 5) # gives you 5 different shades of blue
+col_series("purple", 8) # gives you 8 different shades of purple
 
 }
