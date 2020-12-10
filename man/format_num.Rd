@@ -2,17 +2,23 @@
 % Please edit documentation in R/format_num.R
 \name{format_num}
 \alias{format_num}
-\title{Formats numbers with a comma delimiter and values of less than 10 are represented as words}
+\title{Format numbers with commas}
 \usage{
-format_num(number)
+format_num(number, less_than_10_as_words = TRUE)
 }
 \arguments{
 \item{number}{A number}
+
+\item{less_than_10_as_words}{A logical determining whether values less than 10 are represented as words}
+}
+\value{
+A character object.
 }
 \description{
-Formats numbers with a comma delimiter and values of less than 10 are represented as words
+Formats numbers with thousand delimited commas. Values of less than 10 are represented as words by default.
 }
 \examples{
 format_num("1000") # returns "1,000"
 format_num("1") # returns 'one'
+format_num("7", less_than_10_as_words = FALSE) # returns "7"
 }
