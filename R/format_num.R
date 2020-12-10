@@ -1,13 +1,19 @@
-# format_num
-#
-#' Formats numbers with a comma delimiter and values of less than 10 are represented as words
+#' Format numbers with commas
+#'
+#' Formats numbers with thousand delimited commas. Values of less than 10 are represented as words by default.
+#'
 #' @param number A number
+#' @param less_than_10_as_words A logical determining whether values less than 10 are represented as words
+#'
+#' @return A character object.
+#'
 #' @examples
 #' format_num("1000") # returns "1,000"
 #' format_num("1") # returns 'one'
+#' format_num("7", less_than_10_as_words = FALSE) # returns "7"
 #' @export
 
-format_num <- function(number) {
+format_num <- function(number, less_than_10_as_words = TRUE) {
 
   tryCatch({
 
@@ -37,40 +43,46 @@ format_num <- function(number) {
 
     } else {
 
+      ### BODY
+
       # If checks of function pass, then run the main body of the function, and
       # return and numberput.
 
       number <- formatC(abs(as.numeric(number)),
                      big.mark = ",", digits = 0, format = "d")
 
-      if (mojrap::as_number(number) == 1) {
-        number <- "one"
+      if (less_than_10_as_words == TRUE){
+
+        if (mojrap::as_number(number) == 1) {
+          number <- "one"
+        }
+        else  if (mojrap::as_number(number) == 2) {
+          number <- "two"
+        }
+        else  if (mojrap::as_number(number) == 3) {
+          number <- "three"
+        }
+        else  if (mojrap::as_number(number) == 4) {
+          number <- "four"
+        }
+        else  if (mojrap::as_number(number) == 5) {
+          number <- "five"
+        }
+        else  if (mojrap::as_number(number) == 6) {
+          number <- "six"
+        }
+        else  if (mojrap::as_number(number) == 7) {
+          number <- "seven"
+        }
+        else  if (mojrap::as_number(number) == 8) {
+          number <- "eight"
+        }
+        else  if (mojrap::as_number(number) == 9) {
+          number <- "nine"
+        }
+        else number
+
       }
-      else  if (mojrap::as_number(number) == 2) {
-        number <- "two"
-      }
-      else  if (mojrap::as_number(number) == 3) {
-        number <- "three"
-      }
-      else  if (mojrap::as_number(number) == 4) {
-        number <- "four"
-      }
-      else  if (mojrap::as_number(number) == 5) {
-        number <- "five"
-      }
-      else  if (mojrap::as_number(number) == 6) {
-        number <- "six"
-      }
-      else  if (mojrap::as_number(number) == 7) {
-        number <- "seven"
-      }
-      else  if (mojrap::as_number(number) == 8) {
-        number <- "eight"
-      }
-      else  if (mojrap::as_number(number) == 9) {
-        number <- "nine"
-      }
-      else number
 
       return(number)
     }

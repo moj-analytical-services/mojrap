@@ -39,7 +39,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `connector.R` - Produces a connecting word for a compound sentence
 * `date_type.R` - Takes standard dates and outputs them in specified formats
 * `format_expenditure.R` - Formats a number to a monetary format
-* `format_num.R` - Formats numerical values as thousand delimitted absolute values. Values of less than 10 are words
+* `format_num.R` - Formats numerical values as thousand delimitted absolute values. Values of less than 10 are words by default
 * `format_perc.R` - Formats fractions as percentages, with percentage signs
 * `getThursday.R` - Predicts the next publication date for quarterly publications
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."

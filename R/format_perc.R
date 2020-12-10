@@ -1,20 +1,21 @@
-#' @title Format percentages
+#' Format percentages
 #'
-#' @description Convert fractions to percentages.
-#'
-#' @details Generic method to convert tables into wide format
+#' Convert fractions to percentages.
 #'
 #' @param fraction A fraction
+#' @param error_on_NA A logical
 #'
 #' @return A character object.
 #'
 #' @examples
 #'
-#' format_perc(0.1) #returns 10%
+#' format_perc(0.1) # returns "10%"
+#' format_perc(10) # returns "1000%"
+#' format_perc(NA, error_on_NA = FALSE) # returns NA
 #'
 #' @export
 
-format_perc <- function(fraction) {
+format_perc <- function(fraction, error_on_NA = TRUE) {
 
   tryCatch({
 
@@ -36,13 +37,24 @@ format_perc <- function(fraction) {
 
       stop("Input to fraction_perc is NULL", call. = FALSE)
 
-    } else if (is.na(fraction)) {
+    }
 
-      # Check that fraction is not null, and raise and error if it is
+    else if (is.na(fraction)) {
 
-      stop("Input to fraction_perc is NA", call. = FALSE)
+      # raise an error if the fraction is NA and error_on_NA is TRUE
+      if (error_on_NA == TRUE){
 
-    } else {
+        stop("Input to fraction_perc is NA", call. = FALSE)
+
+      # return an NA if the fraction is NA and error_on_NA is FALSE
+      } else {
+
+        return(NA)
+
+        }
+
+    }
+    else {
 
       # If checks of function pass, then run the main body of the function, and
       # return and output.
