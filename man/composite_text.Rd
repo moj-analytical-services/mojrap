@@ -7,26 +7,26 @@
 composite_text(comp_data)
 }
 \arguments{
-\item{comp_data}{A data frame comprised of 3 columns,\code{categories}, \code{change} and \code{perc}. These refer to the following:
+\item{comp_data}{A data frame comprised of 3 columns,`categories`, `change` and `perc`. These refer to the following:
 
 \itemize{
 
-\item \code{categories}{This column details the names of the categories to include in the multistatement}
+\item `categories`{This column details the names of the categories to include in the multistatement}
 
-\item \code{change} {The corresponding change for each of the categories}
+\item `change` {The corresponding change for each of the categories}
 
-\item \code{perc} {The percentage associated with the hange in the previous column }
+\item `perc` {The percentage associated with the hange in the previous column }
 
 }}
 }
 \value{
-A text variable that is to be used to contruct the multistatement structure.
+A text variable that is to be used to contruct the multistatement structure. 
 This is stylised for use in later stages of the process
 }
 \description{
-This function is used as a helper mechanism to allow for simpler implementation of the
-multistatement function. The main result of the \code{composite_text} function is to create a text component/variable
-for use in the multistatement parent funciton. It will align the \code{categories} \code{change} and \code{perc} so that each will in order
+This function is used as a helper mechanism to allow for simpler implementation of the 
+multistatement function. The main result of the `composite_text` function is to create a text component/variable 
+for use in the multistatement parent funciton. It will align the `categories` `change` and `perc` so that each will in order
 }
 \examples{
 

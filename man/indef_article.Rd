@@ -16,7 +16,7 @@ A text variable conaining the multistatement ready to be used in the RAP system
 }
 \description{
 This function attempts to assign the indefinite article before a given text string.
-The function is using the \code{engish} package at its core and it build so that it can handle numbers and
+The function is using the `engish` package at its core and it build so that it can handle numbers and
 text - see the examples section for more ideas.
 
 An important note here: The code is not using case_when() to alter between different states since, although conceptually corerct,
@@ -35,9 +35,22 @@ indef_article("11\% and a text here", caps=T)
 indef_article("11\% and a text here", caps=F)
 
 indef_article("11anumber and a solid text here", caps=T)
+if (caps == T){text_out = case_when(
+
+  str_detect(text_var, "^[:digit:]+\%.") ~ paste0(Indefinite(as.numeric(str_extract(text_var,"[:digit:]+")), words = F),
+                                                 str_extract(text_var,"\%.+")),
+
+  str_detect(text_var, "^[:digit:]+\%") ~ paste0(Indefinite(as.numeric(str_extract(text_var,"[:digit:]+")), words = F), "\%"),
+
+  str_detect(text_var, "^[:digit:]+$") ~  Indefinite(as.numeric(text_var), words = F),
 
 
+  # TRUE ~  Indefinite(text_var)
+  # TRUE ~ str_detect(text_var,".*") ~  Indefinite(text_var, words = F)
 
+  TRUE ~ "ERROR please check the code"
+
+)}
 
 }
 \author{

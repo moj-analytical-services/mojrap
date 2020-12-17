@@ -15,7 +15,7 @@ format2numeric(char_value, separator = ",")
 The value returned is a numeric ready to be used by the RAP system in place.
 }
 \description{
-This is the complement function to \code{format_num()} and it will transform a corresponding character value back to numeric
+This is the complement function to `format_num()` and it will transform a corresponding character value back to numeric
 }
 \examples{
 

@@ -4,21 +4,25 @@
 \alias{multi_statement}
 \title{Function to construct statements from multiple categories}
 \usage{
-multi_statement(category_names, category_changes, category_perc,
-  order_of_placement)
+multi_statement(
+  category_names,
+  category_changes,
+  category_perc,
+  order_of_placement
+)
 }
 \arguments{
-\item{comp_data}{A data frame comprised of 3 columns,\code{categories}, \code{change} and \code{perc}. These refer to the following:
+\item{comp_data}{A data frame comprised of 3 columns,`categories`, `change` and `perc`. These refer to the following:
 
 \itemize{
 
-\item \code{category_names}{This column details the names of the categories to include in the multistatement}
+\item `category_names`{This column details the names of the categories to include in the multistatement}
 
-\item \code{category_changes} {The corresponding change for each of the categories}
+\item `category_changes` {The corresponding change for each of the categories}
 
-\item \code{category_perc} {The percentage associated with the hange in the previous column }
+\item `category_perc` {The percentage associated with the hange in the previous column }
 
-\item \code{order_of_placement} {Control the order in which the categories are presented. Set to either
+\item `order_of_placement` {Control the order in which the categories are presented. Set to either
 "increase" to depict the categoreis in an increasing order or "decrease" otherwise.}
 
 }
@@ -29,7 +33,7 @@ multi_statement(category_names, category_changes, category_perc,
 A text variable conaining the multistaement ready to be used in the RAP system
 }
 \description{
-This function automates to a large extent the creation of statements having multiple categories
+This function automates to a large extent the creation of statements having multiple categories 
 each with a certain percentage change to accompany it.
 
 #'
