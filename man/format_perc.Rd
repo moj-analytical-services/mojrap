@@ -4,10 +4,12 @@
 \alias{format_perc}
 \title{Format percentages}
 \usage{
-format_perc(fraction)
+format_perc(fraction, error_on_NA = TRUE)
 }
 \arguments{
 \item{fraction}{A fraction}
+
+\item{error_on_NA}{A logical}
 }
 \value{
 A character object.
@@ -15,11 +17,10 @@ A character object.
 \description{
 Convert fractions to percentages.
 }
-\details{
-Generic method to convert tables into wide format
-}
 \examples{
 
-format_perc(0.1) #returns 10\%
+format_perc(0.1) # returns "10\%"
+format_perc(10) # returns "1000\%"
+format_perc(NA, error_on_NA = FALSE) # returns NA
 
 }

@@ -11,5 +11,10 @@ test_that(
       format_num("1"),
       "one"
     )
+
+    expect_equal(
+      format_num("7", less_than_10_as_words = FALSE),
+      "7"
+    )
   }
 )

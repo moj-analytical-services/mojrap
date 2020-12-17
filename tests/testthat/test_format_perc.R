@@ -47,3 +47,11 @@ test_that(
 
   }
 )
+
+test_that(
+  "format_perc returns an NA when passed an NA, and error_on_NA = FALSE",
+  {
+    expect_equal(is.na(format_perc(NA, error_on_NA = FALSE)), TRUE)
+
+  }
+)
