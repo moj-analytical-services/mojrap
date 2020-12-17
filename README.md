@@ -48,6 +48,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `pluralise.R` - Pluralise words with an 's', depending on a given value
 * `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates quarter dates
+* `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
 
 ## Package Infrastructure
 A whistle stop tour of the package for those who aren't as familiar with R/package development 
