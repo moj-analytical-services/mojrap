@@ -13,17 +13,32 @@ multiple_cell_merge <- function(wb, sheet, rows, cols) {
                          i)
 }
 
-
+#' @description
+#'  Allows writing of multiple tables (e.g quarterly and monthly data) to a single existing sheet in a workbook object.
+#'  Will write the list of provided tables vertically in order, with a single ruled line and space between individual tables.
+#'
+#'  Can also be passed strings (e.g. headers or additional notes) in the same list, it will write these as bold text in the first column.
+#'  Notes should be passed as a vector of strings and will be written at the end of all tables, with one string per line.
+#'  Cells containing notes will be merged horizontally along the width of the tables above.
+#'
+#'  Quarterly formatting (a taller row every 4 rows) can be added to specified tables through use of the optional "quarterly format" argument.
+#'  The function does not create a new sheet, so must be given the name of an existing sheet within the workbook.
+#'
+#'  Best used with an Excel template read into R using openxlsx::loadWorkbook.
+#'
+#'  To output the workbook as an Excel file, use openxlsx::saveWorkbook.
+#'
+#'
 #' @param workbook openxlsx workbook object
-#' @param sheet_name string. Sheet name in the wb object
+#' @param sheet_name string. Name of an existing sheet in the workbook object.
 #' @param tables a list of data.frame objects to write to the sheet.
 #' @param notes a character vector of notes to write to the sheet
 #' @param starting_row numeric. Row number on the sheet you would like to start writing the tables at.
 #' @param quarterly_format numeric vector. List position of the tables in the tables list to apply quarterly formatting to. Default is NULL.
 #' @export
-#' @name save_formatted_table
-#' @title Writes multiple data tables and accompanying notes to an Excel sheet, with formatting.
-save_formatted_table <- function(workbook, sheet_name, tables, notes, starting_row, quarterly_format = NULL) {
+#' @name write_formatted_table
+#' @title Writes multiple data tables and accompanying notes to an existing sheet of a workbook object.
+write_formatted_table <- function(workbook, sheet_name, tables, notes, starting_row, quarterly_format = NULL) {
 
   #Throw error if not passed a list of tables
   if(inherits(tables, "list") == FALSE) {stop("Tables must be provided as a list")}
