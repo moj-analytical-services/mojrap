@@ -19,7 +19,8 @@ Imports:
     knitr,
     data.table,
     formattable,
-    stringr
+    stringr,
+    openxlsx
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
