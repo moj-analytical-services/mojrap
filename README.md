@@ -35,19 +35,18 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `arrow_image.R` - Outputs the path to an arrow image for the main points table
 * `arrow_pdf.R` - Outputs the path to an arrow image for the PDF version of the main points table
 * `arrow_utf.R` - Outputs UTF arrows
-* `col_series.R` - Outputs a colour in hex format and a given number of shades
+* `col_series.R` - Outputs a colour in hex format with a given number of different shades
 * `connector.R` - Produces a connecting word for a compound sentence
-* `date_type.R` - Takes standard dates and outputs them in specified formats
+* `date_type.R` - Takes dates in "%Y%m%d" format, with any or no separators, and outputs them in specified formats
 * `format_expenditure.R` - Formats a number to a monetary format
-* `format_num.R` - Formats numerical values as thousand delimitted absolute values. Values of less than 10 are words by default
-* `format_perc.R` - Formats fractions as percentages, with percentage signs
-* `getThursday.R` - Predicts the next publication date for quarterly publications
+* `format_num.R` - Formats numerical values as thousand delimited numerical strings
+* `format_perc.R` - Formats fractions as numerical strings in percentage format
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
-* `mojquarter.R` - Converts dates to publication quarters
-* `moj_col.R` - Outputs a given number of shades of a colour in hex format
-* `pluralise.R` - Pluralise words with an 's', depending on a given value
+* `mojquarter.R` - Converts dates in "%Y%m%d" format, with or without separators, to calendar or financial quarters
+* `moj_col.R` - Selects which shades you want from the output of `col_series.R`, in order of brightest to darkest
+* `pluralise.R` - Pluralises words with an 's', depending on a given value
 * `pub_date.R` - Returns the next publication date
-* `quarter_dates.R` - Calculates quarter dates
+* `quarter_dates.R` - Calculates the start or end dates of a quarter
 * `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
 
 ## Package Infrastructure

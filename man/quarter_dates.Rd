@@ -2,22 +2,26 @@
 % Please edit documentation in R/quarter_dates.R
 \name{quarter_dates}
 \alias{quarter_dates}
-\title{Gives the start/end dates of a quarter}
+\title{Quarter start/end dates}
 \usage{
 quarter_dates(date, start_end, type)
 }
 \arguments{
-\item{date}{A quarter eg. 2016q1}
+\item{date}{A quarter with the year first and then the quarter number, e.g. "2020q1".}
 
-\item{start_end}{Select either the start date of the quarter or the end date of the quarter}
+\item{start_end}{Either "start" or "end" to select the start or end date of the quarter.}
 
-\item{type}{format of the date}
+\item{type}{Specifies the format of the date, using standard R date types.}
+}
+\value{
+A character object.
 }
 \description{
-Gives the start/end dates of a quarter
+Returns either the start or the end date of a given quarter.
 }
 \examples{
-quarter_dates("2016q1", "start", "\%Y \%B \%d") # returns 2016 January 1
+quarter_dates("2016q1", "start", "\%Y \%B \%d") # returns "2016 January 01"
+
 }
 \seealso{
 \code{\link{date_type}}

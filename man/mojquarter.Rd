@@ -4,20 +4,22 @@
 \alias{mojquarter}
 \title{Convert dates to publication quarters}
 \usage{
-mojquarter(date, type)
+mojquarter(date, type = "c")
 }
 \arguments{
-\item{date}{Date in the form of 'YYYY-MM-DD'}
+\item{date}{A date in the form "\%Y\%m\%d".}
 
-\item{type}{Input 1 for calendar quarter or 4 for financial quarter}
+\item{type}{Either "c" or "f", to specify a calender quarter or a financial quarter.}
 }
 \value{
-Either a calendar or financial quarter
+A character object.
 }
 \description{
-Function converting dates to publication quarters
+Convert dates in "\%Y\%m\%d" format, i.e. with date formats in that order but
+with arbitrary or no separators, to either calendar or financial quarters (i.e. where the financial
+year starts on the 4th month of the year).
 }
 \examples{
-mojquarter('2020-03-31', 4)
+mojquarter('2020-03-31', "f") # returns "2019q4"
 
 }

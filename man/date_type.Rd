@@ -2,18 +2,24 @@
 % Please edit documentation in R/date_type.R
 \name{date_type}
 \alias{date_type}
-\title{This function takes standard number format and returns a number format of the users choosing}
+\title{Format dates}
 \usage{
 date_type(date, type)
 }
 \arguments{
-\item{date}{standard number format}
+\item{date}{A date in "\%Y\%m\%d" format.}
 
-\item{type}{specifies the format that the date should be returned in. Standared R date types.}
+\item{type}{Specifies the format that the date should be returned in,
+using standard R date types.}
+}
+\value{
+A character object.
 }
 \description{
-This function takes standard number format and returns a number format of the users choosing
+Transform dates in "\%Y\%m\%d" format, i.e. with date formats in that order but
+with arbitrary or no separators, to a specified date format.
 }
 \examples{
 date_type("2012-12-31", "\%Y")  # returns 2012
+
 }

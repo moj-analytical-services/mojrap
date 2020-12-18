@@ -2,8 +2,8 @@
 #'
 #' Formats numbers with thousand delimited commas. Values of less than 10 are represented as words by default.
 #'
-#' @param number A number
-#' @param less_than_10_as_words A logical determining whether values less than 10 are represented as words
+#' @param number A number.
+#' @param less_than_10_as_words A logical determining whether values less than 10 are represented as words.
 #'
 #' @return A character object.
 #'

@@ -1,59 +1,76 @@
-# quarter_dates
-#
-#' Gives the start/end dates of a quarter
-#' @param date A quarter eg. 2016q1
-#' @param start_end Select either the start date of the quarter or the end date of the quarter
-#' @param type format of the date
+#' Quarter start/end dates
+#'
+#' Returns either the start or the end date of a given quarter.
+#'
+#' @param date A quarter with the year first and then the quarter number, e.g. "2020q1".
+#' @param start_end Either "start" or "end" to select the start or end date of the quarter.
+#' @param type Specifies the format of the date, using standard R date types.
 #' @seealso \code{\link{date_type}}
-#' @examples quarter_dates("2016q1", "start", "%Y %B %d") # returns 2016 January 1
+#'
+#' @return A character object.
+#'
+#' @examples
+#' quarter_dates("2016q1", "start", "%Y %B %d") # returns "2016 January 01"
+#'
 #' @export
 #'
 
-
-#
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
-#   Build and Reload Package:  'Ctrl + Shift + B'
-#   Check Package:             'Ctrl + Shift + E'
-#   Test Package:              'Ctrl + Shift + T'
-
 quarter_dates <- function(date, start_end, type) {
 
-  date <- tolower(date)
-  year <- substr(date, 1, 4)
+  # Check that only one value is passed at a time and raise an error otherwise.
 
-  if (substr(date, 5, 6) == "q1") {
-    start <- paste(year, "-", "01", "-", "01", sep = "")
-    end <- paste(year, "-", "03", "-", "31", sep = "")
-    }
-  else if (substr(date, 5, 6) == "q2") {
-    start <- paste(year, "-", "04", "-", "01", sep = "")
-    end <- paste(year, "-", "06", "-", "30", sep = "")
-    }
-  else if (substr(date, 5, 6) == "q3") {
-    start <- paste(year, "-", "07", "-", "01", sep = "")
-    end <- paste(year, "-", "09", "-", "30", sep = "")
-    }
-  else if (substr(date, 5, 6) == "q4") {
-    start <- paste(year, "-", "10", "-", "01", sep = "")
-    end <- paste(year, "-", "12", "-", "31", sep = "")
-    }
-  else
-    print("Please enter a quarter dates in the form eg. '2016q1'")
+  if (length(date) > 1) {
 
+    stop("Input date was a vector, but a single value is required")
+
+  # Check that input is not null, and raise an error if it is
+
+  } else if  (is.null(date)) {
+
+    stop("Input date is NULL")
+
+  # Check that input is not NA, and raise and error if it is
+
+  } else if (is.na(date)) {
+
+    stop("Input date is NA")
+
+  # Check that the input is of character type, raise an error if not
+
+  } else if (!is.character(date)) {
+
+    stop("Input date is not a character", call. = FALSE)
+
+  # Check that start_end is either "start" or "end"
+
+  } else if(!start_end %in% c("start", "end")) {
+
+    stop("start_end must be either 'start' or 'end'")
+
+  } else {
+
+  # If checks of function pass, then run the main body of the function, and
+  # return and output.
+
+
+  # BODY --------------------------------------------------------------------
+
+
+  date <- lubridate::yq(date)
 
   if (start_end == "start") {
-    mojrap::date_type(start, type)
-    }
+
+    start <- as.character(lubridate::floor_date(date, unit = "quarter"))
+    return(date_type(start, type))
+
+  }
+
   else if (start_end == "end") {
-    mojrap::date_type(end, type)
+
+    end <- as.character(lubridate::rollback(lubridate::ceiling_date(date, unit = "quarter")))
+    return(date_type(end, type))
     }
-  else
-    print("Please select either 'start' or 'end' date")
+
+  }
 
 }
