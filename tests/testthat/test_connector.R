@@ -1,7 +1,7 @@
 context('Test connector')
 
 test_that(
-  "Picks the correct output phrase",
+  "connector picks the correct output phrase",
   {
     expect_equal(
       connector(1, 2),
@@ -22,4 +22,13 @@ test_that(
     )
 
   }
+)
+
+test_that("connector fails on incorrect arguments",{
+  expect_error(connector(c(2,3), 7))
+  expect_error(connector(7))
+  expect_error(connector(7, "a"))
+  expect_error(connector(NA, 4))
+  expect_error(connector(4, NULL))
+}
 )
