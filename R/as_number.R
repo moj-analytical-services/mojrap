@@ -4,101 +4,98 @@
 #
 #' @param x A formatted number string
 #' @examples
-#' mojrap::as_number("1,000")  #  returns 1000
-#' mojrap::as_number("10%")  #  returns 10
+#' as_number("1,000")  #  returns 1000
+#' as_number("10%")  #  returns 10
 #' @export
 #'
 
 as_number <- function (x) {
 
-  tryCatch({
+  # Checks on input
 
-    # Check that only one value is passed to format_perc() at a time and raise
-    # an error otherwise.
+  # Check that only one value is passed to as_number() at a time and raise
+  # an error otherwise.
 
-    if (length(x) > 1) {
+  if (length(x) > 1) {
 
-      stop(
-        "Input to as_number is not a single value. ",
-        "Most likely you have tried to pass a vector, ",
-        "list, or df to as_number()",
-        call. = FALSE
-      )
+    stop(
+      "Input to as_number is not a single value. ",
+      "Most likely you have tried to pass a vector, ",
+      "list, or df to as_number()"
+    )
 
-    } else if  (is.null(x)) {
+    # Check that x is not null, and raise an error if it is
 
-      # Check that x is not null, and raise an error if it is
+  } else if  (is.null(x)) {
 
-      stop("Input to as_number is NULL", call. = FALSE)
+    stop("Input to as_number is NULL")
 
-    } else if (is.na(x)) {
+    # Check that input is not NA, and raise and error if it is
 
-      # Check that input is not null, and raise and error if it is
+  } else if (is.na(x)) {
 
-      stop("Input to as_number is NA", call. = FALSE)
-
-
-    } else {
-
-      # If checks of function pass, then run the main body of the function, and
-      # return and output.
-
-  # all lower case
-  string <- tolower(x)
+    stop("Input to as_number is NA")
 
 
-# MAIN BODY ----------------------------------------------------------------
+  } else if (!is.character(x)){
 
-  if (string == "one") {
-    out = 1
-  }
-  else if (string == "two") {
-    out = 2
-  }
+    stop("Input is not of character type")
 
-  else if (string == "three") {
-    out = 3
-  }
+  } else {
 
-  else if (string == "four") {
-    out = 4
-  }
+    # If checks of function pass, then run the main body of the function, and
+    # return and output.
 
-  else if (string == "five") {
-    out = 5
-  }
+    # all lower case
+    string <- tolower(x)
 
-  else if (string == "six") {
-    out = 6
-  }
 
-  else if (string == "seven") {
-    out = 7
-  }
+    # MAIN BODY ----------------------------------------------------------------
 
-  else if (string == "eight") {
-    out = 8
-  }
-  else if (string == "nine") {
-    out = 9
-  }
-
-  else{
-
-  out <- gsub(",", "", string)
-  out <- gsub("%", "", out)
-  out <-  as.numeric(out)
-  }
-  out
-
+    if (string == "one") {
+      out = 1
     }
-  }, warning = function(war){
-    warning(war)
+    else if (string == "two") {
+      out = 2
+    }
 
-  }, error = function(err){
+    else if (string == "three") {
+      out = 3
+    }
 
-    err$message <- paste("While formatting word to number", err, sep = " ")
-    stop(err)
-  })
+    else if (string == "four") {
+      out = 4
+    }
+
+    else if (string == "five") {
+      out = 5
+    }
+
+    else if (string == "six") {
+      out = 6
+    }
+
+    else if (string == "seven") {
+      out = 7
+    }
+
+    else if (string == "eight") {
+      out = 8
+    }
+    else if (string == "nine") {
+      out = 9
+    }
+
+    # remove commas or percentages
+    else{
+
+      out <- gsub(",", "", string)
+      out <- gsub("%", "", out)
+      out <-  as.numeric(out)
+    }
+
+    return(out)
+
+  }
 
 }

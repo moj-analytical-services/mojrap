@@ -1,7 +1,5 @@
 context('Test as_number')
 
-library(mojrap)
-
 test_that(
   "as_number handles commas and %.",
   {
@@ -32,3 +30,10 @@ test_that(
     )
   }
 )
+
+test_that("as_number raises errors on incorrect inputs",{
+  expect_error(as_number(1000))
+  expect_error(as_number(NA))
+  expect_error(as_number(NULL))
+  expect_error(as_number(c("1000", "2000")))
+})

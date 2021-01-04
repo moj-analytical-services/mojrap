@@ -12,7 +12,7 @@
 
 incdec <- function(value, tense) {
 
-  tryCatch({
+  # Check input arguments
 
     if  (is.null(value) | is.null(tense)) {
 
@@ -30,9 +30,14 @@ incdec <- function(value, tense) {
 
       stop("Input to incdec is a character", call. = FALSE)
 
-    } else {
-# BODY --------------------------------------------------------------------
+    } else if (!tense %in% c("past", "present", "singular", "plural")) {
 
+      stop("Please provide a 'tense' as either present, past, singular or plural")
+    }
+
+  else {
+
+# MAIN BODY --------------------------------------------------------------------
 
   value <- as.numeric(value) # converts strings into a number
 
@@ -43,7 +48,7 @@ incdec <- function(value, tense) {
     else if (value < 0) {
       "decreasing by"
       }
-    else ("ERROR")
+    else stop("ERROR")
   }
 
   else if (tense == "past") {
@@ -63,7 +68,7 @@ incdec <- function(value, tense) {
     else if (value < 0) {
       "decrease"
       }
-    else ("ERROR")
+    else stop("ERROR")
   }
 
   else if (tense == "plural") {
@@ -73,22 +78,9 @@ incdec <- function(value, tense) {
     else if (value < 0) {
       "decreases"
       }
-    else ("ERROR")
+    else stop("ERROR")
   }
 
-  else {
-    print("please provide a 'tense' as either present, past, singular or plural")
-    }
-
-    }
-
-  }, warning = function(war){
-    warning(war)
-
-  }, error = function(err){
-
-    err$message <- paste("While selecting description of change", err, sep = " ")
-    stop(err)
-  })
+ }
 
 }

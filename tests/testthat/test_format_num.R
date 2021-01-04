@@ -18,3 +18,10 @@ test_that(
     )
   }
 )
+
+test_that("format_num raises errors on incorrect inputs",{
+  expect_error(format_num(c("1000", "2000")))
+  expect_error(format_num(NA))
+  expect_error(format_num(NULL))
+  expect_error(format_num("7", less_than_10_as_words = "foo"))
+})

@@ -39,7 +39,7 @@ quarter_dates <- function(date, start_end, type) {
 
   } else if (!is.character(date)) {
 
-    stop("Input date is not a character", call. = FALSE)
+    stop("Input date is not of character type", call. = FALSE)
 
   # Check that start_end is either "start" or "end"
 

@@ -17,6 +17,8 @@ format_num <- function(number, less_than_10_as_words = TRUE) {
 
   tryCatch({
 
+    # Checks on input
+
     # Check that only one value is passed to format_perc() at a time and raise
     # an error otherwise.
 
@@ -41,9 +43,13 @@ format_num <- function(number, less_than_10_as_words = TRUE) {
 
       stop("Input to number_perc is NA", call. = FALSE)
 
+    } else if (!less_than_10_as_words %in% c(TRUE, FALSE)) {
+
+      stop("less_than_10_as_words must be either TRUE or FALSE", call. = FALSE)
+
     } else {
 
-      ### BODY
+### MAIN BODY ------------------------------------------------------------
 
       # If checks of function pass, then run the main body of the function, and
       # return and numberput.

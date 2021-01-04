@@ -2,7 +2,7 @@
 #'
 #' Convert dates in "\%Y\%m\%d" format, i.e. with date formats in that order but
 #' with arbitrary or no separators, to either calendar or financial quarters (i.e. where the financial
-#' year starts on the 4th month of the year).
+#' year starts in April in the UK).
 #'
 #' @param date A date in the form "\%Y\%m\%d".
 #' @param type Either "c" or "f", to specify a calender quarter or a financial quarter.
@@ -38,7 +38,7 @@ mojquarter <- function(date, type = "c") {
 
   } else if (!is.character(date)) {
 
-    stop("Input date is not a character", call. = FALSE)
+    stop("Input date is not in character format", call. = FALSE)
 
     # Check that type is either "c" or "f"
 
