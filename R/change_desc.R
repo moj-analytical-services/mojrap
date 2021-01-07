@@ -1,4 +1,4 @@
-#' Describe changes over a given period
+#' Describe changes over a given time period
 #'
 #' Returns a character string describing whether a variable has increased or decreased over a given period of time.
 #'

@@ -1,4 +1,4 @@
-#' Previous quarter(s)
+#' Return a previous quarter
 #'
 #' Given the latest quarter as a string with the year first and then the quarter number, e.g. "2020 Q4", returns a
 #' string in the same format representing the previous quarter, or previous quarters going further back if desired.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/choose_value.R
 \name{choose_value}
 \alias{choose_value}
-\title{Choose values from a dataframe}
+\title{Choose a value from a dataframe}
 \usage{
 choose_value(
   df,

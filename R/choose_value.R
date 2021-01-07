@@ -1,4 +1,4 @@
-#' Choose values from a dataframe
+#' Choose a value from a dataframe
 #'
 #' Returns the value of a given variable from a dataframe for a given time period, and optionally for
 #' a given value in an additional column.

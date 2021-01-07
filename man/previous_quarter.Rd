@@ -2,7 +2,7 @@
 % Please edit documentation in R/previous_quarter.R
 \name{previous_quarter}
 \alias{previous_quarter}
-\title{Previous quarter(s)}
+\title{Return a previous quarter}
 \usage{
 previous_quarter(quarter, quarters_ago = 1)
 }

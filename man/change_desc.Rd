@@ -2,7 +2,7 @@
 % Please edit documentation in R/change_desc.R
 \name{change_desc}
 \alias{change_desc}
-\title{Describe changes over a given period}
+\title{Describe changes over a given time period}
 \usage{
 change_desc(df, col_name, val, ago)
 }
