@@ -7,9 +7,9 @@
 format_num(number, less_than_10_as_words = TRUE)
 }
 \arguments{
-\item{number}{A number}
+\item{number}{A number.}
 
-\item{less_than_10_as_words}{A logical determining whether values less than 10 are represented as words}
+\item{less_than_10_as_words}{A logical determining whether values less than 10 are represented as words.}
 }
 \value{
 A character object.

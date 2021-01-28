@@ -1,92 +1,126 @@
-#' @title Format expenditure
+#' Format expenditure
 #'
-#' @description Convert value to amount for publication. By default, the expenditure format is in £m with 1 decimal place.
+#' Formats a number as an expenditure, e.g. in £m, £k, $m etc. By default, expenditures are rounded to one decimal place in pound sterling,
+#' with values below 1 million formatted as £k, and above formatted as £m. This can be overridden by setting the format argument.
 #'
-#' @details Generic method to convert value into a £m, £k, $m etc.
+#' @param value A number representing an amount of money.
+#' @param format Specify as 'm' or 'k' to force the output in millions or thousands, respectively.
+#' @param currency A string representing a currency symbol. '£' by default.
+#' @param dp A number of decimal places to round expenditures to. By default, set to 1 decimal place.
 #'
-#' @param value An amount of expenditure in
-#' @param format Whether the expenditure is written in millions (m) or thousands (k). Default: millions
-#' @param currency Default: £'s
-#' @param dp Number of decimal places to round expenditure to. Default: 1 decimal place
-#'
-#' @return A character object.
+#' @return A character object representing an expenditure.
 #'
 #' @examples
-#'
-#' format_expenditure(36573436) #returns £36.6m
-#' format_expenditure(3562744, currency = "$") #returns $3.6m
-#' format_expenditure(3562744, format = "k") #returns £3562.7k
-#' format_expenditure(4654262.65, currency = "£", dp = 3) #returns £4.654m
+#' format_expenditure(36573436) # returns "£36.6m"
+#' format_expenditure(356274) # returns "£356.3k"
+#' format_expenditure(356274, format = "m") # returns "£0.4m"
+#' format_expenditure(3562744, currency = "$") # returns "$3.6m"
+#' format_expenditure(4654262.65, currency = "£", dp = 3) #returns "£4.654m"
 #'
 #' @export
 
+format_expenditure <- function(value, format = NULL, currency = "\u00A3", dp = 1) {
+
+  ### Checks on value
+
+  # Check that value is a number, and raise an error if it isn't
+  tryCatch(is.numeric(value),
+           error = function(err){
+             err$message <- paste("Please provide value as a number")
+             stop(err)
+           }
+  )
+
+  if (is.numeric(value) == FALSE) {
+    stop("Input to format_expenditure is not a number")
+  }
+
+  # Check that only one value is passed at a time and raise an error otherwise.
+  if (length(value) > 1) {
+
+    stop("Please provide a single value to format_expenditure")
+  }
 
 
-format_expenditure <- function(value, format = "m", currency = "\u00A3", dp = 1) {
+  # Check that value is not null, and raise an error if it is
+  if  (is.null(value)) {
 
-  tryCatch({
+    stop("Input to format_expenditure is NULL")
 
-    # Check that only one value is passed to format_perc() at a time and raise
-    # an error otherwise.
+  }
 
-    if (length(value) > 1) {
+  # Check that value is not NA, and raise and error if it is
+  if (is.na(value)) {
 
-      stop(
-        "Input to format_expenditure is not a single value. ",
-        "Most likely you have tried to pass a vector, ",
-        "list, or df to format_expenditure()",
-        call. = FALSE
-      )
+    stop("Input to format_expenditure is NA")
 
-    } else if  (is.null(value)) {
+  }
 
-      # Check that value is not null, and raise an error if it is
+  ### Checks on format
 
-      stop("Input to format_expenditure is NULL", call. = FALSE)
+  # Check that format is "m" or "k", and raise an error if it isn't
+  if (!is.null(format)){
 
-    } else if (is.na(value)) {
+    if (format %in% c("m", "k") == FALSE) {
+      stop("If specifying the format argument, it must be either 'm' or 'k'")
 
-      # Check that value is not null, and raise and error if it is
+    }
+  }
 
-      stop("Input to format_expenditure is NA", call. = FALSE)
+  ### Checks on dp
 
-    } else if (is.numeric(value) == FALSE) {
-      # Check that value is a number, and raise an error if it isn't
-      stop("Input to format_expenditure is not a number", call. = FALSE)
+  # Check that dp is a string
+  if (!is.numeric(dp)){
 
-    }  else if (format %in% c("m", "k") == FALSE) {
-      # Check that format is "m" or "k", and raise an error if it isn't
-      stop("The format argument is not either 'm' or 'k'", call. = FALSE)
+    stop("Please provide dp as a string")
+  }
 
-    } else if (format == 'm') {
+  # Check that dp is an integer
+  if (dp %% 1 != 0){
 
-      # If checks of function pass, then run the main body of the function, and
-      # return and output.
+    stop("Please provide dp as an integer")
+  }
+
+  # If checks of function pass, then run the main body of the function, and
+  # return and output.
+
+  ## MAIN BODY--------------------------------------------------------------
+
+  if (is.null(format)){
+
+    if (abs(value) < 1000000) {
+
+      value <- value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000), dp))
+                              , "k", sep = "")
+      return(value)
+
+    }
+
+    else if (abs(value) >= 1000000) {
 
       value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000000), dp))
                      , "m", sep = "")
       return(value)
 
-
-    } else if (format == 'k') {
-
-      # If checks of function pass, then run the main body of the function, and
-      # return and output.
-
-      value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000), dp))
-                     , "k", sep = "")
-      return(value)
-
-
     }
-  }
-  , warning = function(war){
-    warning(war)
 
   }
-  , error = function(err){
 
-    err$message <- paste("While formatting expenditure", err, sep = " ")
-    stop(err)
-  })
+  else if (format == 'm') {
+
+    value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000000), dp))
+                   , "m", sep = "")
+    return(value)
+
+
+  }
+
+  else if (format == 'k') {
+
+    value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000), dp))
+                   , "k", sep = "")
+    return(value)
+
+  }
+
 }
