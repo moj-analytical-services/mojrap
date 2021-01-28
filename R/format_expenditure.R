@@ -90,7 +90,7 @@ format_expenditure <- function(value, format = NULL, currency = "\u00A3", dp = 1
 
     if (abs(value) < 1000000) {
 
-      value <- value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000), dp))
+      value <- paste(currency,(round(abs(as.numeric(formattable::comma(value))/1000), dp))
                               , "k", sep = "")
       return(value)
 
