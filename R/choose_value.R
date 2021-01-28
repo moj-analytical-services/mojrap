@@ -1,101 +1,153 @@
 #' Choose a value from a dataframe
 #'
-#' Returns the value of a given variable from a dataframe for a given time period, and optionally for
-#' a given value in an additional column.
+#' Returns the value of a variable in a dataframe, for a given value of another variable (or 2 variables) in the dataframe.
 #'
 #' @param df A dataframe.
-#' @param period_col_name Name of the column containing time periods.
-#' @param period_val Time period to choose a corresponding value for.
-#' @param value_col_name Name of the column containing the variable we want to extract values from.
-#' @param additional_col_name An additional variable name to match a value for when selecting a value.
-#' @param additonal_val Value of the additional variable to be matched when selecting a value.
+#' @param col_name Name of the variable we want to extract a value from (as a string).
+#' @param col_val_1 A vector containing the name (as a string) and value, in that order, of a variable used to filter the dataframe.
+#' @param col_val_2 A vector containing the name (as a string) and value, in that order, of an additional variable used to filter the dataframe, if required.
 #'
 #' @return A numeric value or character object.
 #
 #' @examples
-#' df <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
+#' df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
 #' "type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
 #' "total" = 1:6
 #' )
 #'
-#' choose_value(df, "yrqtr", "2015 Q4", "total", "type", "outstanding") # returns 3
+#' df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+#' "receipts" = seq(10, 40, 10)
+#' )
+#'
+#' choose_value(df1, "total", c("yrqtr", "2015 Q4"), c("type", "receipts")) # returns 1
+#' choose_value(df2, "receipts", c("yrqtr", "2020 Q1")) # returns 10
 #'
 #' @export
 
-choose_value <- function(df, period_col_name, period_val, value_col_name, additional_col_name = NULL, additonal_val = NULL){
+choose_value <- function(df, col_name, col_val_1, col_val_2 = NULL){
 
-  # Checks on input--------------------------------------
+  # Checks on input-------------------------------------------------
+
+  ### df checks
 
   # Check if df is of type dataframe
   if (!is.data.frame(df)){
 
-    stop("Input to df is not a dataframe")
+    stop("Please provide df as a dataframe")
   }
 
-  # Check period_col_name and value_col_name are all characters
-  if (!all(is.character(period_col_name), is.character(value_col_name))){
+  ### col_name checks
 
-    stop("period_col_name and value_col_name must be character objects")
+  # Check col_name is a string
+  tryCatch(is.character(col_name),
+           error = function(err){
+             err$message <- paste("Please provide col_name as a string")
+             stop(err)
+             }
+    )
+
+  if (!is.character(col_name)){
+    stop("Please provide col_name as a string")
   }
 
-  # Check period_col_name is a column in the dataframe
-  if(!period_col_name %in% colnames(df)){
+  # Check col_name is a column in the dataframe
+  if(!col_name %in% colnames(df)){
 
-    stop("period_col_name is not a column in the dataframe")
+    stop("col_name is not a column in the dataframe")
   }
 
-  # Check value_col_name is a column in the dataframe
-  if(!value_col_name %in% colnames(df)){
+  ### col_val_1 checks
 
-    stop("value_col_name is not a column in the dataframe")
+  # Check if the column name given to col_val_1 is a string
+  tryCatch(is.character(col_val_1[1]),
+           error = function(err){
+             err$message <- paste("Please provide the column name in col_val_1 as a string")
+             stop(err)
+           }
+  )
+
+  if (!is.character(col_val_1[1])){
+    stop("Please provide the column name in col_val_1 as a string")
   }
 
-  # Check period_val is an actual value in the specified column
-  if(period_val %in% df[[period_col_name]] == FALSE){
+  # Check a vector of length 2 is given to col_val_1
+  if(length(col_val_1) != 2){
 
-    stop("The value provided to period_val is not present in the specified column")
+    stop("Please provide two values to vector col_val_1: first the column name, second a value in that column")
   }
 
-  # Check the additional arguments, if supplied
+  # Check the column name given to col_val_1 is a column in the dataframe
+  if(!col_val_1[1] %in% colnames(df)){
 
-  if (!all(is.null(additional_col_name), is.null(additonal_val))){
+    stop("The column name given to col_val_1 is not a column in the dataframe")
+  }
 
-    # Check additional_col_name is a character
-    if (!(is.character(additional_col_name))){
+  # Check the value given to col_val_1 is an actual value in the specified column
+  if(col_val_1[2] %in% df[[col_val_1[1]]] == FALSE){
 
-      stop("additional_col_name must be a character object")
+    stop("The value provided to col_val_1 is not present in the specified column")
+  }
+
+  ### col_val_2 checks, if supplied
+
+  # Check if the column name given to col_val_2 is a string
+  tryCatch(!is.null(col_val_2) == TRUE & is.character(col_val_2[1]),
+             error = function(err){
+               err$message <- paste("Please provide the column name in col_val_2 as a string")
+               stop(err)
+             }
+  )
+
+  if (!is.null(col_val_2)){
+
+    # Check a vector of length 2 is given to col_val_2
+    if(length(col_val_2) != 2){
+
+      stop("Please provide two values to vector col_val_2: first the column name, second a value in that column")
     }
 
-    # Check additional_col_name is a column in the dataframe
-    if(!additional_col_name %in% colnames(df)){
+    # Check if the column name given to col_val_2 is a string
 
-      stop("additional_col_name is not a column in the dataframe")
+    if (!is.character(col_val_2[1])){
+      stop("Please provide the column name in col_val_2 as a string")
     }
 
-    # Check additonal_val is an actual value in the specified column
-    if(additonal_val %in% df[[additional_col_name]] == FALSE){
+    # Check the column name given to col_val_2 is a column in the dataframe
+    if(!col_val_2[1] %in% colnames(df)){
 
-      stop("The value provided to additonal_val is not present in the specified column")
+      stop("The column name given to col_val_2 is not a column in the dataframe")
+    }
+
+    # Check the value given to col_val_1 is an actual value in the specified column
+    if(col_val_2[2] %in% df[[col_val_2[1]]] == FALSE){
+
+      stop("The value provided to col_val_2 is not present in the specified column")
     }
 
   }
 
-  # Main body---------------------------------------------
+  # MAIN BODY-----------------------------------------------------------------------
 
   # Select the relevant columns from the dataframe
-  selection <- dplyr::select(df, period_col_name, dplyr::any_of(additional_col_name), value_col_name)
+  selection <- dplyr::select(df, col_val_1[1], col_val_2[1], col_name)
 
-  # Filter for the relevant row(s) based on the value of period_val
-  output <- dplyr::filter(selection, .data[[period_col_name]] == period_val)
+  # Filter for the relevant row(s) based on the value of col_val_1
+  output <- dplyr::filter(selection, .data[[col_val_1[1]]] == col_val_1[2])
 
-  # Filter for the relevant row based on additonal_val as well, if required
-  if (!is.null(additional_col_name)){
-    output <- dplyr::filter(output, .data[[additional_col_name]] == additonal_val)
+  # Filter for the relevant row based on col_val_2 as well, if required
+  if (!is.null(col_val_2)){
+    output <- dplyr::filter(output, .data[[col_val_2[1]]] == col_val_2[2])
   }
 
   # Extract the matched value
-  output <- dplyr::pull(dplyr::select(output, value_col_name))
+  output <- dplyr::pull(dplyr::select(output, col_name))
 
+  # Warning if more than one row is returned
+  if (length(output) > 1){
+    warning("More than one value has been found matching the supplied parameters")
+  }
+
+  # Return the matched value
   return(output)
 
 }

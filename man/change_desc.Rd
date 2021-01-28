@@ -4,17 +4,16 @@
 \alias{change_desc}
 \title{Describe changes over a given time period}
 \usage{
-change_desc(df, col_name, val, ago)
+change_desc(df, col_name, col_vals_1, col_val_2 = NULL)
 }
 \arguments{
 \item{df}{A dataframe.}
 
-\item{col_name}{Variable name from the dataframe to calculate the change for.}
+\item{col_name}{The name of the variable to describe the change for as a string.}
 
-\item{val}{Chosen value of the variable to calculate the change for.}
+\item{col_vals_1}{A vector specifying the name of the column containing time periods (as a string) and the two corresponding values you want to describe a change between.}
 
-\item{ago}{The number of quarters ago for quarterly data,
-or years ago for yearly data, that you want to calculate the change from.}
+\item{col_val_2}{A vector containing an additional column name (as a string) and value used to filter table rows on, if required.}
 }
 \value{
 A character object.
@@ -23,10 +22,23 @@ A character object.
 Returns a character string describing whether a variable has increased or decreased over a given period of time.
 }
 \examples{
-df <- data.frame("period" = c("2019 Q4", "2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
-"receipts" = c(100, seq(10, 40, 10))
+df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
+"type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
+"total" = c(3,2,10,1,5,10)
 )
-change_desc(df, "receipts", 40, 2) # returns "increased"
-change_desc(df, "receipts", 40, 4) # returns "decreased"
+
+df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+"receipts" = c(10,4,5,10)
+)
+
+change_desc(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q3")) # returns "increased"
+change_desc(df2, "receipts", c("yrqtr", "2020 Q1", "2020 Q2")) # returns "decreased"
+change_desc(df2, "receipts", c("yrqtr", "2020 Q1", "2020 Q4")) # returns "did not change"
+change_desc(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "disposals"))
+# returns "increased"
+change_desc(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"))
+# returns "decreased"
+change_desc(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "outstanding"))
+# returns "did not change"
 
 }

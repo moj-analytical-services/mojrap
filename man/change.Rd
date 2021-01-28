@@ -4,18 +4,18 @@
 \alias{change}
 \title{Calculate changes over a given time period}
 \usage{
-change(df, col_name, val, ago, type = "absolute")
+change(df, col_name, col_vals_1, col_val_2 = NULL, type = "absolute")
 }
 \arguments{
 \item{df}{A dataframe.}
 
-\item{col_name}{Variable name from the dataframe to calculate the change for.}
+\item{col_name}{The name of the variable to calculate the change for as a string.}
 
-\item{val}{Chosen value of the variable to calculate the change for. NB the first instance of the value in the column is matched.}
+\item{col_vals_1}{A vector specifying the name of the column containing time periods and the two corresponding values you want to calculate a change between.}
 
-\item{ago}{The number of time intervals ago, e.g. quarters or years, to calculate the change from. An integer.}
+\item{col_val_2}{A vector containing an additional column name and value used to filter table rows on, if required.}
 
-\item{type}{Specify either an "absolute" or "percentage" change.}
+\item{type}{Specify either an "absolute" or a "percentage" change.}
 }
 \value{
 A numeric value.
@@ -24,10 +24,21 @@ A numeric value.
 Calculates either the absolute or percentage change in a given variable over a given period of time.
 }
 \examples{
-df <- data.frame("period" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
+"type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
+"total" = 1:6
+)
+
+df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
 "receipts" = seq(10, 40, 10)
 )
-change(df, "receipts", 40, 2) # returns 20
-change(df, "receipts", 40, 1, type = "percentage") # returns "33\%"
+
+change(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q4")) # returns 20
+change(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q4"), type = "percentage")
+# returns "100\%"
+change(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"))
+# returns 3
+change(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"), type = "percentage")
+# returns "300\%"
 
 }

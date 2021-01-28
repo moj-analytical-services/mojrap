@@ -4,41 +4,34 @@
 \alias{choose_value}
 \title{Choose a value from a dataframe}
 \usage{
-choose_value(
-  df,
-  period_col_name,
-  period_val,
-  value_col_name,
-  additional_col_name = NULL,
-  additonal_val = NULL
-)
+choose_value(df, col_name, col_val_1, col_val_2 = NULL)
 }
 \arguments{
 \item{df}{A dataframe.}
 
-\item{period_col_name}{Name of the column containing time periods.}
+\item{col_name}{Name of the variable we want to extract a value from (as a string).}
 
-\item{period_val}{Time period to choose a corresponding value for.}
+\item{col_val_1}{A vector containing the name (as a string) and value, in that order, of a variable used to filter the dataframe.}
 
-\item{value_col_name}{Name of the column containing the variable we want to extract values from.}
-
-\item{additional_col_name}{An additional variable name to match a value for when selecting a value.}
-
-\item{additonal_val}{Value of the additional variable to be matched when selecting a value.}
+\item{col_val_2}{A vector containing the name (as a string) and value, in that order, of an additional variable used to filter the dataframe, if required.}
 }
 \value{
 A numeric value or character object.
 }
 \description{
-Returns the value of a given variable from a dataframe for a given time period, and optionally for
-a given value in an additional column.
+Returns the value of a variable in a dataframe, for a given value of another variable (or 2 variables) in the dataframe.
 }
 \examples{
-df <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
+df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
 "type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
 "total" = 1:6
 )
 
-choose_value(df, "yrqtr", "2015 Q4", "total", "type", "outstanding") # returns 3
+df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+"receipts" = seq(10, 40, 10)
+)
+
+choose_value(df1, "total", c("yrqtr", "2015 Q4"), c("type", "receipts")) # returns 1
+choose_value(df2, "receipts", c("yrqtr", "2020 Q1")) # returns 10
 
 }
