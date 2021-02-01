@@ -59,6 +59,13 @@ format_expenditure <- function(value, format = NULL, currency = "\u00A3", dp = 1
   ### Checks on format
 
   # Check that format is "m" or "k", and raise an error if it isn't
+  tryCatch(!is.null(format) & is.character(format),
+           error = function(err){
+             err$message <- paste("Please provide format as a string. It can be either 'm' or 'k'")
+             stop(err)
+           }
+  )
+
   if (!is.null(format)){
 
     if (format %in% c("m", "k") == FALSE) {
@@ -67,12 +74,27 @@ format_expenditure <- function(value, format = NULL, currency = "\u00A3", dp = 1
     }
   }
 
+  ### Checks on currency
+
+  # Check currency is a string
+  tryCatch(is.character(currency),
+           error = function(err){
+             err$message <- paste("Please provide currency as a string.")
+             stop(err)
+           }
+  )
+
+  if (!is.character(currency)){
+
+    stop("Please provide currency as a string")
+  }
+
   ### Checks on dp
 
-  # Check that dp is a string
+  # Check that dp is a number
   if (!is.numeric(dp)){
 
-    stop("Please provide dp as a string")
+    stop("Please provide dp as a number")
   }
 
   # Check that dp is an integer
