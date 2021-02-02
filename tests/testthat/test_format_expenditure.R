@@ -43,6 +43,18 @@ test_that(
     expect_error(
       format_expenditure(c(4654262.65, 3562744))
     )
+    expect_error(
+      format_expenditure(4654262.65, format = k)
+    )
+    expect_error(
+      format_expenditure(4654262.65, format = "s")
+    )
+    expect_error(
+      format_expenditure(4654262.65, currency = USD)
+    )
+
+
+
 
   }
 )
