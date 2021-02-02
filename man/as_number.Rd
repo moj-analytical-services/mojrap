@@ -13,6 +13,6 @@ as_number(x)
 Takes a string and removes all comma delimeters and '\%' signs, before converting to a numerical format.
 }
 \examples{
-mojrap::as_number("1,000")  #  returns 1000
-mojrap::as_number("10\%")  #  returns 10
+as_number("1,000")  #  returns 1000
+as_number("10\%")  #  returns 10
 }

@@ -38,7 +38,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `col_series.R` - Outputs a colour in hex format with a given number of different shades
 * `connector.R` - Produces a connecting word for a compound sentence
 * `date_type.R` - Takes dates in "%Y%m%d" format, with any or no separators, and outputs them in specified formats
-* `format_expenditure.R` - Formats a number to a monetary format
+* `format_expenditure.R` - Formats a number as an expenditure
 * `format_num.R` - Formats numerical values as thousand delimited numerical strings
 * `format_perc.R` - Formats fractions as numerical strings in percentage format
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
