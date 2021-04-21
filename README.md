@@ -35,6 +35,9 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `arrow_image.R` - Outputs the path to an arrow image for the main points table
 * `arrow_pdf.R` - Outputs the path to an arrow image for the PDF version of the main points table
 * `arrow_utf.R` - Outputs UTF arrows
+* `change.R` - Calculates changes over a given time period
+* `change_desc.R` - Describes changes over a given time period
+* `choose_value.R` - Choose a value from a dataframe
 * `col_series.R` - Outputs a colour in hex format with a given number of different shades
 * `connector.R` - Produces a connecting word for a compound sentence
 * `date_type.R` - Takes dates in "%Y%m%d" format, with any or no separators, and outputs them in specified formats
@@ -45,6 +48,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `mojquarter.R` - Converts dates in "%Y%m%d" format, with or without separators, to calendar or financial quarters
 * `moj_col.R` - Selects which shades you want from the output of `col_series.R`, in order of brightest to darkest
 * `pluralise.R` - Pluralises words with an 's', depending on a given value
+* `previous_quarter` - Given the latest quarter, return the previous quarter or quarters further back in time
 * `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates the start or end dates of a quarter
 * `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
