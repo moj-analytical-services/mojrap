@@ -20,7 +20,10 @@ Imports:
     data.table,
     formattable,
     stringr,
-    openxlsx
+    openxlsx,
+    ggplot2 (>= 3.3.0),
+    rlang,
+    glue
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
