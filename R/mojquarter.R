@@ -5,7 +5,7 @@
 #' year starts in April in the UK).
 #'
 #' @param date A date in the form "\%Y\%m\%d".
-#' @param type Either "c" or "f", to specify a calender quarter or a financial quarter.
+#' @param type Either "c" or "f", to specify a calender quarter or a financial quarter. By default, the function outputs a calendar quarter.
 #
 #' @examples
 #' mojquarter('2020-03-31', "f") # returns "2019q4"
@@ -40,7 +40,12 @@ mojquarter <- function(date, type = "c") {
 
     stop("Input date is not in character format", call. = FALSE)
 
-    # Check that type is either "c" or "f"
+    # Check that input date is valid
+
+  } else if (is.na(lubridate::ymd(date))){
+
+    warning("Input date must be valid and entered as a character in the form of YYYY-MM-DD")
+
 
   } else if(!type %in% c("c", "f")) {
 
