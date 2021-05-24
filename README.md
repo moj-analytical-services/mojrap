@@ -31,6 +31,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 
 ## Functions in the package
 
+* `add_lookups.R` - Adds lookup file to dataset
 * `as_number.R` - Turns numerical strings into number format
 * `arrow_image.R` - Outputs the path to an arrow image for the main points table
 * `arrow_pdf.R` - Outputs the path to an arrow image for the PDF version of the main points table
@@ -47,6 +48,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `pluralise.R` - Pluralises words with an 's', depending on a given value
 * `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates the start or end dates of a quarter
+* `read_cases_to_data.R` - Reads in a case-level dataset stored in S3 and aggregates by specified variables
 * `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
 
 ## Package Infrastructure

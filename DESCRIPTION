@@ -20,7 +20,9 @@ Imports:
     data.table,
     formattable,
     stringr,
-    openxlsx
+    openxlsx,
+    tibble,
+    s3tools
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
