@@ -22,7 +22,8 @@ Imports:
     stringr,
     openxlsx,
     tibble,
-    s3tools
+    s3tools,
+    magrittr
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 

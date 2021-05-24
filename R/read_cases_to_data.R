@@ -46,10 +46,12 @@ read_cases_to_data <- function(format,path,varlist) {
 
     data <- s3tools::read_using(FUN = haven::read_sas,
                                  s3_path = path)
+
   } else if (format == "CSV") {
 
     data <- s3tools::read_using(FUN = readr::read_csv,
-                                s3_path = path)
+                                s3_path = path,
+                                col_types = cols(.default = "c"))
 
   }
 
