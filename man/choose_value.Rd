@@ -4,34 +4,26 @@
 \alias{choose_value}
 \title{Choose a value from a dataframe}
 \usage{
-choose_value(df, col_name, col_val_1, col_val_2 = NULL)
+choose_value(df, var_name, additional_name, additional_value)
 }
 \arguments{
 \item{df}{A dataframe.}
 
-\item{col_name}{Name of the variable we want to extract a value from (as a string).}
+\item{var_name}{Name of the variable we want to extract a value from, as a string.}
 
-\item{col_val_1}{A vector containing the name (as a string) and value, in that order, of a variable used to filter the dataframe.}
+\item{additional_name}{The name of a column used to filter the dataframe on, as a string.}
 
-\item{col_val_2}{A vector containing the name (as a string) and value, in that order, of an additional variable used to filter the dataframe, if required.}
-}
-\value{
-A numeric value or character object.
+\item{additional_value}{A value in the column to filter the dataframe for.}
 }
 \description{
 Returns the value of a variable in a dataframe, for a given value of another variable (or 2 variables) in the dataframe.
 }
 \examples{
-df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
-"type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
-"total" = 1:6
-)
 
-df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+df <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
 "receipts" = seq(10, 40, 10)
 )
 
-choose_value(df1, "total", c("yrqtr", "2015 Q4"), c("type", "receipts")) # returns 1
-choose_value(df2, "receipts", c("yrqtr", "2020 Q1")) # returns 10
+choose_value(df, "receipts", "yrqtr", "2020 Q1") # returns 10
 
 }

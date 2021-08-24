@@ -1,38 +1,29 @@
 #' Calculate changes over a given time period
 #'
-#' Calculates either the absolute or percentage change in a given variable over a given period of time.
+#' Calculates either the absolute or percentage change in a given variable over a certain period of time.
 #'
 #' @param df A dataframe.
-#' @param col_name The name of the variable to calculate the change for as a string.
-#' @param col_vals_1 A vector specifying the name of the column containing time periods and the two corresponding values you want to calculate a change between.
-#' @param col_val_2 A vector containing an additional column name and value used to filter table rows on, if required.
-#' @param type Specify either an "absolute" or a "percentage" change.
+#' @param var_name The name of the variable to calculate the change for, as a string.
+#' @param date_col The name of the column containing time periods, as a string.
+#' @param base_date The base date to calculate the change between.
+#' @param second_date The second date to calculate the change between.
+#' @param type Specify either an "absolute" or a "percentage" change. Defaults to "absolute".
 #'
 #' @return A numeric value.
 #'
 #' @examples
-#' df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
-#' "type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
-#' "total" = 1:6
-#' )
 #'
-#' df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+#' df <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
 #' "receipts" = seq(10, 40, 10)
 #' )
 #'
-#' change(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q4")) # returns 20
-#' change(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q4"), type = "percentage")
-#' # returns "100%"
-#' change(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"))
-#' # returns 3
-#' change(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"), type = "percentage")
-#' # returns "300%"
-#'
+#' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns 20
+#' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns "100%"
 #' @export
 
-change <- function(df, col_name, col_vals_1, col_val_2 = NULL, type = "absolute"){
+change <- function(df, var_name, date_col, base_date, second_date, type = "absolute"){
 
-  # Checks on input------------------------------------
+  # Checks on input arguments------------------------------------
 
   ### df checks
 
@@ -42,103 +33,61 @@ change <- function(df, col_name, col_vals_1, col_val_2 = NULL, type = "absolute"
     stop("Input to df is not a dataframe")
   }
 
-  ### col_name checks
+  ### var_name checks
 
-  # Check col_name is a character
+  if (!is.character(var_name)){
 
-  tryCatch(is.character(col_name),
-           error = function(err){
-             err$message <- paste("Please provide col_name as a string")
-             stop(err)
-           }
-  )
-
-  if (!is.character(col_name)){
-
-    stop("Please provide col_name as a string")
+    stop("Please provide var_name as a string")
   }
 
-  # Check col_name is one of the columns in the dataframe
-  if(col_name %in% colnames(df) == FALSE){
+  # Check var_name is one of the variables in the dataframe
+  if(var_name %in% colnames(df) == FALSE){
 
-    stop("The column specified in col_name is not present in the dataframe")
+    stop("The variable specified in var_name is not present in the dataframe")
   }
 
-  ### col_vals_1 checks
+  ### date_col checks
 
-  # Check if the column name given to col_vals_1 is a string
+  # Check if the column name given to date_col is a string
 
-  tryCatch(is.character(col_vals_1[1]),
-           error = function(err){
-             err$message <- paste("Please provide the column name in col_vals_1 as a string")
-             stop(err)
-           }
-  )
-
-  if (!is.character(col_vals_1[1])){
-    stop("Please provide the column name in col_vals_1 as a string")
+  if (!is.character(date_col)){
+    stop("Please provide the column name in date_col as a string")
   }
 
-  # Check a vector of length 3 is given to col_vals_1
-  if(length(col_vals_1) != 3){
+  # Check the column name given to date_col is a column in the dataframe
+  if(!date_col %in% colnames(df)){
 
-    stop("Please provide three values to vector col_vals_1: first the column name, second a value in that column, third another value in that column")
+    stop("The column name provided for the date column is not in the dataframe")
   }
 
-  # Check the column name given to col_vals_1 is a column in the dataframe
-  if(!col_vals_1[1] %in% colnames(df)){
+  ### base_date checks
 
-    stop("The first element provided to col_vals_1 is not a column name in the dataframe")
+  # Check if base_date is NA/NaN
+
+  if(is.na(base_date)){
+
+    stop("NA/NaN value has been provided to base_date")
   }
 
-  # Check the first value given to col_vals_1 is an actual value in the specified column
-  if(col_vals_1[2] %in% df[[col_vals_1[1]]] == FALSE){
+  # Check the value given to base_date is an actual value in the specified column
+  if(base_date %in% df[[date_col]] == FALSE){
 
-    stop("The second element provided to col_vals_1 is not a value in the specified column")
+    stop("The value provided to base_date is not in the specified date column")
   }
 
-  # Check the second value given to col_vals_1 is an actual value in the specified column
-  if(col_vals_1[3] %in% df[[col_vals_1[1]]] == FALSE){
+  ### second_date checks
 
-    stop("The third element provided to col_vals_1 is not a value in the specified column")
+  # Check if second_date is NA/NaN
+
+  if(is.na(second_date)){
+
+    stop("NA/NaN value has been provided to second_date")
   }
 
-  ### col_val_2 checks, if supplied
+  # Check the value given to base_date is an actual value in the specified column
+  if(second_date %in% df[[date_col]] == FALSE){
 
-  # Check if the column name given to col_val_2 is a string
-  tryCatch(!is.null(col_val_2) == TRUE & is.character(col_val_2[1]),
-           error = function(err){
-             err$message <- paste("Please provide the column name in col_val_2 as a string")
-             stop(err)
-           }
-  )
-
-  if (!is.null(col_val_2)){
-
-    # Check a vector of length 2 is given to col_val_2
-    if(length(col_val_2) != 2){
-
-      stop("Please provide two values to vector col_val_2: first the column name, second a value in that column")
-    }
-
-    # Check if the column name given to col_val_2 is a string
-
-    if (!is.character(col_val_2[1])){
-      stop("Please provide the column name in col_val_2 as a string")
-    }
-
-    # Check the column name given to col_val_2 is a column in the dataframe
-    if(!col_val_2[1] %in% colnames(df)){
-
-      stop("The column name given to col_val_2 is not a column in the dataframe")
-    }
-
-    # Check the value given to col_val_1 is an actual value in the specified column
-    if(col_val_2[2] %in% df[[col_val_2[1]]] == FALSE){
-
-      stop("The value provided to col_val_2 is not present in the specified column")
-    }
-
+    stop("The value provided to second_date is not in the specified date column")
   }
 
   ### type checks
@@ -152,24 +101,25 @@ change <- function(df, col_name, col_vals_1, col_val_2 = NULL, type = "absolute"
   # MAIN BODY-------------------------------------------------------------------
 
   # Extract the required values from the dataframe
-  val_1 <- choose_value(df, col_name, c(col_vals_1[1], col_vals_1[2]), col_val_2)
-  val_2 <- choose_value(df, col_name, c(col_vals_1[1], col_vals_1[3]), col_val_2)
+  base_val <- choose_value(df, var_name, date_col, base_date)
+  second_val <- choose_value(df, var_name, date_col, second_date)
 
-  if (length(val_1) > 1 | length(val_2) > 1){
+  # Calculate the absolute change and return it
 
-    stop("The supplied parameters return more than two values to calculate a change between. Consider specifying values for col_val_2 to ensure only two values are returned")
-  }
-
-  # Calculate absolute change and return it
   if (type == "absolute"){
 
-    diff <- val_2 - val_1
+    diff <- second_val - base_val
     return(diff)
 
-  # Or calculate percentage change and return it
+  # Alternatively, calculate the percentage change and return it
+
   } else if (type == "percentage") {
 
-    diff <- (val_2 - val_1) / val_1
+    diff <- (second_val - base_val) / base_val
+    if (is.infinite(diff)){
+
+      stop("Error: the percentage change from a zero value is not defined")
+    }
     perc <- format_perc(diff)
     return(perc)
 

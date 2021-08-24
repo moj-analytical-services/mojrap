@@ -4,41 +4,33 @@
 \alias{change}
 \title{Calculate changes over a given time period}
 \usage{
-change(df, col_name, col_vals_1, col_val_2 = NULL, type = "absolute")
+change(df, var_name, date_col, base_date, second_date, type = "absolute")
 }
 \arguments{
 \item{df}{A dataframe.}
 
-\item{col_name}{The name of the variable to calculate the change for as a string.}
+\item{var_name}{The name of the variable to calculate the change for, as a string.}
 
-\item{col_vals_1}{A vector specifying the name of the column containing time periods and the two corresponding values you want to calculate a change between.}
+\item{date_col}{The name of the column containing time periods, as a string.}
 
-\item{col_val_2}{A vector containing an additional column name and value used to filter table rows on, if required.}
+\item{base_date}{The base date to calculate the change between.}
 
-\item{type}{Specify either an "absolute" or a "percentage" change.}
+\item{second_date}{The second date to calculate the change between.}
+
+\item{type}{Specify either an "absolute" or a "percentage" change. Defaults to "absolute".}
 }
 \value{
 A numeric value.
 }
 \description{
-Calculates either the absolute or percentage change in a given variable over a given period of time.
+Calculates either the absolute or percentage change in a given variable over a certain period of time.
 }
 \examples{
-df1 <- data.frame("yrqtr" = c("2015 Q4", "2015 Q4", "2015 Q4", "2016 Q1", "2016 Q1", "2016 Q1"),
-"type" = c("receipts", "disposals", "outstanding", "receipts", "disposals", "outstanding"),
-"total" = 1:6
-)
 
-df2 <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
+df <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
 "receipts" = seq(10, 40, 10)
 )
 
-change(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q4")) # returns 20
-change(df2, "receipts", c("yrqtr", "2020 Q2", "2020 Q4"), type = "percentage")
-# returns "100\%"
-change(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"))
-# returns 3
-change(df1, "total", c("yrqtr", "2015 Q4", "2016 Q1"), c("type", "receipts"), type = "percentage")
-# returns "300\%"
-
+change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns 20
+change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns "100\%"
 }

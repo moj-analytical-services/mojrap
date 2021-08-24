@@ -5,7 +5,7 @@
 #'
 #' @importFrom lubridate %m-%
 #'
-#' @param quarter The latest quarter as a string with the year first.
+#' @param quarter The latest quarter as a string, starting with the year, a 'q' or 'Q', then the quarter number (1,2,3 or 4).
 #' @param quarters_ago Number of quarters to go back. Default is 1.
 #'
 #' @return A character object.
@@ -18,12 +18,12 @@
 previous_quarter <- function(quarter, quarters_ago = 1){
 
 
-  # Checks on input----------------------------------------
+  # Checks on input arguments----------------------------------------
 
   # Check quarter is a character object
   if (!is.character(quarter)){
 
-    stop("quarter must be a character object")
+    stop("The latest quarter must be provided as a string")
   }
 
   # Check quarters_ago is an integer
@@ -32,9 +32,9 @@ previous_quarter <- function(quarter, quarters_ago = 1){
     stop("quarters_ago must be an integer")
   }
 
-  # Main body----------------------------------------
+  # MAIN BODY-----------------------------------------------
 
-  # latest quarter
+  # parse string for the latest quarter
   q <- lubridate::yq(quarter)
 
   # calculate previous quarter(s)
@@ -43,6 +43,6 @@ previous_quarter <- function(quarter, quarters_ago = 1){
   # format it as a string
   pq <- paste0(lubridate::year(pq), " Q", lubridate::quarter(pq))
 
-  return(pq)
+  pq
 
 }

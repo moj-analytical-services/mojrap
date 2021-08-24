@@ -7,7 +7,7 @@
 previous_quarter(quarter, quarters_ago = 1)
 }
 \arguments{
-\item{quarter}{The latest quarter as a string with the year first.}
+\item{quarter}{The latest quarter as a string, starting with the year, a 'q' or 'Q', then the quarter number (1,2,3 or 4).}
 
 \item{quarters_ago}{Number of quarters to go back. Default is 1.}
 }
