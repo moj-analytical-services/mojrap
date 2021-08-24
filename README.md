@@ -92,7 +92,7 @@ Or see the [platform guidance](https://user-guidance.services.alpha.mojanalytics
 * Must have documentation around functions with examples
 * Should follow coding best practice guidelines, e.g. [DASD Coding Principles](https://moj-analytical-services.github.io/our-coding-standards/), [MoJ Harmonisation Guidance](https://moj-analytical-services.github.io/harmonisation-guidance/). 
 
-5) Merge your pull request. Once you have done this make sure to post in the RAP slack channel that you have merged in your changes so people can update their version of the package
+5) Once your pull request has been approved and merged by an admin, make sure to post in the RAP slack channel that your changes have been merged in so people can update their version of the package.
 
 Congratulations! You have now contibuted to the mojrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
 
@@ -100,6 +100,13 @@ Congratulations! You have now contibuted to the mojrap package! If you [reinstal
 
 You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/mojrap/issues) and/or open a [pull request](https://github.com/moj-analytical-services/mojrap/pulls) with your suggested solution.
 
+
+## mojverse
+
+This package is intended to sit within a tidyverse-style ecosystem of packages known as the `mojverse`, providing functions to assist with building a variety of elements/outputs that may sit in a Reproducible Analytical Pipeline. Below is an (incomplete) list of packages which will eventually be more formally included in the `mojverse`:
+
+* [mojspeakr](https://github.com/moj-analytical-services/mojspeakr): Formatting RMarkdown into govspeak for publishing on gov.uk
+* [mojchart](https://github.com/moj-analytical-services/mojchart): Formatting ggplot2 charts and applying MoJ corporate colours
 
 ## Other resources
 
