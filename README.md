@@ -10,6 +10,8 @@
 * [Functions in the package](#functions-in-the-package)
 * [Package infrastructure](#package-infrastructure)
 * [Contributing to the package](#contributing-to-the-package)
+* [Found a bug?](#found-a-bug)
+* [The mojverse](#mojverse)
 * [Other RAP Resources](#other-resources)
 
 ## What is this repo for?
