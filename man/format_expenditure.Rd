@@ -4,31 +4,29 @@
 \alias{format_expenditure}
 \title{Format expenditure}
 \usage{
-format_expenditure(value, format = "m", currency = "£", dp = 1)
+format_expenditure(value, format = NULL, currency = "£", dp = 1)
 }
 \arguments{
-\item{value}{An amount of expenditure in}
+\item{value}{A number representing an amount of money.}
 
-\item{format}{Whether the expenditure is written in millions (m) or thousands (k). Default: millions}
+\item{format}{Specify as 'm' or 'k' to force the output in millions or thousands, respectively.}
 
-\item{currency}{Default: £'s}
+\item{currency}{A string representing a currency symbol. '£' by default.}
 
-\item{dp}{Number of decimal places to round expenditure to. Default: 1 decimal place}
+\item{dp}{A number of decimal places to round expenditures to. By default, set to 1 decimal place.}
 }
 \value{
-A character object.
+A character object representing an expenditure.
 }
 \description{
-Convert value to amount for publication. By default, the expenditure format is in £m with 1 decimal place.
-}
-\details{
-Generic method to convert value into a £m, £k, $m etc.
+Formats a number as an expenditure, e.g. in £m, £k, $m etc. By default, expenditures are rounded to one decimal place in pound sterling,
+with values below 1 million formatted as £k, and above formatted as £m. This can be overridden by setting the format argument.
 }
 \examples{
-
-format_expenditure(36573436) #returns £36.6m
-format_expenditure(3562744, currency = "$") #returns $3.6m
-format_expenditure(3562744, format = "k") #returns £3562.7k
-format_expenditure(4654262.65, currency = "£", dp = 3) #returns £4.654m
+format_expenditure(36573436) # returns "£36.6m"
+format_expenditure(356274) # returns "£356.3k"
+format_expenditure(356274, format = "m") # returns "£0.4m"
+format_expenditure(3562744, currency = "$") # returns "$3.6m"
+format_expenditure(4654262.65, currency = "£", dp = 3) #returns "£4.654m"
 
 }

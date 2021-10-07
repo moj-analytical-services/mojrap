@@ -64,7 +64,7 @@ mojquarter <- function(date, type = "c") {
 
   else if(type == "f") {
 
-    date <- lubridate::ymd(date) - months(3)
+    date <- lubridate::ceiling_date(lubridate::ymd(date), "months") - months(3) - lubridate::days(1)
     year <- lubridate::year(date)
     return(paste0(year, "q", lubridate::quarter(date)))
 
