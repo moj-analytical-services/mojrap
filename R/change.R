@@ -18,7 +18,7 @@
 #' )
 #'
 #' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns 20
-#' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns "100%"
+#' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4", type = "percentage") # returns "100%"
 #' @export
 
 change <- function(df, var_name, date_col, base_date, second_date, type = "absolute"){
@@ -111,7 +111,7 @@ change <- function(df, var_name, date_col, base_date, second_date, type = "absol
     diff <- second_val - base_val
     return(diff)
 
-  # Alternatively, calculate the percentage change and return it
+    # Alternatively, calculate the percentage change and return it
 
   } else if (type == "percentage") {
 
