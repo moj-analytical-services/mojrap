@@ -74,13 +74,13 @@ choose_value <- function(df, var_name, additional_name, additional_value){
   # MAIN BODY-----------------------------------------------------------------------
 
   # Select the relevant columns from the dataframe
-  selection <- dplyr::select(df, var_name, additional_name)
+  selection <- dplyr::select(df, all_of(var_name), all_of(additional_name))
 
   # Filter for the relevant row(s) based on the value of additional_value
   output <- dplyr::filter(selection, .data[[additional_name]] == additional_value)
 
   # Extract the matched value
-  output <- dplyr::pull(dplyr::select(output, var_name))
+  output <- dplyr::pull(dplyr::select(output, all_of(var_name)))
 
   # Warning if more than one row is returned
   if (length(output) > 1){
