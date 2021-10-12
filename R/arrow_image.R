@@ -12,6 +12,7 @@
 #' @export
 
 arrow_image <- function(x){
+  #test
   if(is.null(x) == TRUE){
     stop("Incorrect input, please enter 'up', 'down' or 'nochange' in string format.")
   }
