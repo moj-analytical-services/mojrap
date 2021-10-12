@@ -1,6 +1,6 @@
 #' Choose a value from a dataframe
 #'
-#' Returns the value of a variable in a dataframe, for a given value of another variable (or 2 variables) in the dataframe.
+#' Returns the value of a variable in a dataframe, for a given value of another variable in the dataframe.
 #'
 #' @param df A dataframe.
 #' @param var_name Name of the variable we want to extract a value from, as a string.
@@ -15,7 +15,11 @@
 #'
 #' choose_value(df, "receipts", "yrqtr", "2020 Q1") # returns 10
 #'
+#'
 #' @export
+#'
+#' @importFrom rlang .data
+
 
 choose_value <- function(df, var_name, additional_name, additional_value){
 
@@ -44,6 +48,11 @@ choose_value <- function(df, var_name, additional_name, additional_value){
 
   ### additional_name checks
 
+  # Check a single value is provided to additional_name
+  if(length(additional_name) != 1){
+    stop("Please provide a single column name to additional_name as a string")
+  }
+
   # Check if the column name given to date_col is a string
 
   if (!is.character(additional_name)){
@@ -63,6 +72,11 @@ choose_value <- function(df, var_name, additional_name, additional_value){
   if(is.na(additional_value)){
 
     stop("NA/NaN value has been provided to additional_value")
+  }
+
+  # Check a single value is provided to additional_value
+  if(length(additional_value) != 1){
+    stop("Please provide a single value to additional_value")
   }
 
   # Check the value given to additional_value is an actual value in the specified column

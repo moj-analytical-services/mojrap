@@ -21,7 +21,8 @@ change_desc(df, var_name, date_col, base_date, second_date)
 A character object.
 }
 \description{
-Returns a character string describing whether a variable has increased or decreased over a given period of time.
+Returns a character string describing whether a variable from a dataframe has either increased, decreased, or stayed
+the same over a given period of time.
 }
 \examples{
 

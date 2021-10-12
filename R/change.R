@@ -1,6 +1,6 @@
 #' Calculate changes over a given time period
 #'
-#' Calculates either the absolute or percentage change in a given variable over a certain period of time.
+#' Calculates either the absolute or percentage change in a given variable from a dataframe over a certain period of time.
 #'
 #' @param df A dataframe.
 #' @param var_name The name of the variable to calculate the change for, as a string.
@@ -9,16 +9,16 @@
 #' @param second_date The second date to calculate the change between.
 #' @param type Specify either an "absolute" or a "percentage" change. Defaults to "absolute".
 #'
-#' @return A numeric value.
+#' @return A numeric value, if calculating absolute changes, otherwise a string for percentage changes.
 #'
 #' @examples
 #'
 #' df <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
-#' "receipts" = seq(10, 40, 10)
-#' )
+#' "receipts" = seq(10, 40, 10))
 #'
 #' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns 20
-#' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4") # returns "100%"
+#' change(df, "receipts", "yrqtr", "2020 Q2", "2020 Q4", type = "percentage") # returns "100%"
+#'
 #' @export
 
 change <- function(df, var_name, date_col, base_date, second_date, type = "absolute"){

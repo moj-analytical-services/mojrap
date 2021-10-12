@@ -20,7 +20,8 @@ Imports:
     data.table,
     formattable,
     stringr,
-    openxlsx
+    openxlsx,
+    rlang
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 

@@ -16,7 +16,7 @@ choose_value(df, var_name, additional_name, additional_value)
 \item{additional_value}{A value in the column to filter the dataframe for.}
 }
 \description{
-Returns the value of a variable in a dataframe, for a given value of another variable (or 2 variables) in the dataframe.
+Returns the value of a variable in a dataframe, for a given value of another variable in the dataframe.
 }
 \examples{
 
@@ -25,5 +25,6 @@ df <- data.frame("yrqtr" = c("2020 Q1", "2020 Q2", "2020 Q3", "2020 Q4"),
 )
 
 choose_value(df, "receipts", "yrqtr", "2020 Q1") # returns 10
+
 
 }

@@ -13,6 +13,7 @@ test_that("change raises errors on incorrect inputs", {
   expect_error(change(df, receipts, "yrqtr", "2020 Q2", "2020 Q4"))
   expect_error(change(df, "receipts", yrqtr, "2020 Q2", "2020 Q4"))
   expect_error(change(df, "receipts", "year_qtr", "2020 Q2", "2020 Q4"))
+  expect_error(change(df, "receipts", "yrqtr", "2020Q2", "2020 Q4"))
   expect_error(change(df, "receipts", "yrqtr", "2019 Q2", "2020 Q4"))
   expect_error(change(df, "receipts", "yrqtr", "2020 Q2", "2022 Q4"))
   expect_error(change(df, "receipts", "yrqtr", "2020 Q2"))

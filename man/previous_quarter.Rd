@@ -7,15 +7,15 @@
 previous_quarter(quarter, quarters_ago = 1)
 }
 \arguments{
-\item{quarter}{The latest quarter as a string, starting with the year, a 'q' or 'Q', then the quarter number (1,2,3 or 4).}
+\item{quarter}{The latest quarter as a string, starting with the year, a 'q' or 'Q', then the quarter number (1,2,3 or 4), e.g. "2020 Q2".}
 
-\item{quarters_ago}{Number of quarters to go back. Default is 1.}
+\item{quarters_ago}{Number of quarters to go back. Default is 1. If negative, the number of quarters to go forward.}
 }
 \value{
 A character object.
 }
 \description{
-Given the latest quarter as a string with the year first and then the quarter number, e.g. "2020 Q4", returns a
+Given the latest quarter as a string in the format "2020 Q4", returns a
 string in the same format representing the previous quarter, or previous quarters going further back if desired.
 }
 \examples{
