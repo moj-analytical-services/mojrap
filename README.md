@@ -10,8 +10,6 @@
 * [Functions in the package](#functions-in-the-package)
 * [Package infrastructure](#package-infrastructure)
 * [Contributing to the package](#contributing-to-the-package)
-* [Found a bug?](#found-a-bug)
-* [The mojverse](#mojverse)
 * [Other RAP Resources](#other-resources)
 
 ## What is this repo for?
@@ -37,16 +35,20 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `arrow_image.R` - Outputs the path to an arrow image for the main points table
 * `arrow_pdf.R` - Outputs the path to an arrow image for the PDF version of the main points table
 * `arrow_utf.R` - Outputs UTF arrows
+* `change.R` - Calculates changes over a given time period
+* `change_desc.R` - Describes changes over a given time period
+* `choose_value.R` - Choose a value from a dataframe
 * `col_series.R` - Outputs a colour in hex format with a given number of different shades
 * `connector.R` - Produces a connecting word for a compound sentence
 * `date_type.R` - Takes dates in "%Y%m%d" format, with any or no separators, and outputs them in specified formats
-* `format_expenditure.R` - Formats a number as an expenditure
+* `format_expenditure.R` - Formats a number to a monetary format
 * `format_num.R` - Formats numerical values as thousand delimited numerical strings
 * `format_perc.R` - Formats fractions as numerical strings in percentage format
 * `incdec.R` - Quantifies changes in values eg. "increased by ..."
 * `mojquarter.R` - Converts dates in "%Y%m%d" format, with or without separators, to calendar or financial quarters
 * `moj_col.R` - Selects which shades you want from the output of `col_series.R`, in order of brightest to darkest
 * `pluralise.R` - Pluralises words with an 's', depending on a given value
+* `previous_quarter` - Given the latest quarter, return the previous quarter or quarters further back in time
 * `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates the start or end dates of a quarter
 * `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
@@ -86,11 +88,11 @@ Or see the [platform guidance](https://user-guidance.services.alpha.mojanalytics
 
 4) Get someone to [review](https://help.github.com/articles/about-pull-request-reviews/) your pull request. Approval from at least one admin is also required before the pull request can be merged. The reviewer must check that the function satisfies the following:
 * Must have unit testing
-* Must pass R CMD checks of the entire package, with no Errors or Warnings, and preferably no Notes.
+* Must pass unit testing of entire package
 * Must have documentation around functions with examples
-* Should follow coding best practice guidelines, e.g. [DASD Coding Principles](https://moj-analytical-services.github.io/our-coding-standards/), [MoJ Harmonisation Guidance](https://moj-analytical-services.github.io/harmonisation-guidance/), [ONS Quality Assurance of Code for Analysis and Research guidlines](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html). 
+* Should follow coding best practice guidelines, e.g. [DASD Coding Principles](https://moj-analytical-services.github.io/our-coding-standards/), [MoJ Harmonisation Guidance](https://moj-analytical-services.github.io/harmonisation-guidance/). 
 
-5) Once your pull request has been approved and merged by an admin, make sure to post in the slack channel [#rap](https://app.slack.com/client/T1PU1AP6D/C02DSC3Q4P6) Slack channel that your changes have been merged in so people can update their version of the package.
+5) Once your pull request has been approved and merged by an admin, make sure to post in the RAP slack channel that your changes have been merged in so people can update their version of the package.
 
 Congratulations! You have now contibuted to the mojrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
 
@@ -98,15 +100,13 @@ Congratulations! You have now contibuted to the mojrap package! If you [reinstal
 
 You can also contribute by helping to improve the existing functions. If you find a bug, or think there is a better way of doing something, raise an [issue](https://github.com/moj-analytical-services/mojrap/issues) and/or open a [pull request](https://github.com/moj-analytical-services/mojrap/pulls) with your suggested solution.
 
+
 ## mojverse
 
-This package is intended to sit within a tidyverse-style ecosystem of packages known as the [mojverse](https://github.com/moj-analytical-services/mojverse), providing functions to assist with building a variety of elements/outputs that may sit in a Reproducible Analytical Pipeline. Below is a list of packages intended to sit within the `mojverse`:
+This package is intended to sit within a tidyverse-style ecosystem of packages known as the `mojverse`, providing functions to assist with building a variety of elements/outputs that may sit in a Reproducible Analytical Pipeline. Below is an (incomplete) list of packages which will eventually be more formally included in the `mojverse`:
 
 * [mojspeakr](https://github.com/moj-analytical-services/mojspeakr): Formatting RMarkdown into govspeak for publishing on gov.uk
 * [mojchart](https://github.com/moj-analytical-services/mojchart): Formatting ggplot2 charts and applying MoJ corporate colours
-* [mojrap](https://github.com/moj-analytical-services/mojrap): Generalised functions for RAP
-
-Please install the `mojverse` package, to install all packages listed above.
 
 ## Other resources
 
@@ -119,9 +119,5 @@ For bespoke code please see other MoJ repos:
 Or from across government:
 * DDCMS [Economics Estimates RAP](https://github.com/DCMSstats/eesectors)
 
-Slack/MS Teams channels:
-* If you are working within government and are looking to get up to speed with RAP, we would recommend joining the #rap_collaboration channel of the [Government Data Science Slack](https://govdatascience.slack.com/?redir=%2Fhome) and getting involved with the community there. 
-*  To engage with the MoJ RAP community, you can either use the [#rap](https://app.slack.com/client/T1PU1AP6D/C02DSC3Q4P6) Slack channel, or contact Aidan Mews to join the RAP Publication group on MS Teams.
+If you are working within government and are looking to get up to speed with RAP, we would recommend joining the #rap_collaboration channel of the [Government Data Science Slack](https://govdatascience.slack.com/?redir=%2Fhome) and getting involved with the community there. Or there is the [RAP Companion](https://ukgovdatascience.github.io/rap_companion/) written by the Government Digital Service (GDS).
 
-Documentation:
-* Free online resources are available, such as the [RAP Companion](https://ukgovdatascience.github.io/rap_companion/) written by the Government Digital Service (GDS), a [Udemy RAP using R course](https://www.udemy.com/course/reproducible-analytical-pipelines/), the [RAP Manual](https://moj-analytical-services.github.io/rap-manual/index.html) written by members of the MoJ RAP Publication group, or the [GSS RAP site](https://gss.civilservice.gov.uk/reproducible-analytical-pipelines/).
