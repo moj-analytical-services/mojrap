@@ -17,19 +17,62 @@
 
 previous_quarter <- function(quarter, quarters_ago = 1){
 
-
   # Checks on input arguments----------------------------------------
 
-  # Check quarter is a character object
-  if (!is.character(quarter)){
+  # Check that only one value is passed at a time and raise an error otherwise.
+  if (length(quarter) > 1) {
+
+    stop("Input quarter was a vector, but a single value is required")
+
+    # Check that input is not null, and raise an error if it is
+
+  }
+
+  else if (length(quarters_ago) > 1) {
+
+    stop("Input number was a vector, but a single value is required")
+
+    # Check that input is not null, and raise an error if it is
+
+  }
+
+
+  else if  (is.null(quarter)) {
+
+    stop("Input quarter is NULL")
+
+    # Check that input is not NA, and raise and error if it is
+
+  }
+
+  else if (is.na(quarter)) {
+
+    stop("Input quarter is NA")
+
+    # Check quarter is a character object
+
+  }
+
+  else if (!is.character(quarter)){
 
     stop("The latest quarter must be provided as a string")
+  }
+
+  else if (!is.numeric(quarters_ago)){
+
+    stop("quarters_ago needs to be provided as a numeric")
   }
 
   # Check quarters_ago is an integer
   if(quarters_ago %% 1 != 0){
 
     stop("quarters_ago must be an integer")
+  }
+
+  # Check quarters_ago is positive
+  if(quarters_ago <= 0){
+
+    stop("quarters_ago needs to be a positive number")
   }
 
   # MAIN BODY-----------------------------------------------
