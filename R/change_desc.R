@@ -86,7 +86,7 @@ change_desc <- function(df, var_name, date_col, base_date, second_date){
     stop("NA/NaN value has been provided to second_date")
   }
 
-  # Check the value given to base_date is an actual value in the specified column
+  # Check the value given to second_date is an actual value in the specified column
   if(second_date %in% df[[date_col]] == FALSE){
 
     stop("The value provided to second_date is not in the specified date column")
