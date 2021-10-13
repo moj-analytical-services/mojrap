@@ -7,15 +7,19 @@
 read_cases_to_data(format, path, varlist)
 }
 \arguments{
-\item{format}{Format of the dataset in S3 (either "SAS" or "CSV")}
+\item{format}{Format of the dataset in S3 (either "SAS" or "CSV"). NB Case insensitive input.}
 
-\item{path}{Path to file in S3}
+\item{path}{Path to file in S3.}
 
-\item{varlist}{A vector of variables by which to aggregate the data}
+\item{varlist}{A character vector of variables by which to aggregate the data.}
 }
 \description{
-Reads in a case-level SAS or CSV file stored in S3 and aggregates it by a vector of specified variables. Adds a variable called 'count' to the dataset to indicate the number of cases in each variable group.
+Reads in a case-level SAS or CSV file stored in S3 and aggregates it by a vector of specified variables.
+Adds a variable called 'count' to the dataset to indicate the number of cases in each variable group.
 }
 \examples{
-read_cases_to_data("SAS","alpha-test-data/popdata.sas7bdat",c("sex","age","region")) # returns a tibble with variables sex, age, region and count.
+\dontrun{
+read_cases_to_data("SAS","alpha-test-data/popdata.sas7bdat",c("sex","age","region"))
+# returns a tibble with variables sex, age, region and count.
+}
 }

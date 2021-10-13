@@ -7,15 +7,19 @@
 add_lookups(data, path, vars)
 }
 \arguments{
-\item{data}{Data frame the lookups are to be added to}
+\item{data}{Data frame the lookups are to be added to.}
 
-\item{path}{A vector of paths to lookup files in S3}
+\item{path}{A character vector of paths to lookup files in S3.}
 
-\item{vars}{A vector of variables by which to join the lookups to the data}
+\item{vars}{A character vector of variables by which to join the lookups to the data.}
 }
 \description{
-Takes a vector of lookup files stored as CSVs in S3 and matches them to a data frame by a corresponding vector of variables. The file and variable names must be in the same position in their respective vectors and both vectors must be the same length.
+Takes a vector of lookup files stored as CSVs in S3 and matches them to a data frame by a corresponding vector of variables.
+The file and variable names must be in the same position in their respective vectors and both vectors must be the same length.
 }
 \examples{
-add_lookups(mydata,"alpha-test-data/lookup-file.csv","regionname") # joins lookup-file.csv to mydata by variable "regionname".
+\dontrun{
+add_lookups(mydata,"alpha-test-data/lookup-file.csv","regionname")
+# joins lookup-file.csv to mydata by variable "regionname".
+}
 }

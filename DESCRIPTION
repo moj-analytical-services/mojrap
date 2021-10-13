@@ -23,7 +23,10 @@ Imports:
     openxlsx,
     tibble,
     s3tools,
-    magrittr
+    magrittr,
+    haven,
+    readr,
+    rlang
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
