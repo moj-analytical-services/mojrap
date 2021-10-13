@@ -98,7 +98,7 @@ Or see the [platform guidance](https://user-guidance.services.alpha.mojanalytics
 * Must have documentation around functions with examples
 * Should follow coding best practice guidelines, e.g. [DASD Coding Principles](https://moj-analytical-services.github.io/our-coding-standards/), [MoJ Harmonisation Guidance](https://moj-analytical-services.github.io/harmonisation-guidance/), [ONS Quality Assurance of Code for Analysis and Research guidlines](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html). 
 
-5) Once your pull request has been approved and merged by an admin, make sure to post in the [#rap](https://app.slack.com/client/T1PU1AP6D/C02DSC3Q4P6) Slack channel that your changes have been merged in so people can update their version of the package.
+5) Once your pull request has been approved and merged by an admin, make sure to post in the [#rap](https://app.slack.com/client/T1PU1AP6D/C02DSC3Q4P6) Slack channel that your changes have been merged in so people can update their version of the package. 
 
 
 Congratulations! You have now contibuted to the mojrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
