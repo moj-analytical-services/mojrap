@@ -57,6 +57,7 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates the start or end dates of a quarter
 * `read_cases_to_data.R` - Reads in a case-level dataset stored in S3 and aggregates by specified variables
+* `superscript.R` - Add superscripts/subscripts to Excel spreadsheets
 * `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
 
 ## Package Infrastructure
