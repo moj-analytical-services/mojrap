@@ -21,6 +21,11 @@ Imports:
     formattable,
     stringr,
     openxlsx,
+    tibble,
+    s3tools,
+    magrittr,
+    haven,
+    readr,
     rlang
 LazyData: true
 RoxygenNote: 7.1.1
