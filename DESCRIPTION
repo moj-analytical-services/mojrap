@@ -11,6 +11,7 @@ Description: Package to hold generic functions for MoJ RAP projects.
 License: GPL-3
 Encoding: UTF-8
 Imports:
+    s3tools,
     scales,
     lubridate,
     dplyr,
@@ -22,11 +23,12 @@ Imports:
     stringr,
     openxlsx,
     tibble,
-    s3tools,
     magrittr,
     haven,
     readr,
     rlang
+Remotes:
+    moj-analytical-services/s3tools
 LazyData: true
 RoxygenNote: 7.1.1
 Suggests: 
