@@ -1,7 +1,7 @@
 Package: mojrap
 Type: Package
 Title: Generic Functions for Reproducible Analytical Pipelines in MoJ
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("Christopher", "Fairbanks", , "christopher.fairbanks@justice.gsi.gov.uk", c("aut")),
     person("Ross", "Kennedy", , "ross.kennedy@justice.gov.uk", role = "aut"),
