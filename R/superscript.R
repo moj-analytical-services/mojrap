@@ -56,6 +56,9 @@ addSuperScriptToCell <- function(wb,
                                  italic = FALSE,
                                  underlined = FALSE){
 
+
+  # MAIN BODY----------------------------------------------------------------------------------------
+
   placeholderText <- 'This is placeholder text that should not appear anywhere in your document.'
 
   openxlsx::writeData(wb = wb,
