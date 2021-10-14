@@ -1,11 +1,10 @@
 #' Convert dates to publication quarters
 #'
-#' Convert dates in "\%Y\%m\%d" format, i.e. with date formats in that order but
-#' with arbitrary or no separators, to either calendar or financial quarters (i.e. where the financial
-#' year starts in April in the UK).
+#' Convert dates as a string in "YYYY-MM-DD" format, with arbitrary separators, to either calendar or
+#' financial quarters. N.B. a financial year in the UK starts in April.
 #'
-#' @param date A date in the form "\%Y\%m\%d".
-#' @param type Either "c" or "f", to specify a calender quarter or a financial quarter.
+#' @param date A date as a string in the format "YYYY-MM-DD". Only last two digits for the year is also valid.
+#' @param type Either "c" or "f", to specify a calender quarter or a financial quarter. By default, the function outputs a calendar quarter.
 #
 #' @examples
 #' mojquarter('2020-03-31', "f") # returns "2019q4"
@@ -40,7 +39,12 @@ mojquarter <- function(date, type = "c") {
 
     stop("Input date is not in character format", call. = FALSE)
 
-    # Check that type is either "c" or "f"
+    # Check that input date is valid
+
+  } else if (is.na(lubridate::ymd(date))){
+
+    stop("Input date must be valid and entered as a character in the form of YYYY-MM-DD")
+
 
   } else if(!type %in% c("c", "f")) {
 

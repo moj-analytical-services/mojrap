@@ -7,17 +7,16 @@
 mojquarter(date, type = "c")
 }
 \arguments{
-\item{date}{A date in the form "\%Y\%m\%d".}
+\item{date}{A date as a string in the format "YYYY-MM-DD". Only last two digits for the year is also valid.}
 
-\item{type}{Either "c" or "f", to specify a calender quarter or a financial quarter.}
+\item{type}{Either "c" or "f", to specify a calender quarter or a financial quarter. By default, the function outputs a calendar quarter.}
 }
 \value{
 A character object.
 }
 \description{
-Convert dates in "\%Y\%m\%d" format, i.e. with date formats in that order but
-with arbitrary or no separators, to either calendar or financial quarters (i.e. where the financial
-year starts in April in the UK).
+Convert dates as a string in "YYYY-MM-DD" format, with arbitrary separators, to either calendar or
+financial quarters. N.B. a financial year in the UK starts in April.
 }
 \examples{
 mojquarter('2020-03-31', "f") # returns "2019q4"

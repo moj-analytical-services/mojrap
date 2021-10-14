@@ -1,7 +1,9 @@
-[![Build Status](https://travis-ci.org/moj-analytical-services/mojrap.svg?branch=master)](https://travis-ci.org/moj-analytical-services/mojrap)
+<!-- badges: start -->
+[![R build status](https://github.com/moj-analytical-services/mojrap/workflows/R-CMD-check/badge.svg)](https://github.com/moj-analytical-services/mojrap/actions)
 [![codecov](https://codecov.io/gh/moj-analytical-services/mojrap/branch/master/graph/badge.svg?token=nfotff9dv0)](https://codecov.io/gh/moj-analytical-services/mojrap)
+<!-- badges: end -->
 
-# mojrap
+# mojrap 
 
 
 ## Contents
@@ -33,10 +35,14 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 
 ## Functions in the package
 
+* `add_lookups.R` - Adds lookup file to dataset
 * `as_number.R` - Turns numerical strings into number format
 * `arrow_image.R` - Outputs the path to an arrow image for the main points table
 * `arrow_pdf.R` - Outputs the path to an arrow image for the PDF version of the main points table
 * `arrow_utf.R` - Outputs UTF arrows
+* `change.R` - Calculates changes over a given time period
+* `change_desc.R` - Describes changes over a given time period
+* `choose_value.R` - Choose a value from a dataframe
 * `col_series.R` - Outputs a colour in hex format with a given number of different shades
 * `connector.R` - Produces a connecting word for a compound sentence
 * `date_type.R` - Takes dates in "%Y%m%d" format, with any or no separators, and outputs them in specified formats
@@ -47,8 +53,11 @@ Example: to use FUNCTION from the asdrap package, type `mojrap::FUNCTION()`
 * `mojquarter.R` - Converts dates in "%Y%m%d" format, with or without separators, to calendar or financial quarters
 * `moj_col.R` - Selects which shades you want from the output of `col_series.R`, in order of brightest to darkest
 * `pluralise.R` - Pluralises words with an 's', depending on a given value
+* `previous_quarter` - Given the latest quarter, return the previous quarter or quarters further back in time
 * `pub_date.R` - Returns the next publication date
 * `quarter_dates.R` - Calculates the start or end dates of a quarter
+* `read_cases_to_data.R` - Reads in a case-level dataset stored in S3 and aggregates by specified variables
+* `superscript.R` - Add superscripts/subscripts to Excel spreadsheets
 * `write_tables.R` - Write multiple tables (e.g quarterly and monthly data) with formatting to a single existing sheet in a workbook object
 
 ## Package Infrastructure
@@ -90,7 +99,8 @@ Or see the [platform guidance](https://user-guidance.services.alpha.mojanalytics
 * Must have documentation around functions with examples
 * Should follow coding best practice guidelines, e.g. [DASD Coding Principles](https://moj-analytical-services.github.io/our-coding-standards/), [MoJ Harmonisation Guidance](https://moj-analytical-services.github.io/harmonisation-guidance/), [ONS Quality Assurance of Code for Analysis and Research guidlines](https://best-practice-and-impact.github.io/qa-of-code-guidance/intro.html). 
 
-5) Once your pull request has been approved and merged by an admin, make sure to post in the slack channel [#rap](https://app.slack.com/client/T1PU1AP6D/C02DSC3Q4P6) Slack channel that your changes have been merged in so people can update their version of the package.
+5) Once your pull request has been approved and merged by an admin, make sure to post in the [#rap](https://app.slack.com/client/T1PU1AP6D/C02DSC3Q4P6) Slack channel that your changes have been merged in so people can update their version of the package. 
+
 
 Congratulations! You have now contibuted to the mojrap package! If you [reinstall the package](#using-the-package) you will be able to use your functions.
 
@@ -107,6 +117,13 @@ This package is intended to sit within a tidyverse-style ecosystem of packages k
 * [mojrap](https://github.com/moj-analytical-services/mojrap): Generalised functions for RAP
 
 Please install the `mojverse` package, to install all packages listed above.
+
+## mojverse
+
+This package is intended to sit within a tidyverse-style ecosystem of packages known as the `mojverse`, providing functions to assist with building a variety of elements/outputs that may sit in a Reproducible Analytical Pipeline. Below is an (incomplete) list of packages which will eventually be more formally included in the `mojverse`:
+
+* [mojspeakr](https://github.com/moj-analytical-services/mojspeakr): Formatting RMarkdown into govspeak for publishing on gov.uk
+* [mojchart](https://github.com/moj-analytical-services/mojchart): Formatting ggplot2 charts and applying MoJ corporate colours
 
 ## Other resources
 
