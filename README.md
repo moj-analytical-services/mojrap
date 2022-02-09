@@ -118,13 +118,6 @@ This package is intended to sit within a tidyverse-style ecosystem of packages k
 
 Please install the `mojverse` package, to install all packages listed above.
 
-## mojverse
-
-This package is intended to sit within a tidyverse-style ecosystem of packages known as the `mojverse`, providing functions to assist with building a variety of elements/outputs that may sit in a Reproducible Analytical Pipeline. Below is an (incomplete) list of packages which will eventually be more formally included in the `mojverse`:
-
-* [mojspeakr](https://github.com/moj-analytical-services/mojspeakr): Formatting RMarkdown into govspeak for publishing on gov.uk
-* [mojchart](https://github.com/moj-analytical-services/mojchart): Formatting ggplot2 charts and applying MoJ corporate colours
-
 ## Other resources
 
 For bespoke code please see other MoJ repos:
