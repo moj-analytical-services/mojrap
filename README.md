@@ -1,5 +1,5 @@
 <!-- badges: start -->
-[![R build status](https://github.com/moj-analytical-services/mojrap/workflows/R-CMD-check/badge.svg)](https://github.com/moj-analytical-services/mojrap/actions)
+[![R-CMD-check](https://github.com/moj-analytical-services/mojrap/workflows/R-CMD-check/badge.svg)](https://github.com/moj-analytical-services/mojrap/actions)
 [![codecov](https://codecov.io/gh/moj-analytical-services/mojrap/branch/master/graph/badge.svg?token=nfotff9dv0)](https://codecov.io/gh/moj-analytical-services/mojrap)
 <!-- badges: end -->
 

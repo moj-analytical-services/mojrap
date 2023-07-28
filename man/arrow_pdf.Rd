@@ -4,16 +4,18 @@
 \alias{arrow_pdf}
 \title{Output arrow image for table on PDF bulletin front page}
 \usage{
-arrow_pdf(x)
+arrow_pdf(x, path = "images")
 }
 \arguments{
 \item{x}{Number (usually the difference between two figures)}
+
+\item{path}{The path to the directory containing the arrow images. Default is a folder called 'images' in the repo root directory.}
 }
 \value{
 Path to image of upwards arrow if x is positive, downwards arrow if x is negative or a no change arrow when x is zero.
 }
 \description{
-Function to format the correct path to arrow images for PDF bulletin front page. For this you need to have your .png files stored in a folder called 'images' in the main repo directory. See CCSQ_RAP (https://github.com/moj-analytical-services/CCSQ_RAP) for an example.
+Function to format the correct path to arrow images for PDF bulletin front page.
 }
 \examples{
 arrow_pdf(5)

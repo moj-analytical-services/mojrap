@@ -1,8 +1,9 @@
 #' Output arrow image for table on PDF bulletin front page
 #'
-#' @description Function to format the correct path to arrow images for PDF bulletin front page. For this you need to have your .png files stored in a folder called 'images' in the main repo directory. See CCSQ_RAP (https://github.com/moj-analytical-services/CCSQ_RAP) for an example.
+#' @description Function to format the correct path to arrow images for PDF bulletin front page.
 #'
 #' @param x Number (usually the difference between two figures)
+#' @param path The path to the directory containing the arrow images. Default is a folder called 'images' in the repo root directory.
 #
 #' @examples
 #' arrow_pdf(5)
@@ -11,7 +12,7 @@
 #'
 #' @export
 
-arrow_pdf <- function(x){
+arrow_pdf <- function(x, path="images"){
 
   if (is.numeric(x) == FALSE){
     stop("Input must be a number representing a difference between two figures")
@@ -19,17 +20,17 @@ arrow_pdf <- function(x){
 
   if (x > 0){
 
-    arrow_image("up")
+    arrow_image("up", image_path = path)
 
   }
   else if (x < 0){
 
-    arrow_image("down")
+    arrow_image("down", image_path = path)
 
   }
   else {
 
-    arrow_image("nochange")
+    arrow_image("nochange", image_path = path)
 
   }
 
