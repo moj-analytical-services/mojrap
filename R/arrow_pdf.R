@@ -3,7 +3,7 @@
 #' @description Function to format the correct path to arrow images for PDF bulletin front page.
 #'
 #' @param x Number (usually the difference between two figures)
-#' @param path The path to the directory containing the arrow images. Default is a folder called 'images' in the main repo directory. See CCSQ_RAP (https://github.com/moj-analytical-services/CCSQ_RAP) for an example
+#' @param path The path to the directory containing the arrow images. Default is a folder called 'images' in the repo root directory.
 #
 #' @examples
 #' arrow_pdf(5)

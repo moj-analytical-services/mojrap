@@ -3,7 +3,7 @@
 #' @description Function to format the correct path to arrow images for bulletin front page.
 #'
 #' @param x Direction of arrow (up, down, nochange)
-#' @param image_path The path to the directory containing the arrow images. Default is a folder called 'images' in the main repo directory. See CCSQ_RAP (https://github.com/moj-analytical-services/CCSQ_RAP) for an example
+#' @param image_path The path to the directory containing the arrow images. Default is a folder called 'images' in the repo root directory.
 #'
 #' @return Path to image of upwards arrow if x is "up", downwards arrow if x is "down" or a no change arrow if x is "nochange".
 #
