@@ -50,14 +50,14 @@ read_cases_to_data <- function(format,path,varlist) {
 
   if (tolower(format) == "sas") {
 
-    data <- s3tools::read_using(FUN = haven::read_sas,
+    data <- Rs3tools::read_using(FUN = haven::read_sas,
                                  s3_path = path)
 
     data[] <- lapply(data, as.character)
 
   } else if (tolower(format) == "csv") {
 
-    data <- s3tools::read_using(FUN = readr::read_csv,
+    data <- Rs3tools::read_using(FUN = readr::read_csv,
                                 s3_path = path,
                                 col_types = readr::cols(.default = "c"))
 

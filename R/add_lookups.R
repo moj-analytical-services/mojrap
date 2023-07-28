@@ -40,7 +40,7 @@ add_lookups <- function(data,path,vars){
 
   for (i in 1: length(path)) {
 
-    lookup <- s3tools::read_using(FUN = readr::read_csv,
+    lookup <- Rs3tools::read_using(FUN = readr::read_csv,
                                 s3_path = path[i],
                                 col_types = readr::cols(.default = "c"))
 
